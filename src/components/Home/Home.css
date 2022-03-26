@@ -1,8 +1,9 @@
 .home {
 	display: grid;
-	grid: repeat(2, 1fr) / 4fr 1fr;
+	grid: repeat(2, 1fr) / 80% 20%;
 	background-image: radial-gradient(white, pink);
 	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .home--logo {
@@ -29,6 +30,10 @@
 	box-shadow: 0 0 0.5em 0 black;
 	font-size: 2rem;
 	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
 }
 
 .home--button:hover {
@@ -38,7 +43,7 @@
 
 @media (max-width: 768px) {
 	.home {
-		grid-template-rows: 4fr 1fr;
+		grid-template-rows: 85% 15%;
 		grid-template-columns: 1fr 1fr;
 	}
 	.home--login {
