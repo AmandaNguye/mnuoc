@@ -1,0 +1,11 @@
+.navbar {
+	display: flex;
+	font-size: 2em;
+	padding: 1em;
+	background-color: white;
+	box-shadow: 0 0 0.25em 0 black;
+}
+
+.navbar__home > * {
+	width: 2em;
+}
