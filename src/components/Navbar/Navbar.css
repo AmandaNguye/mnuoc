@@ -1,11 +1,28 @@
 .navbar {
 	display: flex;
-	font-size: 2em;
 	padding: 1em;
 	background-color: white;
 	box-shadow: 0 0 0.25em 0 black;
+	gap: 1em;
+	align-items: center;
 }
 
 .navbar__home > * {
-	width: 2em;
+	width: 4em;
+}
+
+.navbar__home:first-child {
+	margin-left: 1em;
+	margin-right: auto;
+}
+
+.navbar__link {
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: #ef465dcb;
+	transition: 100ms ease-in-out;
+}
+
+.navbar__link:hover {
+	transform: translateY(0.2em);
 }

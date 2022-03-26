@@ -9,6 +9,15 @@ export default function Navbar() {
 			<Link className="navbar__home" to="/">
 				<img src={HomeButton} alt="" />
 			</Link>
+			<Link className="navbar__link navbar__link--one" to="/">
+				Link One
+			</Link>
+			<Link className="navbar__link navbar__link--two" to="/">
+				Link Two
+			</Link>
+			<Link className="navbar__link navbar__link--three" to="/">
+				Link Three
+			</Link>
 		</nav>
 	);
 }
