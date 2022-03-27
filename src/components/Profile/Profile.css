@@ -1,0 +1,58 @@
+.profile {
+	position: relative;
+	display: flex;
+}
+
+.profile__sidebar {
+	position: fixed;
+	width: 20ch;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 0 0.1em 0 #333;
+}
+
+.profile__sidebar__options {
+	margin-top: 20vh;
+	display: flex;
+	flex-direction: column;
+	gap: 3em;
+	padding: 1em;
+	font-size: 1.2rem;
+}
+
+.profile__sidebar__options__choice {
+	color: #ff9788;
+	width: fit-content;
+}
+
+.profile__sidebar__options__choice:hover {
+	color: #ef465c;
+	cursor: pointer;
+}
+
+.profile__sidebar__logout {
+	color: #fff;
+	height: 5em;
+	margin-top: auto;
+	background-color: #333;
+	border: none;
+	transition: 100ms ease-in;
+}
+
+.profile__sidebar__logout:hover {
+	cursor: pointer;
+	height: 6em;
+	color: #ef465c;
+}
+
+.profile__body {
+	position: sticky;
+	margin: auto;
+	height: 100vh;
+	width: 60vw;
+	left: 20ch;
+	padding: 2em;
+	background-color: lightcoral;
+}

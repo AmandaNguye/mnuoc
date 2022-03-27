@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar({ loggedIn }) {
 	const [showHomeText, setShowHomeText] = useState(false);
-	const onHomeHover = (e) => {
+	const onHomeHover = () => {
 		setShowHomeText(!showHomeText);
 	};
 	return (

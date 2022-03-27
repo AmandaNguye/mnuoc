@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import Logo from "../../assets/logo_full.svg";
+import Logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 
 export default function Home() {
