@@ -11,7 +11,7 @@ export default function Navbar({ loggedIn }) {
 	return (
 		<div>
 			<nav className="navbar">
-				<Link className="navbar__home" to="/">
+				<Link className="navbar__home" to="/dashboard">
 					<img
 						src={HomeButton}
 						alt=""
@@ -27,7 +27,7 @@ export default function Navbar({ loggedIn }) {
 						<Link className="navbar__link navbar__link--chat" to="/">
 							Chat
 						</Link>
-						<Link className="navbar__link navbar__link--profile" to="/">
+						<Link className="navbar__link navbar__link--profile" to="/profile">
 							Profile
 						</Link>
 					</>
