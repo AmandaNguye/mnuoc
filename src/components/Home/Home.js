@@ -8,10 +8,10 @@ export default function Home() {
 		<section className="home">
 			<img className="home__logo" src={Logo} alt="" />
 			<Link to="/login" type="button" className="home__login home__button">
-				Login
+				LOGIN
 			</Link>
 			<Link to="/register" className="home__register home__button">
-				Register
+				REGISTER
 			</Link>
 		</section>
 	);

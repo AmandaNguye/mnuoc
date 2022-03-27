@@ -2,13 +2,20 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Register.css";
 
-export default function Login() {
+export default function Register() {
+	const handleSubmit = (e) => {
+		e.preventDefault();
+	};
 	return (
 		<div className="register">
-			<Navbar />
+			<Navbar loggedIn={false} />
 			<section className="register__body">
 				<h3 className="register__body__title">Enter Registration Details</h3>
-				<form action="" className="register__body__form">
+				<form
+					action=""
+					className="register__body__form"
+					onSubmit={handleSubmit}
+				>
 					<input
 						className="register__body__form__input register__body__form__input--username"
 						type="text"
