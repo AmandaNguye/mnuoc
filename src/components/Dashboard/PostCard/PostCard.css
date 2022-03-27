@@ -1,0 +1,29 @@
+.postcard {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	transition: 100ms ease-in-out;
+}
+
+.postcard--big {
+	grid-row: span 2;
+}
+
+.poscard__title {
+}
+
+.postcard__text {
+	overflow-wrap: break-word;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height: 100%;
+}
+.postcard__footer {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.postcard:hover {
+	cursor: pointer;
+	transform: translateY(0.5em);
+}
