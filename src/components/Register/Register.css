@@ -32,6 +32,10 @@
 	transition: 200ms ease-in-out;
 }
 
+.register__body__form__input::placeholder {
+	font-size: 1.5rem;
+}
+
 .register__body__form__input:focus {
 	padding: 0.5em;
 }
