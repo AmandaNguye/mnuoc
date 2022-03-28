@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Chat.css";
 
-export default function Chat() {
+export default function Chat(props) {
 	const [stateOpen, setStateOpen] = useState(false);
 
 	const toggleChat = () => {
 		setStateOpen((prev) => !prev);
 	};
+
 	return stateOpen ? (
 		<ChatOpen handleClick={toggleChat} text={"-"} />
 	) : (

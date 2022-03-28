@@ -24,9 +24,14 @@ export default function Navbar({ loggedIn }) {
 				</Link>
 				{loggedIn && (
 					<>
-						<Link className="navbar__link navbar__link--communities" to="/">
-							Communities
-						</Link>
+						<div className="navbar__search">
+							<input
+								className="navbar__search__button"
+								type="button"
+								value="Current Community"
+								input
+							/>
+						</div>
 						<Link className="navbar__link navbar__link--profile" to="/profile">
 							Profile
 						</Link>

@@ -3,7 +3,7 @@
 	z-index: 1;
 	display: flex;
 	padding: 1em;
-	background-color: white;
+	background-color: #fff;
 	box-shadow: 0 0 0.25em 0 black;
 	gap: 1em;
 	align-items: center;
@@ -13,9 +13,33 @@
 	width: 5em;
 }
 
-.navbar__home:first-child {
+.navbar__home {
 	margin-left: 1em;
 	margin-right: auto;
+}
+
+.navbar__search {
+	margin-right: auto;
+	display: flex;
+	gap: 1em;
+	align-items: center;
+	flex-basis: 100ch;
+}
+
+.navbar__search__button {
+	font-weight: bold;
+	font-size: 1rem;
+	flex-grow: 1;
+	background-color: #ccc;
+	color: #333;
+	border-style: none;
+	border-radius: 1em;
+	padding: 0.5em;
+}
+
+.navbar__search__button:hover {
+	cursor: pointer;
+	background-color: #aaa;
 }
 
 .navbar__link {
