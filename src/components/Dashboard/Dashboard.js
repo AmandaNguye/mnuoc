@@ -18,7 +18,9 @@ export default function Dashboard() {
 		setWords(temp);
 	}, []);
 
-	const postCards = words.map((e) => <PostCard word={e} />);
+	const postCards = words.map((e, index) => (
+		<PostCard key={index} id={index} word={e} />
+	));
 	return (
 		<>
 			<Navbar loggedIn={true} />

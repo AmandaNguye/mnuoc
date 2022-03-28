@@ -3,13 +3,12 @@
 	display: flex;
 	flex-direction: column;
 	transition: 100ms ease-in-out;
+	text-decoration: none;
+	color: black;
 }
 
 .postcard--big {
 	grid-row: span 2;
-}
-
-.poscard__title {
 }
 
 .postcard__text {
