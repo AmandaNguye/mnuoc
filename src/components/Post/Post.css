@@ -1,0 +1,41 @@
+.post {
+	max-width: 100ch;
+	margin: auto;
+}
+
+.post__top {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	background-color: lightblue;
+}
+
+.post__comments {
+	margin-top: 1em;
+	background-color: lightgreen;
+	padding: 1em;
+}
+
+.post__comments__form {
+	max-width: 80%;
+	margin: auto;
+	padding: 1em;
+	background-color: lightcoral;
+	text-align: center;
+}
+
+.post__comments__list {
+	max-width: 80%;
+	margin: auto;
+	padding: 1em;
+	background-color: lightpink;
+	text-align: center;
+	margin-top: 1em;
+	list-style: none;
+}
+
+.post__comments__list > * {
+	background-color: lightslategray;
+	padding: 1em;
+	margin-top: 1em;
+}

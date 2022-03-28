@@ -1,10 +1,123 @@
 .chat {
+	z-index: 1;
 	position: fixed;
 	bottom: 0;
 	right: 0;
 	transform: translate(-2em);
-
 	background-color: #333;
 	color: #fff;
+}
+
+.chat__closed__toggle {
+	color: #fff;
+	background-color: #333;
+	cursor: pointer;
 	padding: 1em 3em;
+	border: none;
+}
+
+.chat__closed__toggle:hover {
+	color: #ef465c;
+	cursor: pointer;
+}
+
+.chat__open {
+	height: 80vh;
+	display: grid;
+	width: 90%;
+	max-width: 100ch;
+	grid-template-columns: 2fr 3fr 1fr;
+	grid-template-rows: 3em 1fr;
+	box-shadow: 0 0 1px 0 black;
+	animation: openWindow 300ms;
+}
+
+.chat__open__lookup {
+	place-self: center;
+	padding: 0.3em 0.3em;
+	width: 35ch;
+	grid-column: 1 / span 1;
+	grid-row: 1 / span 1;
+}
+
+.chat__open__toggle {
+	grid-column: 3 / span 1;
+	grid-row: 1 / span 1;
+	justify-self: end;
+	font-size: 2rem;
+	height: 1em;
+	width: 2em;
+	background-color: #333;
+	border: none;
+	color: #fff;
+	height: 100%;
+}
+
+.chat__open__toggle:hover {
+	background-color: #e81123;
+	cursor: pointer;
+}
+
+.chat__open__contacts {
+	grid-column: 1 / span 1;
+	grid-row: 2 / span 1;
+	background-color: #eee;
+	color: #000;
+	border-right: 1px solid black;
+	display: flex;
+	flex-direction: column;
+}
+
+.chat__open__contacts__item {
+	padding: 1em;
+}
+
+.chat__open__contacts__item:hover {
+	cursor: pointer;
+	background-color: #ccc;
+}
+
+.chat__open__window {
+	grid-column: 2 / span 2;
+	grid-row: 2 / span 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.chat__open__window__messages {
+	color: #000;
+	background-color: #fff;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	padding: 1em;
+}
+
+/* Temporary DELETE AFTER STYLING */
+.chat__open__window__messages > * {
+	background-color: lightcoral;
+	width: fit-content;
+	border-radius: 2em;
+	padding: 1em;
+}
+
+.chat__open__window__input {
+	border: none;
+	border-top: 1px solid #333;
+	background-color: #fff;
+	padding: 1em;
+	margin-top: auto;
+}
+
+@keyframes openWindow {
+	from {
+		width: 19ch;
+		height: 1em;
+	}
+	to {
+		height: 80vh;
+		width: 90%;
+		max-width: 100ch;
+	}
 }
