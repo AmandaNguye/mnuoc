@@ -11,6 +11,7 @@
 	grid-row: 1 / 2;
 	padding: 1em;
 	background-color: #e0ffff;
+	border-radius: 1em;
 }
 
 .dashboard__body {
