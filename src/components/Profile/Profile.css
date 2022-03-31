@@ -54,5 +54,6 @@
 	width: 60vw;
 	left: 20ch;
 	padding: 2em;
-	background-color: lightcoral;
+	background-color: #ff9788;
+	opacity: 0.5;
 }

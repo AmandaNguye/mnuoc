@@ -6,13 +6,24 @@
 .post__top {
 	display: flex;
 	flex-direction: column;
+	background-color: #eee;
+	box-shadow: 0 0 0.25em 0 black;
+}
+
+.post__top__title {
 	padding: 1em;
-	background-color: lightblue;
+	color: #ef465c;
+}
+
+.post__top__body {
+	background-color: #fff;
+	padding: 1em;
+	color: #333;
 }
 
 .post__comments {
 	margin-top: 1em;
-	background-color: lightgreen;
+	box-shadow: 0 0 0.25em 0 black;
 	padding: 1em;
 }
 
@@ -20,22 +31,25 @@
 	max-width: 80%;
 	margin: auto;
 	padding: 1em;
-	background-color: lightcoral;
+	background-color: #fff;
 	text-align: center;
+	box-shadow: 0 0 0.25em 0 black;
+	border-radius: 0.5em;
 }
 
 .post__comments__list {
 	max-width: 80%;
 	margin: auto;
 	padding: 1em;
-	background-color: lightpink;
 	text-align: center;
 	margin-top: 1em;
 	list-style: none;
 }
 
 .post__comments__list > * {
-	background-color: lightslategray;
 	padding: 1em;
 	margin-top: 1em;
+	box-shadow: 0 0 0.25em 0 black;
+	border-radius: 0.5em;
+	background-color: #ee9ba6;
 }
