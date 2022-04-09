@@ -6,8 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); //json middleware (parse json when sending to backend)
 
-app.use("/posts", require("./routes/post.js"));
-app.use("/users", require("./routes/user.js"));
+app.use("/posts", require("./routes"));
 
 //listen on pc port
 const PORT = process.env.PORT || "5001";

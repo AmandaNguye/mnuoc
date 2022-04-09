@@ -10,20 +10,9 @@ const pool = mysql.createPool({
 });
 
 let database = {};
-database.allPost = () => {
+database.all = () => {
   return new Promise((resolve, reject) => {
     pool.query("SELECT * FROM post", (err, results) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(results);
-    });
-  });
-};
-
-database.allUser = () => {
-  return new Promise((resolve, reject) => {
-    pool.query("SELECT * FROM user", (err, results) => {
       if (err) {
         return reject(err);
       }
