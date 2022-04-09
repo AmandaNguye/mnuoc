@@ -10,6 +10,7 @@ app.use(express.json()); //json middleware (parse json when sending to backend)
 //redirect requests to endpoints via routes
 app.use("/posts", require("./routes/postRoutes"));
 app.use("/admin", require("./routes/adminRoutes"));
+app.use("/chatroom", require("./routes/chatroomRoutes"));
 
 //global error handler
 app.use((err, req, res, next) => {
