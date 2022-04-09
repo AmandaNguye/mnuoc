@@ -2,14 +2,24 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+const port = process.env.PORT || 5001;
 
-app.use(cors());
+//app.use(cors());
 app.use(express.json()); //json middleware (parse json when sending to backend)
 
-app.use("/posts", require("./routes"));
+//redirect requests to endpoints via routes
+app.use("/posts", require("./routes/postRoutes"));
 
+//global error handler
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  console.log(err.name);
+  console.log(err.code);
+  res.status(500).json({
+    message: "Something went really wrong.",
+  });
+});
 //listen on pc port
-const PORT = process.env.PORT || "5001";
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
 });
