@@ -32,7 +32,7 @@ class Admin {
     return db.execute(sql);
   }
   static updatePasswordByUsername(username, password) {
-    let sql = `UPDATE admin SET password = ${password}, email = ${email} WHERE username = ${username};`;
+    let sql = `UPDATE admin SET password = ${password} WHERE username = ${username};`;
     return db.execute(sql);
   }
 }
