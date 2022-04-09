@@ -45,24 +45,28 @@ CREATE TABLE POST (
 CREATE TABLE IMAGE_POST (
 	post_id         INT unsigned NOT NULL,
     image           VARCHAR(255) NOT NULL,
+    PRIMARY KEY (post_id, image),
     FOREIGN KEY (post_id) REFERENCES POST(post_id) ON UPDATE CASCADE
 );
 
 CREATE TABLE POST_TAGS (
 	post_id         INT unsigned NOT NULL,
     tag             VARCHAR(255) NOT NULL,
+    PRIMARY KEY (post_id, tag),
     FOREIGN KEY (post_id) REFERENCES POST(post_id) ON UPDATE CASCADE
 );
 
 CREATE TABLE POST_LIKES (
 	post_id         INT unsigned NOT NULL,
     username        VARCHAR(255) NOT NULL,
+    PRIMARY KEY (post_id, username),
     FOREIGN KEY (post_id) REFERENCES POST(post_id) ON UPDATE CASCADE,
     FOREIGN KEY (username) REFERENCES USER(username) ON UPDATE CASCADE
 );
 CREATE TABLE POST_DISLIKES (
 	post_id         INT unsigned NOT NULL,
     username        VARCHAR(255) NOT NULL,
+    PRIMARY KEY (post_id, username),
     FOREIGN KEY (post_id) REFERENCES POST(post_id) ON UPDATE CASCADE,
     FOREIGN KEY (username) REFERENCES USER(username) ON UPDATE CASCADE
 );
