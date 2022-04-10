@@ -8,13 +8,14 @@ const port = process.env.PORT || 5001;
 app.use(express.json()); //json middleware (parse json when sending to backend)
 
 //redirect requests to endpoints via routes
-app.use("/posts", require("./routes/postRoutes"));
 app.use("/admin", require("./routes/adminRoutes"));
-app.use("/user", require("./routes/userRoutes"));
 app.use("/chatroom", require("./routes/chatroomRoutes"));
 app.use("/comment", require("./routes/commentRoutes"));
+app.use("/community", require("./routes/communityRoutes"));
 app.use("/message", require("./routes/messageRoutes"));
+app.use("/posts", require("./routes/postRoutes"));
 app.use("/profile", require("./routes/profileRoutes"));
+app.use("/user", require("./routes/userRoutes"));
 
 //global error handler
 app.use((err, req, res, next) => {

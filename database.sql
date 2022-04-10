@@ -9,7 +9,8 @@ CREATE TABLE ADMIN (
     PRIMARY KEY (username)
 );
 CREATE TABLE COMMUNITY (
-	community_name   VARCHAR(255) NOT NULL,
+	community_name  VARCHAR(255) NOT NULL,
+    description     VARCHAR(255),
     PRIMARY KEY (community_name)
 );
 CREATE TABLE MANAGEMENT (
