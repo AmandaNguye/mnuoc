@@ -13,5 +13,10 @@ router
   .get(communityControllers.getCommunityByCommunityName)
   .delete(communityControllers.deleteCommunityByCommunityName)
   .put(communityControllers.updateCommunityByCommunityName);
+router
+  .route("/management")
+  .get(communityControllers.getCommunityAdminsByCommunityName)
+  .post(communityControllers.addCommunityAdminByCommunityNameAdmin)
+  .delete(communityControllers.deleteCommunityAdminsByCommunityNameAdmin);
 
 module.exports = router;

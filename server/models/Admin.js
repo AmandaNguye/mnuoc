@@ -8,8 +8,7 @@ class Admin {
   }
 
   save() {
-    let sql = `INSERT INTO admin(username, password, email)
-    VALUES ('${this.username}', '${this.password}', '${this.email}')`;
+    let sql = `INSERT INTO admin(username, password, email) VALUES ('${this.username}', '${this.password}', '${this.email}')`;
 
     const newAdmin = db.execute(sql);
 
@@ -33,6 +32,24 @@ class Admin {
   }
   static updatePasswordByUsername(username, password) {
     let sql = `UPDATE admin SET password = ${password} WHERE username = ${username};`;
+    return db.execute(sql);
+  }
+
+  static findManagementByAdminUsername(admin_username) {
+    let sql = `SELECT admin_username* FROM management WHERE admin_username = ${admin_username};`;
+    return db.execute(sql);
+  }
+
+  static addManagementByAdminUsernameCommunity(admin_username, community_name) {
+    let sql = `INSERT INTO management(community_name, admin_username) VALUES ('${community_name}', '${admin_username}')`;
+    return db.execute(sql);
+  }
+
+  static deleteManagementByAdminUsernameCommunity(
+    admin_username,
+    community_name
+  ) {
+    let sql = `DELETE FROM management WHERE admin_username = ${admin_username} AND community_name = ${community_name};`;
     return db.execute(sql);
   }
 }

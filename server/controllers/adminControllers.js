@@ -63,3 +63,45 @@ exports.updateAdminPasswordByUsername = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.findAdminManagementByAdminUsername = async (req, res, next) => {
+  try {
+    let { admin_username } = req.body;
+
+    let [adminCommunities, _] = await Admin.findManagementByAdminUsername(
+      admin_username
+    );
+
+    res.status(200).json({ adminCommunities });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+exports.addAdminManagementByAdminUsernameCommunity = async (req, res, next) => {
+  try {
+    let { admin_username, community } = req.body;
+
+    let [newManagement, _] = await Admin.addManagementByAdminUsernameCommunity(
+      admin_username,
+      community
+    );
+
+    res.status(201).json({ message: "management created.", newManagement });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+exports.deleteAdminManagementByUsername = async (req, res, next) => {
+  try {
+    let { admin_username } = req.body;
+
+    let [management, _] = await Admin.deleteByUsername(admin_username);
+
+    res.status(200).json({ message: "admin deleted.", management });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};

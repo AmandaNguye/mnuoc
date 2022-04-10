@@ -14,4 +14,10 @@ router
   .delete(adminControllers.deleteAdminByUsername)
   .put(adminControllers.updateAdminPasswordByUsername);
 
+router
+  .route("/management")
+  .get(adminControllers.findAdminManagementByAdminUsername)
+  .post(adminControllers.addAdminManagementByAdminUsernameCommunity)
+  .delete(adminControllers.deleteAdminManagementByUsername);
+
 module.exports = router;

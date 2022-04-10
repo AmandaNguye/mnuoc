@@ -35,6 +35,21 @@ class Community {
     let sql = `UPDATE community SET description = ${description} WHERE community_name = ${community_name};`;
     return db.execute(sql);
   }
+
+  static findAdminsByCommunityName(community_name) {
+    let sql = `SELECT * FROM management WHERE community_name = ${community_name};`;
+    return db.execute(sql);
+  }
+
+  static deleteAdminByCommunityNameAdmin(community_name, admin_username) {
+    let sql = `DELETE FROM management WHERE community_name = ${community_name} AND admin_username = ${admin_username};`;
+    return db.execute(sql);
+  }
+
+  static addAdminByCommunityNameAdmin(community_name, admin_username) {
+    let sql = `INSERT INTO management(community_name, admin_username) VALUES ('${community_name}', '${admin_username}')`;
+    return db.execute(sql);
+  }
 }
 
 module.exports = Community;
