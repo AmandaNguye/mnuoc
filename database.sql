@@ -27,8 +27,8 @@ CREATE TABLE USER (
 );
 CREATE TABLE PROFILE (
 	username        VARCHAR(255) NOT NULL,
-    url             VARCHAR(255) NOT NULL,
-    bio             VARCHAR(255) NOT NULL,
+    tag             VARCHAR(255) ,
+    bio             VARCHAR(255) ,
     PRIMARY KEY (username),
     FOREIGN KEY (username) REFERENCES USER(username) ON UPDATE CASCADE
 );
