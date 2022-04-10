@@ -38,6 +38,7 @@ CREATE TABLE POST (
     text            VARCHAR(255) NOT NULL,
     username        VARCHAR(255) NOT NULL,
     community       VARCHAR(255) NOT NULL,
+    time_created DATETIME NOT NULL,
     PRIMARY KEY (post_id),
     FOREIGN KEY (username) REFERENCES USER(username) ON UPDATE CASCADE,
     FOREIGN KEY (community) REFERENCES COMMUNITY(community_name) ON UPDATE CASCADE
@@ -88,6 +89,7 @@ CREATE TABLE COMMENT (
 	post_id         INT unsigned NOT NULL,
     text            VARCHAR(255) NOT NULL,
     username        VARCHAR(255) NOT NULL,
+    time_created DATETIME NOT NULL,
     PRIMARY KEY (comment_id),
     FOREIGN KEY (post_id) REFERENCES POST(post_id) ON UPDATE CASCADE,
     FOREIGN KEY (username) REFERENCES USER(username) ON UPDATE CASCADE
@@ -120,6 +122,7 @@ CREATE TABLE MESSAGE (
 	chat_id         INT unsigned NOT NULL,
     text            VARCHAR(255) NOT NULL,
     username        VARCHAR(255) NOT NULL,
+    time_created DATETIME NOT NULL,
     PRIMARY KEY (message_id),
     FOREIGN KEY (chat_id) REFERENCES CHATROOM(chat_id) ON UPDATE CASCADE,
     FOREIGN KEY (username) REFERENCES USER(username) ON UPDATE CASCADE

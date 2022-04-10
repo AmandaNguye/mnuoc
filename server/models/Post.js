@@ -13,10 +13,13 @@ class Post {
     let year = d.getFullYear();
     let month = d.getMonth() + 1; //0 index, add one
     let days = d.getDate();
+    let hours = d.getHours();
+    let minutes = d.getMinutes();
+    let seconds = d.getSeconds();
 
-    let createdAtDate = `${year}-${month}-${days}`;
+    let time_created = `${year}-${month}-${days} ${hours}:${minutes}:${seconds}`;
 
-    let sql = `INSERT INTO post(title, text, username, community) VALUES ('${this.title}', '${this.text}', '${this.username}', '${this.community}')`;
+    let sql = `INSERT INTO post(title, text, username, community, time_created) VALUES ('${this.title}', '${this.text}', '${this.username}', '${this.community}', '${time_created}')`;
 
     const newPost = db.execute(sql);
 
