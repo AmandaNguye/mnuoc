@@ -8,7 +8,7 @@ router
   .post(messageControllers.createNewMessage)
   .get(messageControllers.getAllMessages);
 
-router.route("/:chid").get(messageControllers.getMessageByPostId);
+router.route("/:chid").get(messageControllers.getMessageByChatId);
 
 router
   .route("/:chid/:mid")
