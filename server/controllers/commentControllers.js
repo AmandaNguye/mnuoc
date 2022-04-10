@@ -65,6 +65,7 @@ exports.updateCommentByCommentId = async (req, res, next) => {
   }
 };
 
+//like functionality
 exports.findCommentLikesByCommentId = async (req, res, next) => {
   try {
     let commentId = req.params.cid;
@@ -78,6 +79,40 @@ exports.findCommentLikesByCommentId = async (req, res, next) => {
   }
 };
 
+exports.addNewCommentLikeByCommentIdUsername = async (req, res, next) => {
+  try {
+    let { username } = req.body;
+    let commentId = req.params.cid;
+
+    let [newCommentLike, _] = await Comment.addLikeByCommentIdUsername(
+      commentId,
+      username
+    );
+
+    res.status(201).json({ message: "comment like added.", newCommentLike });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+exports.deleteCommentLikeByCommentIdUsername = async (req, res, next) => {
+  try {
+    let { username } = req.body;
+    let commentId = req.params.cid;
+
+    let [commentLike, _] = await Comment.deleteLikeByCommentIdUsername(
+      commentId,
+      username
+    );
+
+    res.status(200).json({ commentLike });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
 exports.findCommentDislikesByCommentId = async (req, res, next) => {
   try {
     let commentId = req.params.cid;
@@ -85,6 +120,42 @@ exports.findCommentDislikesByCommentId = async (req, res, next) => {
     let [dislikes, _] = await Comment.findDislikesByCommentId(commentId);
 
     res.status(200).json({ count: dislikes.length, dislikes });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+exports.addNewCommentDislikeByCommentIdUsername = async (req, res, next) => {
+  try {
+    let { username } = req.body;
+    let commentId = req.params.cid;
+
+    let [newCommentDislike, _] = await Comment.addDislikeByCommentIdUsername(
+      commentId,
+      username
+    );
+
+    res
+      .status(201)
+      .json({ message: "comment dislike added.", newCommentDislike });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+exports.deleteCommentDislikeByCommentIdUsername = async (req, res, next) => {
+  try {
+    let { username } = req.body;
+    let commentId = req.params.cid;
+
+    let [commentDislike, _] = await Comment.deleteDislikeByCommentIdUsername(
+      commentId,
+      username
+    );
+
+    res.status(200).json({ commentDislike });
   } catch (error) {
     console.log(error);
     next(error);

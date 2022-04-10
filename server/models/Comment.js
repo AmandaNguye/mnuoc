@@ -45,13 +45,41 @@ class Comment {
     return db.execute(sql);
   }
 
+  //comment_like functionality
   static findLikesByCommentId(id) {
     let sql = `SELECT * FROM comment_likes WHERE comment_id =${id};`;
     return db.execute(sql);
   }
 
+  static addLikeByCommentIdUsername(id, username) {
+    let sql = `INSERT INTO comment_likes(comment_id, username) VALUES ('${id}', '${username}')`;
+
+    const newLike = db.execute(sql);
+    return newLike;
+  }
+
+  static deleteLikeByCommentIdUsername(id, username) {
+    let sql = `DELETE FROM comment_likes WHERE comment_id = '${id}' AND username = '${username}'`;
+
+    return db.execute(sql);
+  }
+
+  //comment_dislike functionality
   static findDislikesByCommentId(id) {
     let sql = `SELECT * FROM comment_dislikes WHERE comment_id =${id};`;
+    return db.execute(sql);
+  }
+
+  static addDisikeByCommentIdUsername(id, username) {
+    let sql = `INSERT INTO comment_dislikes(comment_id, username) VALUES ('${id}', '${username}')`;
+
+    const newLike = db.execute(sql);
+    return newLike;
+  }
+
+  static deleteDislikeByCommentIdUsername(id, username) {
+    let sql = `DELETE FROM comment_dislikes WHERE comment_id = '${id}' AND username = '${username}'`;
+
     return db.execute(sql);
   }
 }

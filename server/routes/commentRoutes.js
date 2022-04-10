@@ -17,10 +17,14 @@ router
 
 router
   .route("/:id/:cid/likes")
-  .get(commentControllers.findCommentLikesByCommentId);
+  .get(commentControllers.findCommentLikesByCommentId)
+  .post(commentControllers.addNewCommentLikeByCommentIdUsername)
+  .delete(commentControllers.deleteCommentLikeByCommentIdUsername);
 
 router
   .route("/:id/:cid/dislikes")
-  .get(commentControllers.findCommentDislikesByCommentId);
+  .get(commentControllers.findCommentDislikesByCommentId)
+  .post(commentControllers.addNewCommentDislikeByCommentIdUsername)
+  .delete(commentControllers.deleteCommentDislikeByCommentIdUsername);
 
 module.exports = router;
