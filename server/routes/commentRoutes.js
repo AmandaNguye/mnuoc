@@ -5,7 +5,7 @@ const router = express.Router();
 //@route GET && POST - /comments/
 router
   .route("/")
-  .comment(commentControllers.createNewComment)
+  .post(commentControllers.createNewComment)
   .get(commentControllers.getAllComments);
 
 router.route("/:id").get(commentControllers.getCommentByPostId);
