@@ -13,6 +13,8 @@ app.use("/admin", require("./routes/adminRoutes"));
 app.use("/user", require("./routes/userRoutes"));
 app.use("/chatroom", require("./routes/chatroomRoutes"));
 app.use("/comment", require("./routes/commentRoutes"));
+app.use("/message", require("./routes/messageRoutes"));
+app.use("/profile", require("./routes/profileRoutes"));
 
 //global error handler
 app.use((err, req, res, next) => {
