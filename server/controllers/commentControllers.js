@@ -56,7 +56,7 @@ exports.updateCommentByCommentId = async (req, res, next) => {
     let commentId = req.params.cid;
     let { title, text } = req.body;
 
-    let [comment, _] = await Comment.updateByCommentId(commentId, title, text);
+    let [comment, _] = await Comment.updateByCommentId(commentId, text);
 
     res.status(200).json({ comment });
   } catch (error) {

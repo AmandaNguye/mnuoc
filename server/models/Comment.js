@@ -40,7 +40,7 @@ class Comment {
     return db.execute(sql);
   }
 
-  static updateByCommentId(id, title, text) {
+  static updateByCommentId(id, text) {
     let sql = `UPDATE comment SET text = '${text}' WHERE comment_id = ${id};`;
     return db.execute(sql);
   }
