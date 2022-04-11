@@ -1,13 +1,24 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 exports.createNewUser = async (req, res, next) => {
   try {
-    let { username, password, email, major } = req.body;
-    let user = new User(username, password, email, major);
+    let { username, email, major } = req.body;
+    let [takenUsername, _] = await User.findByUsername(username);
+    let [takenEmail, __] = await User.findByEmail(email);
 
-    user = await user.save();
+    if (takenUsername.length > 0) {
+      res.status(200).json({ message: "Username has already been taken." });
+    } else if (takenEmail.length > 0) {
+      res.status(200).json({ message: "Email has already been taken." });
+    } else {
+      //encryption
+      let password = await bcrypt.hash(req.body.password, 10);
 
-    res.status(201).json({ message: "user created.", user });
+      let user = new User(username, password, email, major);
+      user = await user.save();
+      res.status(201).json({ message: "user created.", user });
+    }
   } catch (error) {
     console.log(error);
     next(error);
