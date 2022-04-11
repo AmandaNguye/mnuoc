@@ -4,8 +4,8 @@ const bcrypt = require("bcrypt");
 exports.createNewUser = async (req, res, next) => {
   try {
     let { username, email, major } = req.body;
-    let [takenUsername, _] = await User.findByUsername(username);
-    let [takenEmail, __] = await User.findByEmail(email);
+    let [takenUsername, _] = await User.findByUsername(username.toLowerCase());
+    let [takenEmail, __] = await User.findByEmail(email.toLowerCase());
 
     if (takenUsername.length > 0) {
       res.status(200).json({ message: "Username has already been taken." });
@@ -15,7 +15,12 @@ exports.createNewUser = async (req, res, next) => {
       //encryption
       let password = await bcrypt.hash(req.body.password, 10);
 
-      let user = new User(username, password, email, major);
+      let user = new User(
+        username.toLowerCase(),
+        password,
+        email.toLowerCase(),
+        major
+      );
       user = await user.save();
       res.status(201).json({ message: "user created.", user });
     }
