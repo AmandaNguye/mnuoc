@@ -36,7 +36,7 @@ class Admin {
   }
 
   static findManagementByAdminUsername(admin_username) {
-    let sql = `SELECT admin_username* FROM management WHERE admin_username = ${admin_username};`;
+    let sql = `SELECT * FROM management WHERE admin_username = ${admin_username};`;
     return db.execute(sql);
   }
 

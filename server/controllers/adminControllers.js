@@ -95,9 +95,12 @@ exports.addAdminManagementByAdminUsernameCommunity = async (req, res, next) => {
 };
 exports.deleteAdminManagementByUsername = async (req, res, next) => {
   try {
-    let { admin_username } = req.body;
+    let { admin_username, community_name } = req.body;
 
-    let [management, _] = await Admin.deleteByUsername(admin_username);
+    let [management, _] = await Admin.deleteManagementByAdminUsernameCommunity(
+      admin_username,
+      community_name
+    );
 
     res.status(200).json({ message: "admin deleted.", management });
   } catch (error) {
