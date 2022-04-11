@@ -50,6 +50,21 @@ class Community {
     let sql = `INSERT INTO management(community_name, admin_username) VALUES ('${community_name}', '${admin_username}')`;
     return db.execute(sql);
   }
+
+  static findUsersByCommunityName(community_name) {
+    let sql = `SELECT * FROM in_community WHERE community_name = ${community_name};`;
+    return db.execute(sql);
+  }
+
+  static deleteUserByCommunityNameUser(community_name, username) {
+    let sql = `DELETE FROM in_community WHERE community_name = ${community_name} AND username = ${username};`;
+    return db.execute(sql);
+  }
+
+  static addUserByCommunityNameUser(community_name, username) {
+    let sql = `INSERT INTO in_community(community_name, username) VALUES ('${community_name}', '${username}')`;
+    return db.execute(sql);
+  }
 }
 
 module.exports = Community;

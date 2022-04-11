@@ -18,5 +18,10 @@ router
   .get(communityControllers.getCommunityAdminsByCommunityName)
   .post(communityControllers.addCommunityAdminByCommunityNameAdmin)
   .delete(communityControllers.deleteCommunityAdminsByCommunityNameAdmin);
+router
+  .route("/communityUsers")
+  .get(communityControllers.getCommunityUsersByCommunityName)
+  .post(communityControllers.addCommunityUserByCommunityNameUser)
+  .delete(communityControllers.deleteCommunityUsersByCommunityNameUser);
 
 module.exports = router;

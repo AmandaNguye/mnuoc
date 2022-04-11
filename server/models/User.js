@@ -37,6 +37,21 @@ class User {
     let sql = `UPDATE user SET password = ${password} WHERE username = ${username};`;
     return db.execute(sql);
   }
+
+  static findInCommunityByUsername(username) {
+    let sql = `SELECT * FROM in_community WHERE username = ${username};`;
+    return db.execute(sql);
+  }
+
+  static addInCommunityByUsernameCommunity(username, community_name) {
+    let sql = `INSERT INTO in_community(username, community_name) VALUES ('${username}', '${community_name}')`;
+    return db.execute(sql);
+  }
+
+  static deleteInCommunityByUsernameCommunity(username, community_name) {
+    let sql = `DELETE FROM in_community WHERE username = ${username} AND community_name = ${community_name};`;
+    return db.execute(sql);
+  }
 }
 
 module.exports = User;

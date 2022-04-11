@@ -112,3 +112,50 @@ exports.addCommunityAdminByCommunityNameAdmin = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.getCommunityUsersByCommunityName = async (req, res, next) => {
+  try {
+    let { community_name } = req.body;
+
+    let [in_community, _] = await Community.findUsersByCommunityName(
+      community_name
+    );
+
+    res.status(200).json({ in_community });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+exports.deleteCommunityUsersByCommunityNameUser = async (req, res, next) => {
+  try {
+    let { community_name, user } = req.body;
+
+    let [in_community, _] = await Community.deleteUserByCommunityNameUser(
+      community_name,
+      user
+    );
+
+    res.status(200).json({ message: "in_community deleted.", in_community });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+exports.addCommunityUserByCommunityNameUser = async (req, res, next) => {
+  try {
+    let { community_name, user } = req.body;
+
+    let [in_community, _] = await Community.addUserByCommunityNameUser(
+      community_name,
+      user
+    );
+
+    res.status(201).json({ message: "in_community added.", community });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
