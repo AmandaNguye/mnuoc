@@ -9,8 +9,7 @@ class User {
   }
 
   save() {
-    let sql = `INSERT INTO user(username, password, email, major)
-    VALUES ('${this.username}', '${this.password}', '${this.email}', '${this.major}')`;
+    let sql = `INSERT INTO user(username, password, email, major) VALUES ('${this.username}', '${this.password}', '${this.email}', '${this.major}');`;
 
     const newUser = db.execute(sql);
 
@@ -24,32 +23,37 @@ class User {
   }
 
   static findByUsername(username) {
-    let sql = `SELECT * FROM user WHERE username = ${username};`;
+    let sql = `SELECT * FROM user WHERE username = '${username}';`;
+    return db.execute(sql);
+  }
+
+  static findByEmail(email) {
+    let sql = `SELECT * FROM user WHERE email = '${email}';`;
     return db.execute(sql);
   }
 
   static deleteByUsername(username) {
-    let sql = `DELETE FROM user WHERE username = ${username};`;
+    let sql = `DELETE FROM user WHERE username = '${username}';`;
     return db.execute(sql);
   }
 
   static updatePasswordByUsername(username, password) {
-    let sql = `UPDATE user SET password = ${password} WHERE username = ${username};`;
+    let sql = `UPDATE user SET password = '${password}' WHERE username = '${username}';`;
     return db.execute(sql);
   }
 
   static findInCommunityByUsername(username) {
-    let sql = `SELECT * FROM in_community WHERE username = ${username};`;
+    let sql = `SELECT * FROM in_community WHERE username = '${username}';`;
     return db.execute(sql);
   }
 
   static addInCommunityByUsernameCommunity(username, community_name) {
-    let sql = `INSERT INTO in_community(username, community_name) VALUES ('${username}', '${community_name}')`;
+    let sql = `INSERT INTO in_community(username, community_name) VALUES ('${username}', '${community_name}');`;
     return db.execute(sql);
   }
 
   static deleteInCommunityByUsernameCommunity(username, community_name) {
-    let sql = `DELETE FROM in_community WHERE username = ${username} AND community_name = ${community_name};`;
+    let sql = `DELETE FROM in_community WHERE username = '${username}' AND community_name = '${community_name}';`;
     return db.execute(sql);
   }
 }

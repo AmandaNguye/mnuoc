@@ -8,8 +8,7 @@ class Profile {
   }
 
   save() {
-    let sql = `INSERT INTO profile(username, tag, bio)
-    VALUES ('${this.username}', '${this.tag}', '${this.bio}')`;
+    let sql = `INSERT INTO profile(username, tag, bio) VALUES ('${this.username}', '${this.tag}', '${this.bio}');`;
 
     const newProfile = db.execute(sql);
 
@@ -23,17 +22,17 @@ class Profile {
   }
 
   static findByUsername(username) {
-    let sql = `SELECT * FROM profile WHERE username = ${username};`;
+    let sql = `SELECT * FROM profile WHERE username = '${username}';`;
     return db.execute(sql);
   }
 
   static deleteByUsername(username) {
-    let sql = `DELETE FROM profile WHERE username = ${username};`;
+    let sql = `DELETE FROM profile WHERE username = '${username}';`;
     return db.execute(sql);
   }
 
   static updateByUsername(username, tag, bio) {
-    let sql = `UPDATE profile SET tag = ${tag}, bio = ${bio} WHERE username = ${username};`;
+    let sql = `UPDATE profile SET tag = '${tag}', bio = '${bio}' WHERE username = '${username}';`;
     return db.execute(sql);
   }
 }

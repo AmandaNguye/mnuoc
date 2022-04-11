@@ -16,7 +16,7 @@ class Message {
     let minutes = d.getMinutes();
     let seconds = d.getSeconds();
 
-    let time_created = `${year}-${month}-${days} ${hours}:${minutes}:${seconds}`;
+    let time_created = `'${year}-'${month}-'${days} '${hours}:'${minutes}:'${seconds}`;
 
     let sql = `INSERT INTO message(chat_id, text, username, time_created) VALUES ('${this.chat_id}', '${this.text}', '${this.username}', '${time_created}');`;
 
@@ -31,17 +31,17 @@ class Message {
   }
 
   static findByChatId(id) {
-    let sql = `SELECT * FROM message WHERE chat_id = ${id};`;
+    let sql = `SELECT * FROM message WHERE chat_id = '${id}';`;
     return db.execute(sql);
   }
 
   static deleteByMessageId(id) {
-    let sql = `DELETE FROM message WHERE message_id = ${id};`;
+    let sql = `DELETE FROM message WHERE message_id = '${id}';`;
     return db.execute(sql);
   }
 
   static updateByMessageId(id, text) {
-    let sql = `UPDATE message SET text = '${text}' WHERE message_id = ${id};`;
+    let sql = `UPDATE message SET text = '${text}' WHERE message_id = '${id}';`;
     return db.execute(sql);
   }
 }
