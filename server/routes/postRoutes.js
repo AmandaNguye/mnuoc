@@ -6,7 +6,7 @@ const router = express.Router();
 router
   .route("/")
   .post(postControllers.createNewPost)
-  .get(postControllers.getAllPosts);
+  .get(postControllers.getAllPostsByUsername);
 
 router
   .route("/:id")

@@ -25,8 +25,8 @@ class Comment {
     return newComment;
   }
   //no need to create an instance to use static method
-  static findAll() {
-    let sql = "SELECT * FROM comment;";
+  static findAllByUsername(username) {
+    let sql = `SELECT * FROM comment WHERE username = ${username};`;
     return db.execute(sql);
   }
 

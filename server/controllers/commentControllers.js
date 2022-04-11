@@ -14,9 +14,10 @@ exports.createNewComment = async (req, res, next) => {
   }
 };
 
-exports.getAllComments = async (req, res, next) => {
+exports.getAllCommentsByUsername = async (req, res, next) => {
   try {
-    const [comments, _] = await Comment.findAll();
+    let { username } = req.body;
+    const [comments, _] = await Comment.findAllByUsername(username);
 
     res.status(200).json({ count: comments.length, comments });
   } catch (error) {

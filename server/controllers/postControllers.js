@@ -14,9 +14,10 @@ exports.createNewPost = async (req, res, next) => {
   }
 };
 
-exports.getAllPosts = async (req, res, next) => {
+exports.getAllPostsByUsername = async (req, res, next) => {
   try {
-    const [posts, _] = await Post.findAll();
+    let { username } = req.body;
+    const [posts, _] = await Post.findAllByUsername(username);
 
     res.status(200).json({ count: posts.length, posts });
   } catch (error) {
