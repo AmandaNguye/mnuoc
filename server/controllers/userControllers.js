@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
+//register
 exports.createNewUser = async (req, res, next) => {
   try {
     let { username, email, major } = req.body;
@@ -30,6 +31,48 @@ exports.createNewUser = async (req, res, next) => {
   }
 };
 
+exports.login = async (req, res, next) => {
+  try {
+    let { username, password } = req.body;
+    let [dbUser, _] = await User.findByUsername(username.toLowerCase());
+
+    if (dbUser.length == 0) {
+      res.status(200).json({ message: "Username not in use." });
+    } else {
+      //encryption
+      bcrypt.compare(password, dbUser[0].password).then((isCorrect) => {
+        if (isCorrect) {
+          const payload = {
+            username: dbUser[0].username,
+          };
+          console.log(payload);
+          jwt.sign(
+            payload,
+            "lolulol",
+            //process.env.JWT_SECRET,
+            { expiresIn: 86400 },
+            (err, token) => {
+              if (err) return res.status(200).json({ message: "err" });
+              return res.json({
+                message: "Success",
+                token: "Bearer " + token,
+                username: dbUser[0].username,
+              });
+            }
+          );
+        } else {
+          return res
+            .status(200)
+            .json({ message: "Invalid Username or Password" });
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
 exports.getAllUser = async (req, res, next) => {
   try {
     const [user, _] = await User.findAll();
@@ -41,22 +84,9 @@ exports.getAllUser = async (req, res, next) => {
   }
 };
 
-exports.getUserByUsername = async (req, res, next) => {
-  try {
-    let { username } = req.body;
-
-    let [user, _] = await User.findByUsername(username);
-
-    res.status(200).json({ user });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-};
-
 exports.deleteUserByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
 
     let [user, _] = await User.deleteByUsername(username);
 
@@ -81,7 +111,7 @@ exports.updateUserPasswordByUsername = async (req, res, next) => {
 };
 exports.findUserInCommunityByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
 
     let [userCommunities, _] = await User.findInCommunityByUsername(username);
 
