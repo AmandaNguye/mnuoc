@@ -19,7 +19,7 @@ router
   .route("/:id/likes")
   .get(postControllers.findPostLikesById)
   .post(verifyJWT, postControllers.addNewPostLikeByIdUsername)
-  .delete(verifyJWT, postControllers.deletePostDislikeByIdUsername);
+  .delete(verifyJWT, postControllers.deletePostLikeByIdUsername);
 
 router
   .route("/:id/dislikes")
