@@ -153,7 +153,7 @@ exports.addCommunityUserByCommunityNameUser = async (req, res, next) => {
       user
     );
 
-    res.status(201).json({ message: "in_community added.", community });
+    res.status(201).json({ message: "in_community added.", in_community });
   } catch (error) {
     console.log(error);
     next(error);
