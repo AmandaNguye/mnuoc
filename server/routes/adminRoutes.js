@@ -4,10 +4,7 @@ const router = express.Router();
 const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /posts/
-router
-  .route("/")
-  .post(adminControllers.createNewAdmin)
-  .get(adminControllers.getAllAdmin);
+router.route("/").get(adminControllers.getAllAdmin);
 
 router
   .route("/byusername")
@@ -20,6 +17,8 @@ router
   .get(verifyJWT, adminControllers.findAdminManagementByAdminUsername)
   .post(verifyJWT, adminControllers.addAdminManagementByAdminUsernameCommunity)
   .delete(verifyJWT, adminControllers.deleteAdminManagementByUsername);
+
+router.route("/register").post(adminControllers.createNewAdmin); //{username, password, email}
 
 router.route("/login").post(adminControllers.login);
 
