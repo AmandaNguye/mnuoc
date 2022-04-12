@@ -4,7 +4,8 @@
   "description": "runs the database for mnuoc",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon server.js -w ."
+    "dev": "npx nodemon server.js -w .",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
