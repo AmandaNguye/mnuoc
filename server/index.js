@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
 
 const app = express();
 const port = process.env.PORT || 5001;
@@ -32,26 +31,3 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
-
-exports.verifyJWT = async (req, res, next) => {
-  try {
-    const token = req.headers["x-access-token"]?.split(" ")[1];
-    if (token) {
-      jwt.verify(token, "lolulol" || process.env.JWT_SECRET, (err, decoded) => {
-        if (err)
-          return res.json({
-            isLoggedIn: false,
-            message: "Failed To Authenticate",
-          });
-        req.user = {};
-        req.user.username = decoded.username;
-        next();
-      });
-    } else {
-      res.json({ message: "Incorrect Token Given", isLoggedIn: false });
-    }
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-};
