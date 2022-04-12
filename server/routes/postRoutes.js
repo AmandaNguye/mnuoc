@@ -1,12 +1,13 @@
 const express = require("express");
 const postControllers = require("../controllers/postControllers.js");
 const router = express.Router();
+const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /posts/
 router
   .route("/")
-  .post(postControllers.createNewPost)
-  .get(postControllers.getAllPostsByUsername);
+  .post(verifyJWT, postControllers.createNewPost)
+  .get(verifyJWT, postControllers.getAllPostsByUsername);
 
 router
   .route("/:id")
@@ -17,14 +18,14 @@ router
 router
   .route("/:id/likes")
   .get(postControllers.findPostLikesById)
-  .post(postControllers.addNewPostLikeByIdUsername)
-  .delete(postControllers.deletePostDislikeByIdUsername);
+  .post(verifyJWT, postControllers.addNewPostLikeByIdUsername)
+  .delete(verifyJWT, postControllers.deletePostDislikeByIdUsername);
 
 router
   .route("/:id/dislikes")
   .get(postControllers.findPostDislikesById)
-  .post(postControllers.addNewPostDislikeByIdUsername)
-  .delete(postControllers.deletePostDislikeByIdUsername);
+  .post(verifyJWT, postControllers.addNewPostDislikeByIdUsername)
+  .delete(verifyJWT, postControllers.deletePostDislikeByIdUsername);
 
 router
   .route("/:id/tags")

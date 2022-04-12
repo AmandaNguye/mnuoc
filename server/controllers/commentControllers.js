@@ -2,7 +2,8 @@ const Comment = require("../models/Comment");
 
 exports.createNewComment = async (req, res, next) => {
   try {
-    let { post_id, text, username } = req.body;
+    let username = req.user.username;
+    let { post_id, text } = req.body;
     let comment = new Comment(post_id, text, username);
 
     comment = await comment.save();
@@ -16,7 +17,7 @@ exports.createNewComment = async (req, res, next) => {
 
 exports.getAllCommentsByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     const [comments, _] = await Comment.findAllByUsername(username);
 
     res.status(200).json({ count: comments.length, comments });
@@ -55,7 +56,7 @@ exports.deleteCommentByCommentId = async (req, res, next) => {
 exports.updateCommentByCommentId = async (req, res, next) => {
   try {
     let commentId = req.params.cid;
-    let { title, text } = req.body;
+    let { text } = req.body;
 
     let [comment, _] = await Comment.updateByCommentId(commentId, text);
 
@@ -82,7 +83,7 @@ exports.findCommentLikesByCommentId = async (req, res, next) => {
 
 exports.addNewCommentLikeByCommentIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let commentId = req.params.cid;
 
     let [newCommentLike, _] = await Comment.addLikeByCommentIdUsername(
@@ -99,7 +100,7 @@ exports.addNewCommentLikeByCommentIdUsername = async (req, res, next) => {
 
 exports.deleteCommentLikeByCommentIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let commentId = req.params.cid;
 
     let [commentLike, _] = await Comment.deleteLikeByCommentIdUsername(
@@ -129,7 +130,7 @@ exports.findCommentDislikesByCommentId = async (req, res, next) => {
 
 exports.addNewCommentDislikeByCommentIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let commentId = req.params.cid;
 
     let [newCommentDislike, _] = await Comment.addDislikeByCommentIdUsername(
@@ -148,7 +149,7 @@ exports.addNewCommentDislikeByCommentIdUsername = async (req, res, next) => {
 
 exports.deleteCommentDislikeByCommentIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let commentId = req.params.cid;
 
     let [commentDislike, _] = await Comment.deleteDislikeByCommentIdUsername(

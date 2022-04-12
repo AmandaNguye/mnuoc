@@ -99,7 +99,8 @@ exports.deleteUserByUsername = async (req, res, next) => {
 
 exports.updateUserPasswordByUsername = async (req, res, next) => {
   try {
-    let { username, password } = req.body;
+    let username = req.user.username;
+    let { password } = req.body;
 
     let [user, _] = await User.updatePasswordByUsername(username, password);
 
@@ -123,7 +124,9 @@ exports.findUserInCommunityByUsername = async (req, res, next) => {
 };
 exports.addUserInCommunityByUsernameCommunity = async (req, res, next) => {
   try {
-    let { username, community } = req.body;
+    let username = req.user.username;
+
+    let { community } = req.body;
 
     let [newInCommunity, _] = await User.addInCommunityByUsernameCommunity(
       username,
@@ -138,7 +141,9 @@ exports.addUserInCommunityByUsernameCommunity = async (req, res, next) => {
 };
 exports.deleteUserInCommunityByUsername = async (req, res, next) => {
   try {
-    let { username, community_name } = req.body;
+    let username = req.user.username;
+
+    let { community_name } = req.body;
 
     let [in_community, _] = await User.deleteInCommunityByUsernameCommunity(
       username,

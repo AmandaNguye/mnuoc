@@ -2,7 +2,8 @@ const Profile = require("../models/Profile");
 
 exports.createNewProfile = async (req, res, next) => {
   try {
-    let { username, tag, bio } = req.body;
+    let username = req.user.username;
+    let { tag, bio } = req.body;
     let profile = new Profile(username, tag, bio);
 
     profile = await profile.save();
@@ -27,7 +28,7 @@ exports.getAllProfile = async (req, res, next) => {
 
 exports.getProfileByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
 
     let [profile, _] = await Profile.findByUsername(username);
 
@@ -40,7 +41,7 @@ exports.getProfileByUsername = async (req, res, next) => {
 
 exports.deleteProfileByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
 
     let [profile, _] = await Profile.deleteByUsername(username);
 
@@ -53,7 +54,8 @@ exports.deleteProfileByUsername = async (req, res, next) => {
 
 exports.updateProfileByUsername = async (req, res, next) => {
   try {
-    let { username, tag, bio } = req.body;
+    let username = req.user.username;
+    let { tag, bio } = req.body;
 
     let [profile, _] = await Profile.updateByUsername(username, tag, bio);
     res.status(200).json({ profile });

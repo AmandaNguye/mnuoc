@@ -2,7 +2,8 @@ const Post = require("../models/Post");
 
 exports.createNewPost = async (req, res, next) => {
   try {
-    let { title, text, username, community } = req.body;
+    let username = req.user.username;
+    let { title, text, community } = req.body;
     let post = new Post(title, text, username, community);
 
     post = await post.save();
@@ -16,7 +17,7 @@ exports.createNewPost = async (req, res, next) => {
 
 exports.getAllPostsByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     const [posts, _] = await Post.findAllByUsername(username);
 
     res.status(200).json({ count: posts.length, posts });
@@ -82,7 +83,7 @@ exports.findPostLikesById = async (req, res, next) => {
 
 exports.addNewPostLikeByIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let postId = req.params.id;
 
     let [newPostLike, _] = await Post.addLikeByIdUsername(postId, username);
@@ -96,7 +97,7 @@ exports.addNewPostLikeByIdUsername = async (req, res, next) => {
 
 exports.deletePostLikeByIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let postId = req.params.id;
 
     let [postLike, _] = await Post.deleteLikeByIdUsername(postId, username);
@@ -123,7 +124,7 @@ exports.findPostDislikesById = async (req, res, next) => {
 
 exports.addNewPostDislikeByIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let postId = req.params.id;
 
     let [newPostDislike, _] = await Post.addDislikeByIdUsername(
@@ -140,7 +141,7 @@ exports.addNewPostDislikeByIdUsername = async (req, res, next) => {
 
 exports.deletePostDislikeByIdUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
     let postId = req.params.id;
 
     let [postDislike, _] = await Post.deleteDislikeByIdUsername(

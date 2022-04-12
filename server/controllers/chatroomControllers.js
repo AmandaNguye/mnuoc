@@ -2,7 +2,8 @@ const Chatroom = require("../models/Chatroom");
 
 exports.createNewChatroom = async (req, res, next) => {
   try {
-    let { title, user1, user2 } = req.body;
+    let user1 = req.user.username;
+    let { title, user2 } = req.body;
     let chatroom = new Chatroom(title, user1, user2);
 
     chatroom = await chatroom.save();
@@ -16,7 +17,7 @@ exports.createNewChatroom = async (req, res, next) => {
 
 exports.getAllChatroomsByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
 
     let [chatroom, _] = await Chatroom.findAllByUsername(username);
 

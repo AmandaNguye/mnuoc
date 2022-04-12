@@ -28,6 +28,47 @@ exports.createNewAdmin = async (req, res, next) => {
     next(error);
   }
 };
+exports.login = async (req, res, next) => {
+  try {
+    let { username, password } = req.body;
+    let [dbUser, _] = await Admin.findByUsername(username.toLowerCase());
+
+    if (dbUser.length == 0) {
+      res.status(200).json({ message: "Username not in use." });
+    } else {
+      //encryption
+      bcrypt.compare(password, dbUser[0].password).then((isCorrect) => {
+        if (isCorrect) {
+          const payload = {
+            username: dbUser[0].username,
+          };
+          console.log(payload);
+          jwt.sign(
+            payload,
+            "lolulol",
+            //process.env.JWT_SECRET,
+            { expiresIn: 86400 },
+            (err, token) => {
+              if (err) return res.status(200).json({ message: "err" });
+              return res.json({
+                message: "Success",
+                token: "Bearer " + token,
+                username: dbUser[0].username,
+              });
+            }
+          );
+        } else {
+          return res
+            .status(200)
+            .json({ message: "Invalid Username or Password" });
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 
 exports.getAllAdmin = async (req, res, next) => {
   try {
@@ -42,7 +83,7 @@ exports.getAllAdmin = async (req, res, next) => {
 
 exports.getAdminByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
 
     let [admin, _] = await Admin.findByUsername(username);
 
@@ -55,7 +96,7 @@ exports.getAdminByUsername = async (req, res, next) => {
 
 exports.deleteAdminByUsername = async (req, res, next) => {
   try {
-    let { username } = req.body;
+    let username = req.user.username;
 
     let [admin, _] = await Admin.deleteByUsername(username);
 
@@ -68,7 +109,8 @@ exports.deleteAdminByUsername = async (req, res, next) => {
 
 exports.updateAdminPasswordByUsername = async (req, res, next) => {
   try {
-    let { username, password } = req.body;
+    username = req.user.username;
+    let { password } = req.body;
 
     let [admin, _] = await Admin.updatePasswordByUsername(username, password);
 
@@ -81,7 +123,7 @@ exports.updateAdminPasswordByUsername = async (req, res, next) => {
 
 exports.findAdminManagementByAdminUsername = async (req, res, next) => {
   try {
-    let { admin_username } = req.body;
+    let admin_username = req.user.username;
 
     let [adminCommunities, _] = await Admin.findManagementByAdminUsername(
       admin_username
@@ -95,7 +137,8 @@ exports.findAdminManagementByAdminUsername = async (req, res, next) => {
 };
 exports.addAdminManagementByAdminUsernameCommunity = async (req, res, next) => {
   try {
-    let { admin_username, community } = req.body;
+    let admin_username = req.user.username;
+    let { community } = req.body;
 
     let [newManagement, _] = await Admin.addManagementByAdminUsernameCommunity(
       admin_username,
@@ -110,7 +153,9 @@ exports.addAdminManagementByAdminUsernameCommunity = async (req, res, next) => {
 };
 exports.deleteAdminManagementByUsername = async (req, res, next) => {
   try {
-    let { admin_username, community_name } = req.body;
+    let admin_username = req.user.username;
+
+    let { community_name } = req.body;
 
     let [management, _] = await Admin.deleteManagementByAdminUsernameCommunity(
       admin_username,

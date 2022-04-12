@@ -1,12 +1,13 @@
 const express = require("express");
 const commentControllers = require("../controllers/commentControllers.js");
 const router = express.Router();
+const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /comments/
 router
   .route("/")
-  .post(commentControllers.createNewComment)
-  .get(commentControllers.getAllCommentsByUsername);
+  .post(verifyJWT, commentControllers.createNewComment)
+  .get(verifyJWT, commentControllers.getAllCommentsByUsername);
 
 router.route("/:id").get(commentControllers.getCommentByPostId);
 
@@ -18,13 +19,16 @@ router
 router
   .route("/:id/:cid/likes")
   .get(commentControllers.findCommentLikesByCommentId)
-  .post(commentControllers.addNewCommentLikeByCommentIdUsername)
-  .delete(commentControllers.deleteCommentLikeByCommentIdUsername);
+  .post(verifyJWT, commentControllers.addNewCommentLikeByCommentIdUsername)
+  .delete(verifyJWT, commentControllers.deleteCommentLikeByCommentIdUsername);
 
 router
   .route("/:id/:cid/dislikes")
   .get(commentControllers.findCommentDislikesByCommentId)
-  .post(commentControllers.addNewCommentDislikeByCommentIdUsername)
-  .delete(commentControllers.deleteCommentDislikeByCommentIdUsername);
+  .post(verifyJWT, commentControllers.addNewCommentDislikeByCommentIdUsername)
+  .delete(
+    verifyJWT,
+    commentControllers.deleteCommentDislikeByCommentIdUsername
+  );
 
 module.exports = router;

@@ -1,17 +1,18 @@
 const express = require("express");
 const profileControllers = require("../controllers/profileControllers.js");
 const router = express.Router();
+const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /posts/
 router
   .route("/")
-  .post(profileControllers.createNewProfile)
+  .post(verifyJWT, profileControllers.createNewProfile)
   .get(profileControllers.getAllProfile);
 
 router
   .route("/byusername")
-  .get(profileControllers.getProfileByUsername)
-  .delete(profileControllers.deleteProfileByUsername)
-  .put(profileControllers.updateProfileByUsername);
+  .get(verifyJWT, profileControllers.getProfileByUsername)
+  .delete(verifyJWT, profileControllers.deleteProfileByUsername)
+  .put(verifyJWT, profileControllers.updateProfileByUsername);
 
 module.exports = router;
