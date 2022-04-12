@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 5001;
+const LOCALPORT = 5001;
 
 //app.use(cors());
 app.use(express.json()); //json middleware (parse json when sending to backend)
@@ -28,6 +28,6 @@ app.use((err, req, res, next) => {
 });
 
 //listen on pc port
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
+app.listen(process.env.PORT || LOCALPORT, () => {
+  console.log(`Server is running on port: ${process.env.PORT || LOCALPORT}`);
 });

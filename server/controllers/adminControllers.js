@@ -1,5 +1,5 @@
 const Admin = require("../models/Admin");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 exports.createNewAdmin = async (req, res, next) => {
@@ -47,8 +47,7 @@ exports.login = async (req, res, next) => {
           console.log(payload);
           jwt.sign(
             payload,
-            "lolulol",
-            //process.env.JWT_SECRET,
+            process.env.JWT_SECRET || "supersecret",
             { expiresIn: 86400 },
             (err, token) => {
               if (err) return res.status(200).json({ message: "err" });
