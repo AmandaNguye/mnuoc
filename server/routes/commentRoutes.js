@@ -4,21 +4,23 @@ const router = express.Router();
 const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /comments/
-router.route("/").post(verifyJWT, commentControllers.createNewComment);
 
-router.route("/:id").get(commentControllers.getCommentByPostId);
+router
+  .route("/:id")
+  .post(verifyJWT, commentControllers.createNewComment)
+  .get(commentControllers.getCommentByPostId);
 
 router.route("/:id/:cid").delete(commentControllers.deleteCommentByCommentId);
 
 router
   .route("/:id/:cid/like")
-  .get(commentControllers.findCommentLikeByUsername)
+  .get(verifyJWT, commentControllers.findCommentLikeByUsername)
   .post(verifyJWT, commentControllers.addNewCommentLikeByCommentIdUsername) //add by username
   .delete(verifyJWT, commentControllers.deleteCommentLikeByCommentIdUsername);
 
 router
   .route("/:id/:cid/dislike")
-  .get(commentControllers.findCommentDislikeByUsername) //add by username
+  .get(verifyJWT, commentControllers.findCommentDislikeByUsername) //add by username
   .post(verifyJWT, commentControllers.addNewCommentDislikeByCommentIdUsername)
   .delete(
     verifyJWT,

@@ -7,7 +7,8 @@ const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 router
   .route("/")
   .post(verifyJWT, chatroomControllers.createNewChatroom)
-  .get(verifyJWT, chatroomControllers.getAllChatroomsByUsername)
-  .delete(chatroomControllers.deleteChatroomByChatId);
+  .get(verifyJWT, chatroomControllers.getAllChatroomsByUsername);
+
+router.route("/:chid").delete(chatroomControllers.deleteChatroomByChatId);
 
 module.exports = router;

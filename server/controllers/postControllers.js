@@ -30,6 +30,21 @@ exports.getAllPostsByUsername = async (req, res, next) => {
     next(error);
   }
 };
+exports.getAllPostsByCommunity = async (req, res, next) => {
+  try {
+    let community = req.params.community;
+    const [posts, _] = await Post.findAllByCommunity(community);
+    for (i = 0; i < posts.length; i++) {
+      posts[i].likes =
+        (await Post.findLikesById(posts[i].post_id)).length -
+        (await Post.findDislikesById(posts[i].post_id)).length;
+    }
+    res.status(200).json({ count: posts.length, posts });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 
 exports.getPostById = async (req, res, next) => {
   try {
@@ -76,11 +91,12 @@ exports.updatePostById = async (req, res, next) => {
 };
 
 //like functionality
-exports.findPostLikeByUsername = async (req, res, next) => {
+exports.findPostLikeByIdUsername = async (req, res, next) => {
   try {
     let username = req.user.username;
+    let postId = req.params.id;
 
-    let [likes, _] = await Post.findLikeByUsername(username);
+    let [likes, _] = await Post.findLikeByIdUsername(postId, username);
 
     res.status(200).json({ likes });
   } catch (error) {
@@ -117,11 +133,12 @@ exports.deletePostLikeByIdUsername = async (req, res, next) => {
   }
 };
 
-exports.findPostDislikeByUsername = async (req, res, next) => {
+exports.findPostDislikeByIdUsername = async (req, res, next) => {
   try {
+    let username = req.user.username;
     let postId = req.params.id;
 
-    let [dislikes, _] = await Post.findDislikeByUsername(postId);
+    let [dislikes, _] = await Post.findDislikeByIdUsername(postId, username);
 
     res.status(200).json({ dislikes });
   } catch (error) {

@@ -26,7 +26,7 @@ exports.createNewUser = async (req, res, next) => {
       );
       user = await user.save();
 
-      let profile = new Profile(username, tag, bio);
+      let profile = new Profile(username, "", "");
       profile = await profile.save();
 
       res.status(201).json({ message: "user created.", user });

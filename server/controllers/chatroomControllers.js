@@ -30,7 +30,7 @@ exports.getAllChatroomsByUsername = async (req, res, next) => {
 
 exports.deleteChatroomByChatId = async (req, res, next) => {
   try {
-    let { chat_id } = req.body;
+    let chat_id = req.params.chid;
 
     let [chatroom, _] = await Chatroom.deleteByChatId(chat_id);
 

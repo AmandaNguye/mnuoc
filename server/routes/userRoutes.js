@@ -12,7 +12,9 @@ router
   .post(verifyJWT, userControllers.addUserInCommunityByUsernameCommunity)
   .delete(verifyJWT, userControllers.deleteUserInCommunityByUsername);
 
-router.route("/register").post(userControllers.createNewUser);
+router
+  .route("/register")
+  .post(userControllers.createNewUser, userControllers.login);
 
 router.route("/login").post(userControllers.login);
 
