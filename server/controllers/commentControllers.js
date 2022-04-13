@@ -68,11 +68,11 @@ exports.updateCommentByCommentId = async (req, res, next) => {
 };
 
 //like functionality
-exports.findCommentLikesByCommentId = async (req, res, next) => {
+exports.findCommentLikeByUsername = async (req, res, next) => {
   try {
-    let commentId = req.params.cid;
+    let username = req.user.username;
 
-    let [likes, _] = await Comment.findLikesByCommentId(commentId);
+    let [likes, _] = await Comment.findLikeByUsername(username);
 
     res.status(200).json({ count: likes.length, likes });
   } catch (error) {
@@ -115,11 +115,11 @@ exports.deleteCommentLikeByCommentIdUsername = async (req, res, next) => {
   }
 };
 
-exports.findCommentDislikesByCommentId = async (req, res, next) => {
+exports.findCommentDislikeByUsername = async (req, res, next) => {
   try {
-    let commentId = req.params.cid;
+    let username = req.user.username;
 
-    let [dislikes, _] = await Comment.findDislikesByCommentId(commentId);
+    let [dislikes, _] = await Comment.findDislikeByUsername(username);
 
     res.status(200).json({ count: dislikes.length, dislikes });
   } catch (error) {

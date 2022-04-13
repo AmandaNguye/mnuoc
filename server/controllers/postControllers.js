@@ -68,11 +68,11 @@ exports.updatePostById = async (req, res, next) => {
 };
 
 //like functionality
-exports.findPostLikesById = async (req, res, next) => {
+exports.findPostLikeByUsername = async (req, res, next) => {
   try {
-    let postId = req.params.id;
+    let username = req.user.username;
 
-    let [likes, _] = await Post.findLikesById(postId);
+    let [likes, _] = await Post.findLikeByUsername(username);
 
     res.status(200).json({ count: likes.length, likes });
   } catch (error) {
@@ -109,11 +109,11 @@ exports.deletePostLikeByIdUsername = async (req, res, next) => {
   }
 };
 
-exports.findPostDislikesById = async (req, res, next) => {
+exports.findPostDislikeByUsername = async (req, res, next) => {
   try {
     let postId = req.params.id;
 
-    let [dislikes, _] = await Post.findDislikesById(postId);
+    let [dislikes, _] = await Post.findDislikeByUsername(postId);
 
     res.status(200).json({ count: dislikes.length, dislikes });
   } catch (error) {

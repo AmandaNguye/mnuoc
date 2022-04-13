@@ -17,13 +17,13 @@ router
 
 router
   .route("/:id/like")
-  .get(postControllers.findPostLikesById) //username
+  .get(postControllers.findPostLikeByUsername)
   .post(verifyJWT, postControllers.addNewPostLikeByIdUsername)
   .delete(verifyJWT, postControllers.deletePostLikeByIdUsername);
 
 router
   .route("/:id/dislike")
-  .get(postControllers.findPostDislikesById) //username
+  .get(postControllers.findPostDislikeByUsername)
   .post(verifyJWT, postControllers.addNewPostDislikeByIdUsername)
   .delete(verifyJWT, postControllers.deletePostDislikeByIdUsername);
 
