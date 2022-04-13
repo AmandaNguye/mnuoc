@@ -12,7 +12,7 @@ router
 
 router
   .route("/:id/:cid")
-  .get(verifyJWT, commentControllers.getCommentByCommentId)
+  .get(commentControllers.getCommentByCommentId)
   .delete(commentControllers.deleteCommentByCommentId);
 
 router
