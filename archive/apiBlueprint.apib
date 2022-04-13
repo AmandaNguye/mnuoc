@@ -1,0 +1,357 @@
+FORMAT: 1A
+HOST: https://polls.apiblueprint.org/
+
+# Me&UofC
+
+Me&UofC is a post forum where students at UofC can connect with others by posting, commenting, or chatting with one another
+
+# Group Admin
+
+Admins are in charge of managing communities
+
+## Admin [/adminlogin]
+
++ Attributes (object)
+    + admin_PIN: 1234 (number) - this is a hardcoded PIN that is required to authorize admin functionalities.
+    + username: thanos (string) - the username of the admin
+    + password: password123 (string) - the password of the admin
+    + email: thanos@gmail.com (string) - the email of the admin
+
+### Login as Admin [GET]
++ Request (application/json)
+    + Attributes (Admin)
+
++ Response 200 (application/json)
+    + Attributes (Admin)
+
+## Community [/communities]
+
++ Attributes (object)
+    + course_name: CPSC471 (string) - this is the unique identifying course name
+    + description: Database Management Systems (string) - this is the course description/title
+
+### View All Communities [GET]
++ Response 200 (application/json)
+    + Attributes (array[Community])
+
+### Create New Community [POST]
++ Request (application/json)
+    + Attributes (array[Community])
++ Response 201 (application/json)
+    + Attributes (array[Community])
+
+### Edit Community [PUT]
++ Request (application/json)
+    + Attributes (array[Community])
+
++ Response 200 (application/json)
+    + Attributes (array[Community])
+
+### Delete Community [DELETE]
++ Request (application/json)
+    + Body
+
+                {
+                    "course_name": "CPSC471"
+                }
+
++ Response 200 (application/json)
+    + Attributes (array[Community])
+
+# Group Account
+
+
+## Login [/login]
++ Attributes (object)
+    + username: amanda (string) - the username of the user
+    + password: adnama (string) - the password of the user
+
+### Login to Account [GET]
++ Request (application/json)
+    + Attributes (Login)
+            
++ Response 200 (application/json)
+    + Attributes (Login)
+
+## Register [/register]
++ Attributes (object)
+    + username: amanda (string) - the username of the user
+    + password: adnama (string) - the password of the user
+    + email: amanda@gmail.com (string) - the email of the user
+    + major: Software_Engineering (string) - the major of the user
+    + courses: CPSC471, SENG471 (array[string]) - the list of courses of the user
+
+### Create New Account [POST]
++ Request (application/json)
+    + Attributes (Login)
+
++ Response 201 (application/json)
+    + Attributes (Login)
+
+# Group Chat
+
+This is in charge of managing messages and chatrooms between users.
+
+## Chat [/chat/{chat_id}]
++ Parameters
+    + chat_id: 1 (number) - id of the chat room
+
++ Attributes (object)
+    + title: squidsquad (string) - the title of the chatroom
+    + chatroom_id: 1 (number) - the id of the chatroom
+    + message_ids: 1, 2 (array[number]) - the list of message ids of the chat
+
+
+### View Chat [GET]
++ Request (application/json)
+
+    + Body
+
+                {
+                    "title": "squidsquad"
+                }
+    
++ Response 200 (application/json)
+    + Attributes (Chat)
+
+### Start New Chat [POST]
++ Request (application/json)
+    + Body
+
+                {
+                    "title": "newsquidsquad"
+                }
++ Response 201 (application/json)
+    + Attributes (Chat)
+
+## Message [/chat/{chat_id}/message]
++ Parameters
+    + chat_id: 1 (number) - id of the chat room
+
++ Attributes (object)
+    + sender: amanda (string) - the sender of the message as string
+    + text: lol (string) - the contents of the text as string
+    + message_id: 2 (number) - the primary key, the integer id of the message
+    + chatroom_id: 1 (number) - the password of the user
+
+### Send Message [POST]
++ Request (application/json)
+    + Body
+
+                {
+                    "sender": "amanda",
+                    "text": "lol"
+                }
+
++ Response 201 (application/json)
+    + Attributes (Message)
+
+# Group Posts and Comments
+
+This is in charge of managing posts and comments
+
+## Dashboard [/dashboard/{course_name}]
++ Parameters
+    + course_name: CPSC471 (string) - name of the course's dashboard in the form of a non-whitespace, URL-valid string
+
+### View All Posts [GET]
++ Response 200 (application/json)
+    + Attributes (array[Post])
+
+### Create New Post [POST]
++ Request (application/json)
+    + Attributes (Post)
+
++ Response 201 (application/json)
+    + Attributes (Post)
+
+### Edit Post [PUT]
++ Request (application/json)
+    + Attributes (Post)
+
++ Response 200 (application/json)
+    + Attributes (Post)
+
+### Delete Post [DELETE]
++ Request (application/json)
+    + Body
+
+                {
+                    "title": "shrek script",
+                    "post_id": "2"
+                }
++ Response 200 (application/json)
+    + Attributes (Post)
+
+## Post [/post/{post_id}]
++ Parameters
+    + post_id: 1 (number) - ID of the Post in the form of an integer
+
++ Attributes (object)
+    + post_id: 2 (number) - the id of the post as an integer
+    + poster_id: 1 (number) - the id of the posting user as an integer
+    + title: shrek script (string) - the title of the post
+    + tag: tfti, yolo - (array[string]) - the tags of the post 
+    + like: 1 (number) - the number of likes of the post as an integer
+    + dislike: 3 (number) - the number of dislikes of the post as an integer
+    + content_text: 1 (string) - the text of the post
+    + content_image: 'http://google.com/favicon.ico' (string) - the image of the post linked as a string
+    + comment_ids: 1, 2 (array[number]) - the comment ids of the post
+
+### View Post Details [GET]
+
++ Request (application/json)
+    + Body
+
+                {
+                    "title": "shrek script",
+                    "post_id": "2"
+                }
++ Response 200 (application/json)
+    + Attributes (Post)
+
+### Edit Post [PUT]
++ Request (application/json)
+    + Attributes (Post)
+
++ Response 200 (application/json)
+    + Attributes (Post)
+
+### Delete Post [DELETE]
++ Request (application/json)
+    + Body
+
+                {
+                    "title": "shrek script",
+                    "post_id": "2"
+                }
++ Response 200 (application/json)
+    + Attributes (Post)
+
+
+## Comment [/post/{post_id}/comment]
+
++ Parameters
+    + post_id: 1 (number) - ID of the Post in the form of an integer
+
++ Attributes (object)
+    + post_id: 2 (number) - the id of the post as an integer
+    + comment_id: 1 (number) - the id of the comment as an integer
+    + commenter_id: 1 (number) - the id of the commenting user as an integer
+    + like: 0 (number) - the number of likes of the comment as an integer
+    + dislike: 0 (number) - the number of dislikes of the comment as an integer
+    + text: lol that so funny (string) - the text of the comment
+
+### Get Comments [GET]
++ Response 200 (application/json)
+    + Attributes (array[Comment])
+
+### Create New Comment [POST]
++ Request (application/json)
+    + Body
+
+                {
+                    "post_id": "2"
+                    "commenter_id": "1",
+                    "text": "lol that so funny",
+                }
+
++ Response 201 (application/json)
+    + Attributes (Comment)
+
+### Edit Comment [PUT]
++ Request (application/json)
+    + Attributes (Comment)
+
++ Response 200 (application/json)
+    + Attributes (Comment)
+
+### Delete Comment [DELETE]
++ Request (application/json)
+    + Body
+
+                {
+                    "comment_id": "1"
+                }
+                
++ Response 200 (application/json)
+    + Attributes (Comment)
+
+# Group Profile
+
+## My Posts [/profile/posts]
+
+### Get Posts [GET]
++ Response 200 (application/json)
+    + Attributes (array[Post])
+
+### Edit Post [PUT]
++ Request (application/json)
+    + Attributes (Post)
+
++ Response 200 (application/json)
+    + Attributes (Post)
+
+### Delete Post [DELETE]
++ Request (application/json)
+    + Body
+
+                {
+                    "title": "shrek script",
+                    "post_id": "2"
+                }
++ Response 200 (application/json)
+    + Attributes (Post)
+
+## My Comments [/profile/comments]
+
+### Get Comments [GET]
++ Response 200 (application/json)
+    + Attributes (array[Comment])
+
+### Edit Comment [PUT]
++ Request (application/json)
+    + Attributes (Comment)
+
++ Response 200 (application/json)
+    + Attributes (Comment)
+
+### Delete Comment [DELETE]
++ Request (application/json)
+    + Body
+
+                {
+                    "comment_id": "1"
+                }
+                
++ Response 200 (application/json)
+    + Attributes (Comment)
+
+
+## My Profile Details [/profile/details]
+
++ Attributes (object)
+    + username: amanda (string) - the username of the user profile
+    + password: adnama (string) - the password of the user profile
+    + email: amanda@gmail.com (string) - the email of the user profile
+    + major: Software_Engineering (string) - the major of the user profile
+    + courses: CPSC471, SENG471 (array[string]) - the list of courses of the user profile
+    + bio: im not like other girls (string) - the bio of the user profile
+
+### Get Profile Details [GET]
++ Response 200 (application/json)
+    + Attributes (object)
+
+### Edit Profile Details [PUT]
++ Request (application/json)
+    + Attributes (object)
+
++ Response 200 (application/json)
+    + Attributes (object)
+
+### Delete Account [DELETE]
++ Request (application/json)
+    + Attributes (object)
+
++ Response 200 (application/json)
+    + Attributes (object)
