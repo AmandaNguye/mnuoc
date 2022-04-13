@@ -16,6 +16,7 @@
 	overflow-wrap: break-word;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	margin-top: 1em;
 	height: 100%;
 }
 .postcard__footer {
