@@ -42,7 +42,7 @@ export default function Login() {
 		if (dataAdmin.message == "Success") {
 			console.log(`Logged in as admin: ${dataUser.username}`);
 			localStorage.setItem("token", dataAdmin.token);
-			window.location.href = "/dashboard";
+			window.location.href = "/dashboard/home";
 			return;
 		}
 

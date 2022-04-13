@@ -19,16 +19,17 @@
 }
 
 .navbar__search {
+	position: relative;
 	margin-right: auto;
 	display: flex;
 	gap: 1em;
 	align-items: center;
-	flex-basis: 100ch;
+	flex-basis: 50ch;
 }
 
 .navbar__search__button {
-	font-weight: bold;
 	font-size: 1rem;
+	font-weight: bold;
 	flex-grow: 1;
 	background-color: #ccc;
 	color: #333;
@@ -40,6 +41,10 @@
 .navbar__search__button:hover {
 	cursor: pointer;
 	background-color: #aaa;
+}
+
+.navbar__search__button--expand {
+	border-radius: 0;
 }
 
 .navbar__link {
@@ -73,6 +78,30 @@
 	animation: fadeIn ease 800ms;
 }
 
+.dropdown {
+	list-style: none;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 100%;
+	width: 100%;
+	animation: fadeIn ease 500ms;
+}
+
+.dropdown__item {
+	text-align: center;
+	background-color: #eee;
+	padding: 0.5em;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #333;
+	border: none;
+}
+
+.dropdown__item:hover {
+	cursor: pointer;
+	color: #ef465c;
+}
 @keyframes fadeIn {
 	from {
 		opacity: 0;

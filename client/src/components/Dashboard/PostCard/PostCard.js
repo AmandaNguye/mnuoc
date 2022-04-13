@@ -6,10 +6,10 @@ export default function PostCard(props) {
 	return (
 		<Link
 			to={`/post/${props.id}`}
-			className={`postcard ${props.word.length > 200 ? "postcard--big" : null}`}
+			className={`postcard ${props.text.length > 200 ? "postcard--big" : null}`}
 		>
-			<h3 className="postcard__title">Title</h3>
-			<div className="postcard__text">{props.word}</div>
+			<h3 className="postcard__title">{props.title}</h3>
+			<div className="postcard__text">{props.text}</div>
 			<div className="postcard__footer">. . .</div>
 		</Link>
 	);
