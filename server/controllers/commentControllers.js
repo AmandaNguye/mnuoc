@@ -19,8 +19,12 @@ exports.getAllCommentsByUsername = async (req, res, next) => {
   try {
     let username = req.user.username;
     const [comments, _] = await Comment.findAllByUsername(username);
-
-    res.status(200).json({ count: comments.length, comments });
+    for (i = 0; i < comments.length; i++) {
+      comments[i].likes =
+        (await Comment.findLikesById(comments[i].comment_id)).length -
+        (await Comment.findDislikesById(comments[i].comment_id)).length;
+    }
+    res.status(200).json({ comments });
   } catch (error) {
     console.log(error);
     next(error);
@@ -31,9 +35,13 @@ exports.getCommentByPostId = async (req, res, next) => {
   try {
     let postId = req.params.id;
 
-    let [comment, _] = await Comment.findByPostId(postId);
-
-    res.status(200).json({ comment });
+    let [comments, _] = await Comment.findByPostId(postId);
+    for (i = 0; i < comments.length; i++) {
+      comments[i].likes =
+        (await Comment.findLikesById(comments[i].comment_id)).length -
+        (await Comment.findDislikesById(comments[i].comment_id)).length;
+    }
+    res.status(200).json({ comments });
   } catch (error) {
     console.log(error);
     next(error);
@@ -68,13 +76,13 @@ exports.updateCommentByCommentId = async (req, res, next) => {
 };
 
 //like functionality
-exports.findCommentLikesByCommentId = async (req, res, next) => {
+exports.findCommentLikeByUsername = async (req, res, next) => {
   try {
-    let commentId = req.params.cid;
+    let username = req.user.username;
 
-    let [likes, _] = await Comment.findLikesByCommentId(commentId);
+    let [likes, _] = await Comment.findLikeByUsername(username);
 
-    res.status(200).json({ count: likes.length, likes });
+    res.status(200).json({ likes });
   } catch (error) {
     console.log(error);
     next(error);
@@ -115,11 +123,11 @@ exports.deleteCommentLikeByCommentIdUsername = async (req, res, next) => {
   }
 };
 
-exports.findCommentDislikesByCommentId = async (req, res, next) => {
+exports.findCommentDislikeByUsername = async (req, res, next) => {
   try {
-    let commentId = req.params.cid;
+    let username = req.user.username;
 
-    let [dislikes, _] = await Comment.findDislikesByCommentId(commentId);
+    let [dislikes, _] = await Comment.findDislikeByUsername(username);
 
     res.status(200).json({ count: dislikes.length, dislikes });
   } catch (error) {

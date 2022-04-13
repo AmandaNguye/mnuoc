@@ -52,7 +52,10 @@ class Post {
     let sql = `SELECT * FROM post_likes WHERE post_id ='${id}';`;
     return db.execute(sql);
   }
-
+  static findLikeByUsername(username) {
+    let sql = `SELECT * FROM post_likes WHERE username = '${username}';`;
+    return db.execute(sql);
+  }
   static addLikeByIdUsername(id, username) {
     let sql = `INSERT INTO post_likes(post_id, username) VALUES ('${id}', '${username}');`;
 
@@ -71,7 +74,10 @@ class Post {
     let sql = `SELECT * FROM post_dislikes WHERE post_id ='${id}';`;
     return db.execute(sql);
   }
-
+  static findDislikeByUsername(username) {
+    let sql = `SELECT * FROM post_dislikes WHERE username = '${username}';`;
+    return db.execute(sql);
+  }
   static addDisikeByIdUsername(id, username) {
     let sql = `INSERT INTO post_dislikes(post_id, username) VALUES ('${id}', '${username}');`;
 
