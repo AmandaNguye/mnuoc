@@ -15,4 +15,6 @@ router
 
 router.route("/login").post(adminControllers.login);
 
+router.route("/register").post(adminControllers.createNewAdmin);
+
 module.exports = router;
