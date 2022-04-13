@@ -4,8 +4,9 @@ const router = express.Router();
 const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /messages/
-router.route("/").post(verifyJWT, messageControllers.createNewMessage);
-
-router.route("/:chid").get(messageControllers.getMessageByChatId);
+router
+  .route("/:chid")
+  .get(messageControllers.getMessageByChatId)
+  .post(verifyJWT, messageControllers.createNewMessage);
 
 module.exports = router;

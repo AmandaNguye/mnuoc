@@ -3,7 +3,8 @@ const Message = require("../models/Message");
 exports.createNewMessage = async (req, res, next) => {
   try {
     let username = req.user.username;
-    let { chat_id, text } = req.body;
+    let chat_id = req.params.chid;
+    let { text } = req.body;
     let message = new Message(chat_id, text, username);
 
     message = await message.save();
