@@ -19,7 +19,11 @@ exports.getAllPostsByUsername = async (req, res, next) => {
   try {
     let username = req.user.username;
     const [posts, _] = await Post.findAllByUsername(username);
-
+    for (i = 0; i < posts.length; i++) {
+      posts[i].likes =
+        (await Post.findLikesById(posts[i].post_id)).length -
+        (await Post.findDislikesById(posts[i].post_id)).length;
+    }
     res.status(200).json({ count: posts.length, posts });
   } catch (error) {
     console.log(error);
@@ -32,6 +36,10 @@ exports.getPostById = async (req, res, next) => {
     let postId = req.params.id;
 
     let [post, _] = await Post.findById(postId);
+
+    post[0].likes =
+      (await Post.findLikesById(postId)).length -
+      (await Post.findDislikesById(postId)).length;
 
     res.status(200).json({ post });
   } catch (error) {
@@ -74,7 +82,7 @@ exports.findPostLikeByUsername = async (req, res, next) => {
 
     let [likes, _] = await Post.findLikeByUsername(username);
 
-    res.status(200).json({ count: likes.length, likes });
+    res.status(200).json({ likes });
   } catch (error) {
     console.log(error);
     next(error);
@@ -115,7 +123,7 @@ exports.findPostDislikeByUsername = async (req, res, next) => {
 
     let [dislikes, _] = await Post.findDislikeByUsername(postId);
 
-    res.status(200).json({ count: dislikes.length, dislikes });
+    res.status(200).json({ dislikes });
   } catch (error) {
     console.log(error);
     next(error);
