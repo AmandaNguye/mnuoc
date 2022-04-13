@@ -1,0 +1,91 @@
+.background {
+	background-color: #333;
+	color: #333;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	display: grid;
+	place-items: center;
+}
+
+.postform {
+	background-color: #fff;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	width: 50vw;
+	min-height: 50vh;
+	box-shadow: 0 0 0.2em 0 black;
+}
+
+.postform__info {
+	text-align: center;
+	box-shadow: 0 0.05em 0.05em 0 black;
+	padding: 1em;
+}
+
+.postform__header {
+	background-color: black;
+	display: flex;
+}
+
+.postform__title {
+	padding: 1em;
+}
+
+.postform__title__input {
+	width: 100%;
+	padding: 0.5em;
+	height: 5ch;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.postform__body {
+	padding: 1em;
+}
+
+.postform__body__input {
+	padding: 0.5em;
+	width: 100%;
+	resize: vertical;
+	min-height: 25ch;
+	max-height: 50ch;
+}
+
+.postform__text {
+	margin-bottom: 0.2em;
+	color: #ef465c;
+}
+
+.postform__close {
+	background-color: #333;
+	color: #fff;
+	padding: 0.5em 1em;
+	margin-left: auto;
+	border: none;
+}
+
+.postform__submit {
+	width: 50%;
+	align-self: center;
+	padding: 1em;
+	margin-bottom: 1em;
+	border: none;
+	border-radius: 0.5em;
+}
+
+.postform__submit:hover {
+	cursor: pointer;
+	background-color: #ef465c;
+	color: #fff;
+}
+
+.postform__close:hover {
+	background-color: red;
+	color: #fff;
+}

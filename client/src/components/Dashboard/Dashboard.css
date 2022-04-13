@@ -10,8 +10,28 @@
 .dashboard__top {
 	grid-row: 1 / 2;
 	padding: 1em;
-	background-color: #e0ffff;
+	background-color: #ee9ba6;
+	color: #fff;
 	border-radius: 1em;
+	display: flex;
+	flex-direction: column;
+}
+
+.dashboard__top__toggle {
+	border-radius: 1em;
+	font-weight: bold;
+	width: 50%;
+	align-self: center;
+	font-size: 1rem;
+	margin-top: 2em;
+	padding: 1em;
+	background-color: #fff;
+	border: none;
+	box-shadow: 0 0 0.2em 0 black;
+}
+.dashboard__top__toggle:hover {
+	background-color: #eee;
+	cursor: pointer;
 }
 
 .dashboard__body {

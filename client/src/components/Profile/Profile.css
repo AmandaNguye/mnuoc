@@ -23,7 +23,7 @@
 }
 
 .profile__sidebar__options__choice {
-	color: #ff9788;
+	color: #ee9ba6;
 	width: fit-content;
 }
 
@@ -54,6 +54,6 @@
 	width: 60vw;
 	left: 20ch;
 	padding: 2em;
-	background-color: #ff9788;
+	background-color: #ee9ba6;
 	opacity: 0.5;
 }
