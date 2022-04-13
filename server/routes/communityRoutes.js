@@ -21,7 +21,7 @@ router
   .delete(communityControllers.deleteCommunityAdminsByCommunityNameAdmin);
 
 router
-  .route("/communityUsers")
+  .route("/communityusers")
   .get(communityControllers.getCommunityUsersByCommunityName)
   .post(communityControllers.addCommunityUserByCommunityNameUser)
   .delete(communityControllers.deleteCommunityUsersByCommunityNameUser);
