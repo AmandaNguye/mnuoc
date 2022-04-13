@@ -31,8 +31,8 @@
 	font-size: 1rem;
 	font-weight: bold;
 	flex-grow: 1;
-	background-color: #ccc;
-	color: #333;
+	background-color: #ee9ba6;
+	color: #fff;
 	border-style: none;
 	border-radius: 1em;
 	padding: 0.5em;
@@ -40,7 +40,7 @@
 
 .navbar__search__button:hover {
 	cursor: pointer;
-	background-color: #aaa;
+	background-color: #ef465c;
 }
 
 .navbar__search__button--expand {
@@ -90,17 +90,18 @@
 
 .dropdown__item {
 	text-align: center;
-	background-color: #eee;
+	background-color: #ee9ba6;
 	padding: 0.5em;
 	font-size: 1rem;
 	font-weight: bold;
-	color: #333;
+	color: #fff;
 	border: none;
+	text-decoration: none;
 }
 
 .dropdown__item:hover {
 	cursor: pointer;
-	color: #ef465c;
+	background-color: #ef465c;
 }
 @keyframes fadeIn {
 	from {

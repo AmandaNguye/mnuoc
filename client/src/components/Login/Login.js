@@ -26,10 +26,10 @@ export default function Login() {
 			payload
 		);
 		const dataUser = await responseUser.json();
-		if (dataUser.message == "Success") {
+		if (dataUser.message === "Success") {
 			console.log(`Logged in as user: ${dataUser.username}`);
 			localStorage.setItem("token", dataUser.token);
-			window.location.href = "/dashboard";
+			window.location.href = "/dashboard/home";
 			return;
 		}
 
@@ -38,8 +38,7 @@ export default function Login() {
 			payload
 		);
 		const dataAdmin = await responseAdmin.json();
-		console.log("here");
-		if (dataAdmin.message == "Success") {
+		if (dataAdmin.message === "Success") {
 			console.log(`Logged in as admin: ${dataUser.username}`);
 			localStorage.setItem("token", dataAdmin.token);
 			window.location.href = "/dashboard/home";
