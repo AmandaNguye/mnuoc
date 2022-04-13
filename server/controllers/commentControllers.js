@@ -43,7 +43,7 @@ exports.getCommentByPostId = async (req, res, next) => {
     let [comments, _] = await Comment.findByPostId(postId);
     for (i = 0; i < comments.length; i++) {
       let [positive, __] = await Comment.findLikesByCommentId(
-        comments[i].commentLike
+        comments[i].comment_id
       );
       let [negative, ___] = await Comment.findDislikesByCommentId(
         comments[i].comment_id
@@ -51,6 +51,25 @@ exports.getCommentByPostId = async (req, res, next) => {
       comments[i].likes = positive.length - negative.length;
     }
     res.status(200).json({ comments });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+exports.getCommentByCommentId = async (req, res, next) => {
+  try {
+    let commentId = req.params.cid;
+
+    let [comment, _] = await Comment.findByCommentId(commentId);
+    let [positive, __] = await Comment.findLikesByCommentId(
+      comment[0].comment_id
+    );
+    let [negative, ___] = await Comment.findDislikesByCommentId(
+      comment[0].comment_id
+    );
+    comment[0].likes = positive.length - negative.length;
+    res.status(200).json({ comment });
   } catch (error) {
     console.log(error);
     next(error);
