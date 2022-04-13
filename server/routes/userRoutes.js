@@ -7,11 +7,6 @@ const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 router.route("/").get(userControllers.getAllUser);
 
 router
-  .route("/byusername")
-  .delete(verifyJWT, userControllers.deleteUserByUsername)
-  .put(verifyJWT, userControllers.updateUserPasswordByUsername);
-
-router
   .route("/usercommunities")
   .get(verifyJWT, userControllers.findUserInCommunityByUsername)
   .post(verifyJWT, userControllers.addUserInCommunityByUsernameCommunity)

@@ -8,7 +8,6 @@ router
   .route("/")
   .post(verifyJWT, chatroomControllers.createNewChatroom)
   .get(verifyJWT, chatroomControllers.getAllChatroomsByUsername)
-  .delete(chatroomControllers.deleteChatroomByChatId)
-  .put(chatroomControllers.updateChatroomTitleByChatId);
+  .delete(chatroomControllers.deleteChatroomByChatId);
 
 module.exports = router;

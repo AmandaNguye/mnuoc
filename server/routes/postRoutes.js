@@ -16,27 +16,15 @@ router
   .put(postControllers.updatePostById);
 
 router
-  .route("/:id/likes")
-  .get(postControllers.findPostLikesById)
+  .route("/:id/like")
+  .get(postControllers.findPostLikesById) //username
   .post(verifyJWT, postControllers.addNewPostLikeByIdUsername)
   .delete(verifyJWT, postControllers.deletePostLikeByIdUsername);
 
 router
-  .route("/:id/dislikes")
-  .get(postControllers.findPostDislikesById)
+  .route("/:id/dislike")
+  .get(postControllers.findPostDislikesById) //username
   .post(verifyJWT, postControllers.addNewPostDislikeByIdUsername)
   .delete(verifyJWT, postControllers.deletePostDislikeByIdUsername);
-
-router
-  .route("/:id/tags")
-  .get(postControllers.findPostTagsById)
-  .post(postControllers.addNewPostTagById)
-  .delete(postControllers.deletePostTagById);
-
-router
-  .route("/:id/images")
-  .get(postControllers.findPostImagesById)
-  .post(postControllers.addNewPostImageById)
-  .delete(postControllers.deletePostImageById);
 
 module.exports = router;

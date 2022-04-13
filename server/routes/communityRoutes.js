@@ -13,11 +13,13 @@ router
   .get(communityControllers.getCommunityByCommunityName)
   .delete(communityControllers.deleteCommunityByCommunityName)
   .put(communityControllers.updateCommunityByCommunityName);
+
 router
   .route("/management")
   .get(communityControllers.getCommunityAdminsByCommunityName)
   .post(communityControllers.addCommunityAdminByCommunityNameAdmin)
   .delete(communityControllers.deleteCommunityAdminsByCommunityNameAdmin);
+
 router
   .route("/communityUsers")
   .get(communityControllers.getCommunityUsersByCommunityName)
