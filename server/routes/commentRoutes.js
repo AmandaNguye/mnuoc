@@ -17,13 +17,13 @@ router
 
 router
   .route("/:id/:cid/like")
-  .get(verifyJWT, commentControllers.findCommentLikeByUsername)
+  .get(verifyJWT, commentControllers.findCommentLikeByCommentIdUsername)
   .post(verifyJWT, commentControllers.addNewCommentLikeByCommentIdUsername) //add by username
   .delete(verifyJWT, commentControllers.deleteCommentLikeByCommentIdUsername);
 
 router
   .route("/:id/:cid/dislike")
-  .get(verifyJWT, commentControllers.findCommentDislikeByUsername) //add by username
+  .get(verifyJWT, commentControllers.findCommentDislikeByCommentIdUsername) //add by username
   .post(verifyJWT, commentControllers.addNewCommentDislikeByCommentIdUsername)
   .delete(
     verifyJWT,

@@ -8,6 +8,7 @@ router
   .route("/")
   .post(verifyJWT, postControllers.createNewPost)
   .get(postControllers.getAllPosts);
+
 router.route("/username").get(verifyJWT, postControllers.getAllPostsByUsername);
 
 router

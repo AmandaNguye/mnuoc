@@ -56,8 +56,8 @@ class Comment {
     return db.execute(sql);
   }
 
-  static findLikeByUsername(username) {
-    let sql = `SELECT * FROM comment_likes WHERE username = '${username}';`;
+  static findLikeByCommentIdUsername(id, username) {
+    let sql = `SELECT * FROM comment_likes WHERE comment_id = '${id}' AND username = '${username}';`;
     return db.execute(sql);
   }
 
@@ -80,8 +80,8 @@ class Comment {
     return db.execute(sql);
   }
 
-  static findDislikeByUsername(username) {
-    let sql = `SELECT * FROM comment_dislikes WHERE username = '${username}';`;
+  static findDislikeByCommentIdUsername(id, username) {
+    let sql = `SELECT * FROM comment_dislikes WHERE comment_id = '${id}' AND username = '${username}';`;
     return db.execute(sql);
   }
 
