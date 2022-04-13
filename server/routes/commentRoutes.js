@@ -10,7 +10,10 @@ router
   .post(verifyJWT, commentControllers.createNewComment)
   .get(commentControllers.getCommentByPostId);
 
-router.route("/:id/:cid").delete(commentControllers.deleteCommentByCommentId);
+router
+  .route("/:id/:cid")
+  .get(commentControllers.getCommentByCommentId)
+  .delete(commentControllers.deleteCommentByCommentId);
 
 router
   .route("/:id/:cid/like")

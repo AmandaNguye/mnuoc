@@ -15,6 +15,20 @@ exports.createNewPost = async (req, res, next) => {
   }
 };
 
+exports.getAllPosts = async (req, res, next) => {
+  try {
+    const [posts, _] = await Post.findAllPosts();
+    for (i = 0; i < posts.length; i++) {
+      posts[i].likes =
+        (await Post.findLikesById(posts[i].post_id)).length -
+        (await Post.findDislikesById(posts[i].post_id)).length;
+    }
+    res.status(200).json({ count: posts.length, posts });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 exports.getAllPostsByUsername = async (req, res, next) => {
   try {
     let username = req.user.username;
@@ -35,9 +49,9 @@ exports.getAllPostsByCommunity = async (req, res, next) => {
     let community = req.params.community;
     const [posts, _] = await Post.findAllByCommunity(community);
     for (i = 0; i < posts.length; i++) {
-      posts[i].likes =
-        (await Post.findLikesById(posts[i].post_id)).length -
-        (await Post.findDislikesById(posts[i].post_id)).length;
+      let [positive, __] = await Post.findLikesById(posts[i].post_id);
+      let [negative, ___] = await Post.findDislikesById(posts[i].post_id);
+      posts[i].likes = positive.length - negative.length;
     }
     res.status(200).json({ count: posts.length, posts });
   } catch (error) {
@@ -50,11 +64,11 @@ exports.getPostById = async (req, res, next) => {
   try {
     let postId = req.params.id;
 
-    let [post, _] = await Post.findById(postId);
+    const [post, _] = await Post.findById(postId);
 
-    post[0].likes =
-      (await Post.findLikesById(postId)).length -
-      (await Post.findDislikesById(postId)).length;
+    let [positive, __] = await Post.findLikesById(post[0].post_id);
+    let [negative, ___] = await Post.findDislikesById(post[0].post_id);
+    post[0].likes = positive.length - negative.length;
 
     res.status(200).json({ post });
   } catch (error) {

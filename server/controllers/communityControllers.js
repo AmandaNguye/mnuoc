@@ -27,7 +27,7 @@ exports.getAllCommunity = async (req, res, next) => {
 
 exports.getCommunityByCommunityName = async (req, res, next) => {
   try {
-    let { community_name } = req.body;
+    let community_name = req.params.community;
 
     let [community, _] = await Community.findByCommunityName(community_name);
 
@@ -40,7 +40,7 @@ exports.getCommunityByCommunityName = async (req, res, next) => {
 
 exports.deleteCommunityByCommunityName = async (req, res, next) => {
   try {
-    let { community_name } = req.body;
+    let community_name = req.params.community;
 
     let [community, _] = await Community.deleteByCommunityName(community_name);
 
@@ -53,7 +53,8 @@ exports.deleteCommunityByCommunityName = async (req, res, next) => {
 
 exports.updateCommunityByCommunityName = async (req, res, next) => {
   try {
-    let { community_name, description } = req.body;
+    let community_name = req.params.community;
+    let { description } = req.body;
 
     let [community, _] = await Community.updateDescriptionByCommunityName(
       community_name,
@@ -68,7 +69,7 @@ exports.updateCommunityByCommunityName = async (req, res, next) => {
 
 exports.getCommunityAdminsByCommunityName = async (req, res, next) => {
   try {
-    let { community_name } = req.body;
+    let community_name = req.params.community;
 
     let [management, _] = await Community.findAdminsByCommunityName(
       community_name
@@ -83,7 +84,9 @@ exports.getCommunityAdminsByCommunityName = async (req, res, next) => {
 
 exports.deleteCommunityAdminsByCommunityNameAdmin = async (req, res, next) => {
   try {
-    let { community_name, admin } = req.body;
+    let community_name = req.params.community;
+
+    let { admin } = req.body;
 
     let [management, _] = await Community.deleteAdminByCommunityNameAdmin(
       community_name,
@@ -99,14 +102,16 @@ exports.deleteCommunityAdminsByCommunityNameAdmin = async (req, res, next) => {
 
 exports.addCommunityAdminByCommunityNameAdmin = async (req, res, next) => {
   try {
-    let { community_name, admin } = req.body;
+    let community_name = req.params.community;
+
+    let { admin } = req.body;
 
     let [management, _] = await Community.addAdminByCommunityNameAdmin(
       community_name,
       admin
     );
 
-    res.status(201).json({ message: "management added.", community });
+    res.status(201).json({ message: "management added.", management });
   } catch (error) {
     console.log(error);
     next(error);
@@ -115,7 +120,7 @@ exports.addCommunityAdminByCommunityNameAdmin = async (req, res, next) => {
 
 exports.getCommunityUsersByCommunityName = async (req, res, next) => {
   try {
-    let { community_name } = req.body;
+    let community_name = req.params.community;
 
     let [in_community, _] = await Community.findUsersByCommunityName(
       community_name
@@ -130,7 +135,9 @@ exports.getCommunityUsersByCommunityName = async (req, res, next) => {
 
 exports.deleteCommunityUsersByCommunityNameUser = async (req, res, next) => {
   try {
-    let { community_name, username } = req.body;
+    let community_name = req.params.community;
+
+    let { username } = req.body;
 
     let [in_community, _] = await Community.deleteUserByCommunityNameUser(
       community_name,
@@ -146,7 +153,9 @@ exports.deleteCommunityUsersByCommunityNameUser = async (req, res, next) => {
 
 exports.addCommunityUserByCommunityNameUser = async (req, res, next) => {
   try {
-    let { community_name, username } = req.body;
+    let community_name = req.params.community;
+
+    let { username } = req.body;
 
     let [in_community, _] = await Community.addUserByCommunityNameUser(
       community_name,

@@ -35,6 +35,11 @@ class Comment {
     return db.execute(sql);
   }
 
+  static findByCommentId(id) {
+    let sql = `SELECT * FROM comment WHERE comment_id = '${id}';`;
+    return db.execute(sql);
+  }
+
   static deleteByCommentId(id) {
     let sql = `DELETE FROM comment WHERE comment_id = '${id}';`;
     return db.execute(sql);
