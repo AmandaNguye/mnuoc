@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const Profile = require("../models/Profile");
 
 //register
 exports.createNewUser = async (req, res, next) => {
@@ -24,6 +25,10 @@ exports.createNewUser = async (req, res, next) => {
         major
       );
       user = await user.save();
+
+      let profile = new Profile(username, tag, bio);
+      profile = await profile.save();
+
       res.status(201).json({ message: "user created.", user });
     }
   } catch (error) {

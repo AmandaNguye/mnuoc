@@ -43,6 +43,7 @@ exports.login = async (req, res, next) => {
         if (isCorrect) {
           const payload = {
             username: dbUser[0].username,
+            is_admin: true,
           };
           console.log(payload);
           jwt.sign(

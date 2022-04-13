@@ -4,27 +4,21 @@ const router = express.Router();
 const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /comments/
-router
-  .route("/")
-  .post(verifyJWT, commentControllers.createNewComment)
-  .get(verifyJWT, commentControllers.getAllCommentsByUsername);
+router.route("/").post(verifyJWT, commentControllers.createNewComment);
 
 router.route("/:id").get(commentControllers.getCommentByPostId);
 
-router
-  .route("/:id/:cid")
-  .delete(commentControllers.deleteCommentByCommentId)
-  .put(commentControllers.updateCommentByCommentId);
+router.route("/:id/:cid").delete(commentControllers.deleteCommentByCommentId);
 
 router
-  .route("/:id/:cid/likes")
+  .route("/:id/:cid/like")
   .get(commentControllers.findCommentLikesByCommentId)
-  .post(verifyJWT, commentControllers.addNewCommentLikeByCommentIdUsername)
+  .post(verifyJWT, commentControllers.addNewCommentLikeByCommentIdUsername) //add by username
   .delete(verifyJWT, commentControllers.deleteCommentLikeByCommentIdUsername);
 
 router
-  .route("/:id/:cid/dislikes")
-  .get(commentControllers.findCommentDislikesByCommentId)
+  .route("/:id/:cid/dislike")
+  .get(commentControllers.findCommentDislikesByCommentId) //add by username
   .post(verifyJWT, commentControllers.addNewCommentDislikeByCommentIdUsername)
   .delete(
     verifyJWT,
