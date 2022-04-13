@@ -15,6 +15,20 @@ exports.createNewPost = async (req, res, next) => {
   }
 };
 
+exports.getAllPosts = async (req, res, next) => {
+  try {
+    const [posts, _] = await Post.findAllPosts();
+    for (i = 0; i < posts.length; i++) {
+      posts[i].likes =
+        (await Post.findLikesById(posts[i].post_id)).length -
+        (await Post.findDislikesById(posts[i].post_id)).length;
+    }
+    res.status(200).json({ count: posts.length, posts });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 exports.getAllPostsByUsername = async (req, res, next) => {
   try {
     let username = req.user.username;

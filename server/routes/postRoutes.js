@@ -7,7 +7,8 @@ const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 router
   .route("/")
   .post(verifyJWT, postControllers.createNewPost)
-  .get(verifyJWT, postControllers.getAllPostsByUsername);
+  .get(postControllers.getAllPosts);
+router.route("/username").get(verifyJWT, postControllers.getAllPostsByUsername);
 
 router
   .route("/community/:community")

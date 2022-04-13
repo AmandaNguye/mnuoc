@@ -27,6 +27,11 @@ class Post {
   }
 
   //no need to create an instance to use static method
+  static findAllPosts() {
+    let sql = `SELECT * FROM post;`;
+    return db.execute(sql);
+  }
+
   static findAllByUsername(username) {
     let sql = `SELECT * FROM post WHERE username = '${username}';`;
     return db.execute(sql);
