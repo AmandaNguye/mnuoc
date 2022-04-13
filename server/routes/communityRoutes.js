@@ -9,19 +9,19 @@ router
   .get(communityControllers.getAllCommunity);
 
 router
-  .route("/bycommunityname")
+  .route("/:community")
   .get(communityControllers.getCommunityByCommunityName)
   .delete(communityControllers.deleteCommunityByCommunityName)
   .put(communityControllers.updateCommunityByCommunityName);
 
 router
-  .route("/management")
+  .route("/:community/admin")
   .get(communityControllers.getCommunityAdminsByCommunityName)
   .post(communityControllers.addCommunityAdminByCommunityNameAdmin)
   .delete(communityControllers.deleteCommunityAdminsByCommunityNameAdmin);
 
 router
-  .route("/communityusers")
+  .route("/:community/users")
   .get(communityControllers.getCommunityUsersByCommunityName)
   .post(communityControllers.addCommunityUserByCommunityNameUser)
   .delete(communityControllers.deleteCommunityUsersByCommunityNameUser);

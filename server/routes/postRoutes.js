@@ -3,13 +3,15 @@ const postControllers = require("../controllers/postControllers.js");
 const router = express.Router();
 const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
-//@route GET && POST - /posts/
+//@route GET && POST - /post/
 router
   .route("/")
   .post(verifyJWT, postControllers.createNewPost)
   .get(verifyJWT, postControllers.getAllPostsByUsername);
 
-router.route("/:community").get(postControllers.getAllPostsByCommunity);
+router
+  .route("/community/:community")
+  .get(postControllers.getAllPostsByCommunity);
 
 router
   .route("/:id")
