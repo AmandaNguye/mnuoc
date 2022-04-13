@@ -56,3 +56,18 @@
 	box-shadow: 0 0 0.5em 0 black;
 	transform: translateY(5px);
 }
+
+.login__body__toregister {
+	text-align: center;
+	color: #333;
+}
+
+.login__failed {
+	text-align: center;
+	font-size: 1.5rem;
+	color: #ef465c;
+}
+
+.invisible {
+	transition: 500ms ease-in-out;
+}
