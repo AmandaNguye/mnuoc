@@ -157,11 +157,11 @@ exports.deleteAdminManagementByUsername = async (req, res, next) => {
   try {
     let admin_username = req.user.username;
 
-    let { community_name } = req.body;
+    let { community } = req.body;
 
     let [management, _] = await Admin.deleteManagementByAdminUsernameCommunity(
       admin_username,
-      community_name
+      community
     );
 
     res.status(200).json({ message: "admin deleted.", management });

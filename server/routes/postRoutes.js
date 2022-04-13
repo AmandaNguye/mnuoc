@@ -9,6 +9,8 @@ router
   .post(verifyJWT, postControllers.createNewPost)
   .get(verifyJWT, postControllers.getAllPostsByUsername);
 
+router.route("/:community").get(postControllers.getAllPostsByCommunity);
+
 router
   .route("/:id")
   .get(postControllers.getPostById)
@@ -17,13 +19,13 @@ router
 
 router
   .route("/:id/like")
-  .get(postControllers.findPostLikeByUsername)
+  .get(verifyJWT, postControllers.findPostLikeByIdUsername)
   .post(verifyJWT, postControllers.addNewPostLikeByIdUsername)
   .delete(verifyJWT, postControllers.deletePostLikeByIdUsername);
 
 router
   .route("/:id/dislike")
-  .get(postControllers.findPostDislikeByUsername)
+  .get(verifyJWT, postControllers.findPostDislikeByIdUsername)
   .post(verifyJWT, postControllers.addNewPostDislikeByIdUsername)
   .delete(verifyJWT, postControllers.deletePostDislikeByIdUsername);
 

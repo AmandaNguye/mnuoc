@@ -80,7 +80,7 @@ class Comment {
     return db.execute(sql);
   }
 
-  static addDisikeByCommentIdUsername(id, username) {
+  static addDislikeByCommentIdUsername(id, username) {
     let sql = `INSERT INTO comment_dislikes(comment_id, username) VALUES ('${id}', '${username}');`;
 
     const newLike = db.execute(sql);

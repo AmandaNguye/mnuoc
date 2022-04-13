@@ -3,7 +3,8 @@ const Comment = require("../models/Comment");
 exports.createNewComment = async (req, res, next) => {
   try {
     let username = req.user.username;
-    let { post_id, text } = req.body;
+    let post_id = req.params.id;
+    let { text } = req.body;
     let comment = new Comment(post_id, text, username);
 
     comment = await comment.save();
@@ -21,8 +22,8 @@ exports.getAllCommentsByUsername = async (req, res, next) => {
     const [comments, _] = await Comment.findAllByUsername(username);
     for (i = 0; i < comments.length; i++) {
       comments[i].likes =
-        (await Comment.findLikesById(comments[i].comment_id)).length -
-        (await Comment.findDislikesById(comments[i].comment_id)).length;
+        (await Comment.findLikesByCommentId(comments[i].comment_id)).length -
+        (await Comment.findDislikesByCommentId(comments[i].comment_id)).length;
     }
     res.status(200).json({ comments });
   } catch (error) {
@@ -38,8 +39,8 @@ exports.getCommentByPostId = async (req, res, next) => {
     let [comments, _] = await Comment.findByPostId(postId);
     for (i = 0; i < comments.length; i++) {
       comments[i].likes =
-        (await Comment.findLikesById(comments[i].comment_id)).length -
-        (await Comment.findDislikesById(comments[i].comment_id)).length;
+        (await Comment.findLikesByCommentId(comments[i].comment_id)).length -
+        (await Comment.findDislikesByCommentId(comments[i].comment_id)).length;
     }
     res.status(200).json({ comments });
   } catch (error) {

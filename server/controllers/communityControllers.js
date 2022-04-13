@@ -55,7 +55,7 @@ exports.updateCommunityByCommunityName = async (req, res, next) => {
   try {
     let { community_name, description } = req.body;
 
-    let [community, _] = await Community.updateByCommunityName(
+    let [community, _] = await Community.updateDescriptionByCommunityName(
       community_name,
       description
     );
@@ -130,11 +130,11 @@ exports.getCommunityUsersByCommunityName = async (req, res, next) => {
 
 exports.deleteCommunityUsersByCommunityNameUser = async (req, res, next) => {
   try {
-    let { community_name, user } = req.body;
+    let { community_name, username } = req.body;
 
     let [in_community, _] = await Community.deleteUserByCommunityNameUser(
       community_name,
-      user
+      username
     );
 
     res.status(200).json({ message: "in_community deleted.", in_community });
@@ -146,11 +146,11 @@ exports.deleteCommunityUsersByCommunityNameUser = async (req, res, next) => {
 
 exports.addCommunityUserByCommunityNameUser = async (req, res, next) => {
   try {
-    let { community_name, user } = req.body;
+    let { community_name, username } = req.body;
 
     let [in_community, _] = await Community.addUserByCommunityNameUser(
       community_name,
-      user
+      username
     );
 
     res.status(201).json({ message: "in_community added.", in_community });
