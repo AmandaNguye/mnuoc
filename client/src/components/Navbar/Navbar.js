@@ -14,7 +14,7 @@ export default function Navbar({ loggedIn }) {
 	return (
 		<div>
 			<nav className="navbar">
-				<Link className="navbar__home" to="/dashboard">
+				<Link className="navbar__home" to={loggedIn ? "/dashboard" : "/"}>
 					<img
 						src={HomeButton}
 						alt=""
