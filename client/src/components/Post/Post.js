@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { FaThumbsUp, FaThumbsDown, FaTrashAlt } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
 import Comment from "../Comment/Comment";
-import Chat from "../Chat/Chat";
 import { colorList, hash } from "../../colorList";
 import "./Post.css";
 export default function Post() {

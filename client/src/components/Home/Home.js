@@ -4,6 +4,8 @@ import Logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+	localStorage.removeItem("username");
+	localStorage.removeItem("token");
 	return (
 		<section className="home">
 			<img className="home__logo" src={Logo} alt="" />

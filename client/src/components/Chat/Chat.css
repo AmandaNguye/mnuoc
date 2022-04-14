@@ -93,6 +93,8 @@
 	border-right: 1px solid black;
 	display: flex;
 	flex-direction: column;
+	overflow-y: auto;
+	padding-bottom: 2em;
 }
 
 .chat__open__contacts__item {
@@ -132,7 +134,7 @@
 	background-color: #fff;
 	display: flex;
 	height: 70.3vh;
-	overflow-y: scroll;
+	overflow-y: auto;
 	flex-direction: column;
 	gap: 0.5em;
 	padding: 1em;
