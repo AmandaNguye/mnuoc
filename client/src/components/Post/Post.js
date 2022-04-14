@@ -11,11 +11,12 @@ export default function Post() {
 	const [comments, setComments] = useState([]);
 	const [liked, setLiked] = useState(false);
 	const [disliked, setDisliked] = useState(false);
+	const [commentText, setCommentText] = useState("");
 	const primaryColor = colorList[hash(id)];
 
 	useEffect(async () => {
 		loadPost();
-		loadComment();
+		loadComments();
 		loadRating();
 	}, []);
 
@@ -37,7 +38,7 @@ export default function Post() {
 		}
 	};
 
-	const loadComment = async () => {
+	const loadComments = async () => {
 		const payload = {
 			method: "GET",
 			headers: {
@@ -46,7 +47,8 @@ export default function Post() {
 		};
 		try {
 			const response = await fetch(
-				`https://meanduofcdatabase.herokuapp.com/comment/${id}`
+				`https://meanduofcdatabase.herokuapp.com/comment/${id}`,
+				payload
 			);
 			setComments((await response.json()).comments);
 		} catch (error) {
@@ -79,6 +81,33 @@ export default function Post() {
 			if ((await response.json()).dislikes.length != 0) {
 				setDisliked(true);
 				return;
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const createComment = async (e) => {
+		e.preventDefault();
+		setCommentText("");
+		const payload = {
+			method: "POST",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+			body: JSON.stringify({
+				text: commentText,
+			}),
+		};
+		try {
+			const response = await fetch(
+				`https://meanduofcdatabase.herokuapp.com/comment/${id}`,
+				payload
+			);
+			if (response.ok) {
+				console.log(response);
+				loadComments();
 			}
 		} catch (error) {
 			console.error(error);
@@ -161,9 +190,11 @@ export default function Post() {
 	const commentList = comments.map((comment) => (
 		<Comment
 			key={comment.comment_id}
-			id={comment.comment_id}
+			comment_id={comment.comment_id}
+			post_id={comment.post_id}
 			likes={comment.likes}
 			poster={comment.username}
+			loadComments={loadComments}
 		>
 			{comment.text}
 		</Comment>
@@ -219,7 +250,7 @@ export default function Post() {
 				<div className="post__comments">
 					<form
 						className="post__comments__form"
-						onSubmit={() => console.log("here")}
+						onSubmit={(e) => createComment(e)}
 					>
 						<h2
 							className="post__comments__form__title"
@@ -232,8 +263,14 @@ export default function Post() {
 							type="text"
 							name=""
 							id=""
+							value={commentText}
+							onChange={(e) => setCommentText(e.target.value)}
 						/>
-						<button className="post__comments__form__submit" type="submit">
+						<button
+							className="post__comments__form__submit"
+							type="submit"
+							disabled={commentText === ""}
+						>
 							Submit
 						</button>
 					</form>

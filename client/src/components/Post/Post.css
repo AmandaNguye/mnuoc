@@ -82,6 +82,10 @@
 	border: none;
 }
 
+.post__comments__form__submit:disabled {
+	pointer-events: none;
+}
+
 .post__comments__form__submit:hover {
 	cursor: pointer;
 	background-color: #aaa;

@@ -14,6 +14,18 @@
 	gap: 0.5em;
 }
 
+.comment__ratings__button:hover {
+	cursor: pointer;
+}
+
 .comment__body {
 	padding: 1em;
+}
+
+.comment__delete {
+	margin-left: auto;
+	font-size: 1.5rem;
+	align-self: center;
+	margin-right: 1em;
+	opacity: 30%;
 }
