@@ -7,6 +7,7 @@ import { colorList, hash } from "../../colorList";
 import "./Post.css";
 export default function Post() {
 	const { id } = useParams();
+	const user = localStorage.getItem("username");
 	const [postData, setPostData] = useState({});
 	const [comments, setComments] = useState([]);
 	const [liked, setLiked] = useState(false);
@@ -108,6 +109,27 @@ export default function Post() {
 			if (response.ok) {
 				console.log(response);
 				loadComments();
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const handlePostDelete = async () => {
+		const payload = {
+			method: "DELETE",
+			headers: {
+				"Content-type": "application/json",
+			},
+		};
+		try {
+			const response = await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}`,
+				payload
+			);
+			if (response.ok) {
+				loadPost();
+				window.location.href = "/dashboard/home";
 			}
 		} catch (error) {
 			console.error(error);
@@ -218,9 +240,11 @@ export default function Post() {
 						<div className="post__top__footer__community">
 							Community: {postData.community}
 						</div>
-						<div className="post__top__footer__delete">
-							<FaTrashAlt />
-						</div>
+						{user === postData.username && (
+							<div className="post__top__footer__delete">
+								<FaTrashAlt onClick={() => handlePostDelete()} />
+							</div>
+						)}
 						<div className="post__top__footer__rating">
 							<FaArrowUp
 								className="post__top__footer__button"

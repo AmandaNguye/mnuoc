@@ -81,6 +81,25 @@ export default function Comment(props) {
 		loadComments();
 	};
 
+	const handleDelete = async () => {
+		const payload = {
+			method: "DELETE",
+			headers: {
+				"Content-type": "application/json",
+			},
+		};
+		try {
+			const response = await fetch(
+				`https://meanduofcdatabase.herokuapp.com/comment/${post_id}/${comment_id}`,
+				payload
+			);
+			if (response.ok) {
+				loadComments();
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
 	return (
 		<div className="comment">
 			<div className="comment___ratings">
@@ -109,9 +128,15 @@ export default function Comment(props) {
 			</div>
 			<div className="comment__body">
 				<b>{poster}: </b>
+				<br />
 				{props.children}
 			</div>
-			{user === poster && <FaTrashAlt className="comment__delete" />}
+			{user === poster && (
+				<FaTrashAlt
+					className="comment__delete"
+					onClick={() => handleDelete()}
+				/>
+			)}
 		</div>
 	);
 }
