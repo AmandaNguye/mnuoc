@@ -6,6 +6,12 @@ import "./Profile.css";
 export default function Profile() {
 	const [pageType, setPageType] = useState("posts");
 
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		localStorage.removeItem("username");
+		window.location.href = "/";
+	};
+
 	return (
 		<div className="container">
 			<Navbar loggedIn={true} />
@@ -34,7 +40,8 @@ export default function Profile() {
 					<input
 						type="button"
 						className="profile__sidebar__logout"
-						value={"logout"}
+						value={"LOGOUT"}
+						onClick={handleLogout}
 					/>
 				</aside>
 				<section className="profile__body">
