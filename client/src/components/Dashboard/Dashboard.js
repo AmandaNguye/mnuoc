@@ -5,6 +5,7 @@ import PostCard from "./PostCard/PostCard";
 import "./Dashboard.css";
 import Postform from "./PostForm/Postform";
 import { colorList, hash } from "../../colorList";
+import ManagementForm from "./ManageForm/ManagementForm";
 
 export default function Dashboard() {
 	const homeState = {
@@ -12,10 +13,12 @@ export default function Dashboard() {
 		description: "Welcome to Me & U Calgary",
 	};
 	const { id } = useParams();
+	const isAdmin = localStorage.getItem("isAdmin") == "true";
 	const [communities, setCommunities] = useState([]);
 	const [currentCommunity, setCurrentCommunity] = useState(homeState);
 	const [posts, setPosts] = useState([]);
 	const [popup, setPopup] = useState(false);
+	const [managementPopup, setManagementPopup] = useState(false);
 
 	const handlePopupOpen = () => {
 		setPopup(() => true);
@@ -25,6 +28,17 @@ export default function Dashboard() {
 	const handlePopupClose = (e) => {
 		e.preventDefault();
 		setPopup(() => false);
+		document.body.style.overflow = "auto";
+	};
+
+	const handleManagementPopupOpen = () => {
+		setManagementPopup(() => true);
+		document.body.style.overflow = "hidden";
+	};
+
+	const handleManagementPopupClose = (e) => {
+		e.preventDefault();
+		setManagementPopup(() => false);
 		document.body.style.overflow = "auto";
 	};
 
@@ -58,7 +72,7 @@ export default function Dashboard() {
 		document.body.style.overflow = "auto";
 	};
 
-	const loadCommunities = async () => {
+	const loadCommunitiesUser = async () => {
 		const payload = {
 			method: "GET",
 			headers: {
@@ -72,6 +86,26 @@ export default function Dashboard() {
 				payload
 			);
 			const allCommunities = (await response.json()).userCommunities;
+			setCommunities(allCommunities);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const loadCommunitiesAdmin = async () => {
+		const payload = {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+		};
+		try {
+			const response = await fetch(
+				"https://meanduofcdatabase.herokuapp.com/admin/management",
+				payload
+			);
+			const allCommunities = (await response.json()).adminCommunities;
 			setCommunities(allCommunities);
 		} catch (error) {
 			console.error(error);
@@ -127,7 +161,8 @@ export default function Dashboard() {
 	//initialization
 	useEffect(async () => {
 		loadCurrentCommunity();
-		loadCommunities();
+		if (isAdmin) loadCommunitiesAdmin();
+		else loadCommunitiesUser();
 	}, []);
 
 	useEffect(() => {
@@ -165,17 +200,32 @@ export default function Dashboard() {
 							{currentCommunity.description}
 						</h3>
 						{currentCommunity.community_name !== homeState.community_name && (
-							<input
-								className="dashboard__top__toggle"
-								type="button"
-								value="MAKE POST"
-								onClick={() => handlePopupOpen()}
-							/>
+							<>
+								<input
+									className="dashboard__top__toggle"
+									type="button"
+									value="MAKE POST"
+									onClick={() => handlePopupOpen()}
+								/>
+								{isAdmin && (
+									<input
+										className="dashboard__top__toggle"
+										type="button"
+										value="MANAGE"
+										onClick={() => handleManagementPopupOpen()}
+									/>
+								)}
+							</>
 						)}
 						<Postform
 							trigger={popup}
 							handlePopupClose={handlePopupClose}
 							handleSubmit={handleSubmit}
+						/>
+						<ManagementForm
+							trigger={managementPopup}
+							handlePopupClose={handleManagementPopupClose}
+							currentCommunity={currentCommunity}
 						/>
 					</div>
 				)}

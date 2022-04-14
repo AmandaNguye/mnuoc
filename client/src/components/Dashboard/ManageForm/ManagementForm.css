@@ -11,7 +11,7 @@
 	place-items: center;
 }
 
-.postform {
+.managementform {
 	background-color: #fff;
 	position: fixed;
 	display: flex;
@@ -22,22 +22,22 @@
 	box-shadow: 0 0 0.2em 0 black;
 }
 
-.postform__info {
+.managementform__info {
 	text-align: center;
 	box-shadow: 0 0.05em 0.05em 0 black;
 	padding: 1em;
 }
 
-.postform__header {
+.managementform__header {
 	background-color: black;
 	display: flex;
 }
 
-.postform__title {
+.managementform__title {
 	padding: 1em;
 }
 
-.postform__title__input {
+.managementform__title__input {
 	width: 100%;
 	padding: 0.5em;
 	height: 5ch;
@@ -45,24 +45,12 @@
 	font-weight: bold;
 }
 
-.postform__body {
-	padding: 1em;
-}
-
-.postform__body__input {
-	padding: 0.5em;
-	width: 100%;
-	resize: vertical;
-	min-height: 25ch;
-	max-height: 50ch;
-}
-
-.postform__text {
+.managementform__text {
 	margin-bottom: 0.2em;
 	color: #ef465c;
 }
 
-.postform__close {
+.managementform__close {
 	background-color: #333;
 	color: #fff;
 	padding: 0.5em 1em;
@@ -70,7 +58,7 @@
 	border: none;
 }
 
-.postform__submit {
+.managementform__submit {
 	width: 50%;
 	align-self: center;
 	padding: 1em;
@@ -79,14 +67,34 @@
 	border-radius: 0.5em;
 }
 
-.postform__submit:hover {
+.managementform__submit:hover {
 	cursor: pointer;
 	background-color: #ef465c;
 	color: #fff;
 }
 
-.postform__close:hover {
+.managementform__close:hover {
+	cursor: pointer;
 	background-color: red;
 	color: #fff;
+}
+
+.lookup__dropdown--com {
+	position: fixed;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
+.lookup__dropdown__item--com {
+	background-color: #fff;
+	padding: 0.2em;
+}
+
+.lookup__dropdown__item--com:hover {
+	/* background-color: #ef465c; */
 	cursor: pointer;
+	background-color: lightcoral;
 }
