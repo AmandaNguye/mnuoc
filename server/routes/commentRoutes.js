@@ -4,6 +4,9 @@ const router = express.Router();
 const verifyJWT = require("../controllers/verifyJWT").verifyJWT;
 
 //@route GET && POST - /comments/
+router
+  .route("/username")
+  .get(verifyJWT, commentControllers.getAllCommentsByUsername);
 
 router
   .route("/:id")
