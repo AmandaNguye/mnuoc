@@ -1,0 +1,6516 @@
+{
+	"info": {
+		"_postman_id": "c589cf4b-35bc-4639-95bb-ac984365af30",
+		"name": "MeAndUofC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"newuser\",\r\n    \"password\" : \"password\",\r\n    \"email\": \"newuser@email.ca\",\r\n    \"major\": \"Software Engineering\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/user/register",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				},
+				"description": "Registers a new user.\n\nInserts into user table."
+			},
+			"response": [
+				{
+					"name": "/user/register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"newuser\",\r\n    \"password\" : \"password\",\r\n    \"email\": \"newuser@email.ca\",\r\n    \"major\": \"Software Engineering\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user/register",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "133"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"85-+OYxblC21wlMmrKQjWzOO0ZtcPw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 10:06:04 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user created.\",\n    \"user\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"info\": \"\",\n            \"serverStatus\": 2,\n            \"warningStatus\": 0\n        },\n        null\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/user/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"newuser\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/user/login",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				},
+				"description": "Logs in existing users to return an x-access-token."
+			},
+			"response": [
+				{
+					"name": "/user/login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"newuser\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user/login",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "216"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"d8-PMxXy26uaqfvHj6Tav9q5exFvbk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 10:06:32 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Success\",\n    \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXIiLCJpYXQiOjE2NDk4NDQzOTIsImV4cCI6MTY0OTkzMDc5Mn0.QpXJqJaowdOTHXfcFmMIbkyiA18rE1GSo_gbkRJcG4c\",\n    \"username\": \"newuser\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/user",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user"
+					]
+				},
+				"description": "Gets all users in database."
+			},
+			"response": [
+				{
+					"name": "/user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1898"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"76a-zxeIGFs3rxGuEvp9AnPqb9dRy1c\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 10:06:41 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 13,\n    \"user\": [\n        {\n            \"username\": \"a\",\n            \"password\": \"$2a$10$gOWCec0zfPI6rT/nTpmy3OGddij5Soq0emw.KuPWX/jB9ABRkqdu.\",\n            \"email\": \"a@a\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"bob\",\n            \"password\": \"$2a$10$ZTi/N597mi4IhnuF9B7W1.0FFGwHt1dFaZ8rmHmQrUuq9ZxrKHRqW\",\n            \"email\": \"bobthebuilder@gmail.com\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"byler\",\n            \"password\": \"$2a$10$bp2i5CcwomlgKKFpa.zA2.EXmiRSL/JLDYNYRZW3da.yl0b8Jf/kq\",\n            \"email\": \"byler@email.com\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"dat\",\n            \"password\": \"$2a$10$KnDisA8IZMhY.HIgDv/NmOLNitbPiOQ749P25O4OSj3QqBmMIkhm6\",\n            \"email\": \"dat@gmail.com\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"kyler\",\n            \"password\": \"$2a$10$EBlWRZdlLwoe9S5JaqRaieSanTIq.SCg446SHRzwiRFkVL/mXYcE2\",\n            \"email\": \"kyler@email.com\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"myler\",\n            \"password\": \"$2a$10$V4qzJOwXR4uvjq0iwhF9LeCfqkdKyuxx9Es8gORq7kPVlJo9/Yjc6\",\n            \"email\": \"myler@email.com\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"newuser\",\n            \"password\": \"$2a$10$EzTO38Q6FccvmjP3W/kr1eqACAFcD0gvaOoK8.ld6gdb2Z7AtHzce\",\n            \"email\": \"newuser@email.ca\",\n            \"major\": \"Software Engineering\"\n        },\n        {\n            \"username\": \"s\",\n            \"password\": \"$2a$10$YTwrYqQtinJf9RrmeStRNue00i8xLZa4lpkeUvt/CZAF3GTkR/hDy\",\n            \"email\": \"s@s\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"tokenexample\",\n            \"password\": \"$2a$10$yVdvPar5wXo88Ny6wqfP0uMt8PGypUeedUWf9Z8ofr1o79IrNaFM2\",\n            \"email\": \"tokenexample@email.ca\",\n            \"major\": \"Software Engineering\"\n        },\n        {\n            \"username\": \"tyler\",\n            \"password\": \"$2a$10$JwPo2huSAJkmPtkl34kKOOznBI.UlIl16dUpWq3VCQUVF5yrw0dLm\",\n            \"email\": \"tyler@email.com\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"username\",\n            \"password\": \"$2a$10$nunz1Qplw5zIfxq97Ruw6OrjpvwMLhuyTrFfueP4ssROWX3r/ScIO\",\n            \"email\": \"email@email.ca\",\n            \"major\": \"undefined\"\n        },\n        {\n            \"username\": \"username11\",\n            \"password\": \"$2a$10$CLw7810/a./hRKv0E3HXguUTb5PqmqsGXlcp6RqnRqOjzZPVOL0vu\",\n            \"email\": \"email11@email.ca\",\n            \"major\": \"Software Engineering\"\n        },\n        {\n            \"username\": \"username12\",\n            \"password\": \"$2a$10$E6gLXniCm/iJt9z1bL1VSuAQidXQGmCoEbdgGT11XWZPQMDY5Ifja\",\n            \"email\": \"email12@email.ca\",\n            \"major\": \"Software Engineering\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/user/isUserAuth",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/user/isUserAuth",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"isUserAuth"
+					]
+				},
+				"description": "Returns if there is an existing token to indicate a user is logged in."
+			},
+			"response": [
+				{
+					"name": "/user/isUserAuth",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user/isUserAuth",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"isUserAuth"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2d-JxG6raLBbmtfPQ3bRSRwSItoidk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:00:08 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"isLoggedIn\": true,\n    \"username\": \"tokenexample\"\n}"
+				},
+				{
+					"name": "/user/isUserAuth",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user/isUserAuth",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"isUserAuth"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"36-UyGrAMR2liNC8sM3Chen3dVicRA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:10:27 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Incorrect Token Given\",\n    \"isLoggedIn\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "/user/usercommunities",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"community\" : \"SENG471\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/user/usercommunities",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"usercommunities"
+					]
+				},
+				"description": "Adds a user to a community.\n\nInserts into the in_community table."
+			},
+			"response": [
+				{
+					"name": "/user/usercommunities",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"community\" : \"SENG471\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user/usercommunities",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"usercommunities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "144"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"90-Fx6JO4+6jA1LJmxZcNsIs8qlVhQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 16:54:17 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"in_community created.\",\n    \"newInCommunity\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/user/usercommunities",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/user/usercommunities",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"usercommunities"
+					]
+				},
+				"description": "Finds a user in a community.\n\nSelects from in_community table."
+			},
+			"response": [
+				{
+					"name": "/user/usercommunities",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user/usercommunities",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"usercommunities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "131"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"83-dB06S9j/b6dQ/LHqC/Z6vAT2XB4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 16:54:38 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userCommunities\": [\n        {\n            \"username\": \"tokenexample\",\n            \"community_name\": \"CPSC471\"\n        },\n        {\n            \"username\": \"tokenexample\",\n            \"community_name\": \"SENG471\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/user/usercommunities",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"community\" : \"SENG471\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/user/usercommunities",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"usercommunities"
+					]
+				},
+				"description": "Removes a user from a community.\n\nDeletes tuple from the in_community table."
+			},
+			"response": [
+				{
+					"name": "/user/usercommunities",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"community\" : \"CPSC471\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/user/usercommunities",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user",
+								"usercommunities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8e-mq61sCIR/d0n6EDF4SVCXsrQ/0I\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 16:48:27 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"in_community deleted.\",\n    \"in_community\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 0,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/profile",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tag\" : \"boathaxhuechloeekaloo\",\r\n    \"bio\" : \"im not like other girls\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/profile",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/profile",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tag\" : \"boathaxhuechloeekaloo\",\r\n    \"bio\" : \"im not like other girls\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/profile",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "160"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"a0-mYEEQwzqXBLk/z5/3WwOmwWY1MM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:00:32 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"profile\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"(Rows matched: 1  Changed: 0  Warnings: 0\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0,\n        \"changedRows\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/profile",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/profile",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/profile",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"67-GWkrFHcKFK9POLF6AKe7vbgAEuo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:00:39 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"profile\": [\n        {\n            \"username\": \"tokenexample\",\n            \"tag\": \"boathaxhuechloeekaloo\",\n            \"bio\": \"im not like other girls\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/admin/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin1\",\r\n    \"email\": \"admin1@admin.ca\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/admin/register",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"admin",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/admin/register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\",\r\n    \"email\": \"admin@admin.ca\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/admin/register",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2e-ufzGN9hatMTvSui8w+kQPao7SXk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:00:58 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Username has already been taken.\"\n}"
+				},
+				{
+					"name": "/admin/register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin1\",\r\n    \"email\": \"admin1@admin.ca\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/admin/register",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "135"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"87-JHnq0BUnfIZIgNQaliINSpkun2Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:01:13 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"admin created.\",\n    \"admin\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"info\": \"\",\n            \"serverStatus\": 2,\n            \"warningStatus\": 0\n        },\n        null\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/admin/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admintoken\",\r\n    \"password\": \"admintoken\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/admin/login",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"admin",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/admin/login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admintoken\",\r\n    \"password\": \"admintoken\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/admin/login",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "244"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"f4-uZVJmhnuYuxLQ1pkGgLk77OTqzg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:01:23 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Success\",\n    \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWludG9rZW4iLCJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ5ODY5MjgzLCJleHAiOjE2NDk5NTU2ODN9.Ebj7CMzx3cynIddxbGw6Gcf5JHFi-EfVy9KYoKJWyhw\",\n    \"username\": \"admintoken\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/admin",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{admin token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/admin",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"admin"
+					]
+				},
+				"description": "Gets an admin by username.\n\nSelects from admin table."
+			},
+			"response": [
+				{
+					"name": "/admin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/admin",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "151"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"97-iSqVv5LqxLwXxlJofuJYF2dX7RY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:02:00 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1,\n    \"admin\": [\n        {\n            \"username\": \"admintoken\",\n            \"password\": \"$2a$10$YVDGPyOJ8LZkrEuCLah0DOxJItahhTkhOtnGryAmUXtOQmHH.a4AC\",\n            \"email\": \"admintoken@admin.ca\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/admin/management",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{admin token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"community\": \"CPSC471\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/admin/management",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"admin",
+						"management"
+					]
+				},
+				"description": "Adds admin's management of communities.\n\nInserts into management table."
+			},
+			"response": [
+				{
+					"name": "/admin/management",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"community\": \"CPSC471\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/admin/management",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin",
+								"management"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8d-o/7XmNV1kHqQZcwqrE2uxv6osJI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:02:08 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"management created.\",\n    \"newManagement\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/admin/management",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{admin token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/admin/management",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"admin",
+						"management"
+					]
+				},
+				"description": "Finds admin's community management relationships by admin username.\n\nSelects from management table."
+			},
+			"response": [
+				{
+					"name": "/admin/management",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/admin/management",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin",
+								"management"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"51-K+qXYAItuD8QU2x4lbnzb5LhF9Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:02:15 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"adminCommunities\": [\n        {\n            \"community_name\": \"CPSC471\",\n            \"admin_username\": \"admintoken\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/admin/management",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{admin token}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"community\": \"CPSC471\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/admin/management",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"admin",
+						"management"
+					]
+				},
+				"description": "Removes admin's mangaement of a community.\n\nDeletes from management table."
+			},
+			"response": [
+				{
+					"name": "/admin/management",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"community\": \"CPSC471\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/admin/management",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin",
+								"management"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "133"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"85-YxYlG+9cTHB+w2VT3S+Y21igUS4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:02:20 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"admin deleted.\",\n    \"management\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/community",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"community_name\" : \"ENGG200\",\r\n    \"description\" : \"Software Requirements\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"community_name\" : \"SENG471\",\r\n    \"description\" : \"Software Requirements\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8f-S2aw6LJlYGsUOfq3awq97cXGcQA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 10:03:41 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"community created.\",\n    \"community\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"info\": \"\",\n            \"serverStatus\": 2,\n            \"warningStatus\": 0\n        },\n        null\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/community",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "354"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"162-QJodyXlpWmWZT7Jhhx7NPQeX1M8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 10:03:58 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 5,\n    \"community\": [\n        {\n            \"community_name\": \"CPSC471\",\n            \"description\": \"Database Design\"\n        },\n        {\n            \"community_name\": \"SENG 401\",\n            \"description\": \"worse kind of community\"\n        },\n        {\n            \"community_name\": \"SENG 431\",\n            \"description\": \"meh worse kind of community\"\n        },\n        {\n            \"community_name\": \"SENG471\",\n            \"description\": \"Software Requirements\"\n        },\n        {\n            \"community_name\": \"undefined\",\n            \"description\": \"undefined\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"6b-lE1SjL12EsMMbLrrSOeWZjGktKo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:53:44 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"community\": [\n        {\n            \"community_name\": \"CPSC471\",\n            \"description\": \"Database Design - additional info can be added\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "ENGG200"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "ENGG200"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "136"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"88-jAxd68IVdCHRsf5TW1pLiOPi3v8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:55:58 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"community deleted.\",\n    \"community\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\" : \"Database Design - additional info can be added\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/bycommunityname",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\" : \"Database Design - additional info can be added\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "162"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"a2-uSdmIgGHPbSk8WMRUMzXQKVhwGY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:56:23 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"community\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"(Rows matched: 1  Changed: 0  Warnings: 0\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0,\n        \"changedRows\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/users",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community",
+						"users"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community/users",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/users",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "140"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8c-Zpw+4A5nEW0VI4xuu/lVF+3X6XE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:02:22 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"in_community added.\",\n    \"in_community\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/users",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community",
+						"users"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community/users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/users",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "257"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"101-jC815DL4PZPLrXY1S+eDUsMKHGM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:01:03 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"in_community\": [\n        {\n            \"username\": \"a\",\n            \"community_name\": \"CPSC471\"\n        },\n        {\n            \"username\": \"bob\",\n            \"community_name\": \"CPSC471\"\n        },\n        {\n            \"username\": \"dat\",\n            \"community_name\": \"CPSC471\"\n        },\n        {\n            \"username\": \"myler\",\n            \"community_name\": \"CPSC471\"\n        },\n        {\n            \"username\": \"tokenexample\",\n            \"community_name\": \"CPSC471\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community/users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"a\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/users",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community",
+						"users"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community/users",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/users",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8e-E3fxVVfP2IcwzQ7zu41C6RkujnY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:02:06 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"in_community deleted.\",\n    \"in_community\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community/admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"admin\" : \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/admin",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community",
+						"admin"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community/admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"admin\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/admin",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community",
+								"admin"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "136"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"88-/7rQq6If69Ryox7BE5IUbvKvmS4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:05:15 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"management added.\",\n    \"management\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community/admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/admin",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community",
+						"admin"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community/admin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/admin",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community",
+								"admin"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"46-13UVS/0I/OYAp8nU/0Bis3JRKg8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:05:27 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"management\": [\n        {\n            \"community_name\": \"CPSC471\",\n            \"admin_username\": \"admin\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/community/:community/admin",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"admin\" : \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/admin",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"community",
+						":community",
+						"admin"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/community/:community/admin",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"admin\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/community/:community/admin",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"community",
+								":community",
+								"admin"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "138"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8a-a9epwOCivjRt3gwenJM91g5y9LI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:05:49 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"management deleted.\",\n    \"management\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/chatroom",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user2\":\"username\",\r\n    \"title\":\"bestie chat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/chatroom",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"chatroom"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/chatroom",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user2\":\"username\",\r\n    \"title\":\"bestie chat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/chatroom",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"chatroom"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8e-79EUNgREd7sD2aEfYQ/ZrQs8B0o\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:23:29 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"chatroom created.\",\n    \"chatroom\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 24,\n            \"info\": \"\",\n            \"serverStatus\": 2,\n            \"warningStatus\": 0\n        },\n        null\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/chatroom",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/chatroom",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"chatroom"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/chatroom",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/chatroom",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"chatroom"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"5d-Cj6QvDKb8j/48vMYvGs1otPRf30\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:24:44 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"chatroom\": [\n        {\n            \"chat_id\": 14,\n            \"title\": \"bestie chat\",\n            \"user1\": \"tokenexample\",\n            \"user2\": \"username\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/chatroom",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/chatroom/:chid",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"chatroom",
+						":chid"
+					],
+					"variable": [
+						{
+							"key": "chid",
+							"value": "24"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/chatroom",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/chatroom/:chid",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"chatroom",
+								":chid"
+							],
+							"variable": [
+								{
+									"key": "chid",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"86-x/ItfG521LYe1RS2O2UqRUS3sUc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:23:58 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"chatroom deleted.\",\n    \"chatroom\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/message/:chid",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\" : \"i am going to die\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/message/:chid",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"message",
+						":chid"
+					],
+					"variable": [
+						{
+							"key": "chid",
+							"value": "14",
+							"description": "chatroom id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/message/:chid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\" : \"i am going to die\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/message/:chid",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								":chid"
+							],
+							"variable": [
+								{
+									"key": "chid",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "111"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"6f-RcMKcRYgOBqFuYCID43io1P5nDs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:27:04 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 14,\n            \"info\": \"\",\n            \"serverStatus\": 2,\n            \"warningStatus\": 0\n        },\n        null\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/message/:chid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/message/:chid",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"message",
+						":chid"
+					],
+					"variable": [
+						{
+							"key": "chid",
+							"value": "14",
+							"description": "chatroom id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/message/:chid",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/message/:chid",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"message",
+								":chid"
+							],
+							"variable": [
+								{
+									"key": "chid",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "264"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"108-n6XpZ+6TekjJSlbmcR3kYwDyrgU\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:27:08 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": [\n        {\n            \"message_id\": 4,\n            \"chat_id\": 14,\n            \"text\": \"i am going to die\",\n            \"username\": \"tokenexample\",\n            \"time_created\": \"2022-04-13T04:24:46.000Z\"\n        },\n        {\n            \"message_id\": 14,\n            \"chat_id\": 14,\n            \"text\": \"i am going to die\",\n            \"username\": \"tokenexample\",\n            \"time_created\": \"2022-04-13T17:27:04.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"ran outta toilet paper\",\r\n    \"text\" : \"send help please\",\r\n    \"community\": \"CPSC471\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"ran outta toilet paper\",\r\n    \"text\" : \"send help please\",\r\n    \"community\": \"CPSC471\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"86-NgbK4DFwpRF9DTNHFyRawqvZ+Hk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:27:16 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Post created.\",\n    \"post\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 34,\n            \"info\": \"\",\n            \"serverStatus\": 2,\n            \"warningStatus\": 0\n        },\n        null\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "377"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"179-q2ubRAi2kP4b+exa0gzV+VSe4h0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 19:54:55 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 2,\n    \"posts\": [\n        {\n            \"post_id\": 14,\n            \"title\": \"ran outta toilet paper [UPDATE]\",\n            \"text\": \"i got some, thank you :)\",\n            \"username\": \"bob\",\n            \"community\": \"CPSC471\",\n            \"time_created\": \"2022-04-12T22:27:49.000Z\",\n            \"likes\": 0\n        },\n        {\n            \"post_id\": 24,\n            \"title\": \"ran outta toilet paper\",\n            \"text\": \"send help please\",\n            \"username\": \"tokenexample\",\n            \"community\": \"CPSC471\",\n            \"time_created\": \"2022-04-13T04:51:45.000Z\",\n            \"likes\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/username",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/username",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						"username"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/username",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								"username"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "195"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"c3-3nwBLo+Q910KJwTv4D2BdD89bmM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 19:54:39 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1,\n    \"posts\": [\n        {\n            \"post_id\": 24,\n            \"title\": \"ran outta toilet paper\",\n            \"text\": \"send help please\",\n            \"username\": \"tokenexample\",\n            \"community\": \"CPSC471\",\n            \"time_created\": \"2022-04-13T04:51:45.000Z\",\n            \"likes\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/community/:community",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/community/:community",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						"community",
+						":community"
+					],
+					"variable": [
+						{
+							"key": "community",
+							"value": "CPSC471"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/community/:community",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/community/:community",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								"community",
+								":community"
+							],
+							"variable": [
+								{
+									"key": "community",
+									"value": "CPSC471"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "377"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"179-/fTvJMN257OxSFXqOxsP3z77NU8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:48:15 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 2,\n    \"posts\": [\n        {\n            \"post_id\": 14,\n            \"title\": \"ran outta toilet paper [UPDATE]\",\n            \"text\": \"i got some, thank you :)\",\n            \"username\": \"bob\",\n            \"community\": \"CPSC471\",\n            \"time_created\": \"2022-04-12T22:27:49.000Z\",\n            \"likes\": 1\n        },\n        {\n            \"post_id\": 24,\n            \"title\": \"ran outta toilet paper\",\n            \"text\": \"send help please\",\n            \"username\": \"tokenexample\",\n            \"community\": \"CPSC471\",\n            \"time_created\": \"2022-04-13T04:51:45.000Z\",\n            \"likes\": 1\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "24",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "184"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"b8-oy4cVhCfz79lf9v+ZfNvIIpMgkw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:48:41 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"post\": [\n        {\n            \"post_id\": 24,\n            \"title\": \"ran outta toilet paper\",\n            \"text\": \"send help please\",\n            \"username\": \"tokenexample\",\n            \"community\": \"CPSC471\",\n            \"time_created\": \"2022-04-13T04:51:45.000Z\",\n            \"likes\": 1\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "44",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"64-p6S3pCDdsSPwk0+y+oECq1fSEyM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:27:30 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"post\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"ran outta toilet paper [UPDATE]\",\r\n    \"text\" : \"i got some, thank you :)\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"ran outta toilet paper [UPDATE]\",\r\n    \"text\" : \"i got some, thank you :)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"9d-zoQnAdzaoQIg7m7/p+vbd8D/kq8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:33:58 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"post\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"(Rows matched: 1  Changed: 0  Warnings: 0\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0,\n        \"changedRows\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id/like",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/like",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id/like",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/like",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "136"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"88-W9j7kU0RemLMJS4Sm0fQGAcijS8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:35:51 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"post like added.\",\n    \"newPostLike\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id/like",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/like",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "24",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id/like",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/like",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"34-z8aONns7cuJp3DnVgYHkXZ7jn4M\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:35:45 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"likes\": [\n        {\n            \"post_id\": 24,\n            \"username\": \"tokenexample\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id/like",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/like",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id/like",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/like",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"68-ByJe6JkvEZwda1IMuLhdTnqYMl0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:35:56 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"postLike\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id/dislike",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/dislike",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id/dislike",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/dislike",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id",
+								"dislike"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"2a-23LrZ1eyKKGI/Vvloxq1Xd+wVFg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:36:10 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Something went really wrong.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id/dislike",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/dislike",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id/dislike",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/dislike",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id",
+								"dislike"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14",
+									"description": "post id"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"37-W1bxKNyn3zjypsUPUaRCUpGA2+A\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 21:27:03 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"dislikes\": [\n        {\n            \"post_id\": 14,\n            \"username\": \"tokenexample\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/post/:id/dislike",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/dislike",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"post",
+						":id",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/post/:id/dislike",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/post/:id/dislike",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"post",
+								":id",
+								"dislike"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"6b-UFP9iisnYvpojXZT+ldMuuXcAjw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:36:15 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"postDislike\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"wow! nice!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"wow! nice!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "140"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8c-/+4GFGQmEm8UpP3o/7DwtxQWi0g\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:36:49 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Comment created.\",\n    \"comment\": [\n        {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 64,\n            \"info\": \"\",\n            \"serverStatus\": 2,\n            \"warningStatus\": 0\n        },\n        null\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"111-aOt3MiharF4ietwLbHoMHXbYoPs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:23:13 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"comments\": [\n        {\n            \"comment_id\": 34,\n            \"post_id\": 14,\n            \"text\": \"wow! nice!\",\n            \"username\": \"tokenexample\",\n            \"time_created\": \"2022-04-13T06:24:55.000Z\",\n            \"likes\": -1\n        },\n        {\n            \"comment_id\": 44,\n            \"post_id\": 14,\n            \"text\": \"wow! nice!\",\n            \"username\": \"tokenexample\",\n            \"time_created\": \"2022-04-13T17:05:22.000Z\",\n            \"likes\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "34",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14",
+									"description": "post id"
+								},
+								{
+									"key": "cid",
+									"value": "34",
+									"description": "comment id"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8e-T0cUgcXENMSjIDTjEcSFZ3lC5KA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 18:38:28 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"comment\": [\n        {\n            \"comment_id\": 34,\n            \"post_id\": 14,\n            \"text\": \"wow! nice!\",\n            \"username\": \"tokenexample\",\n            \"time_created\": \"2022-04-13T06:24:55.000Z\",\n            \"likes\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "64",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								},
+								{
+									"key": "cid",
+									"value": "64"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"67-nIuryyDLRRaknmAvn6p1Uy8ESV0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:36:57 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"comment\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid/like",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/like",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "34",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid/like",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/like",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								},
+								{
+									"key": "cid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8e-MEJjzIpv4z7PmY8PdCU82PfZrRk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:37:28 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"comment like added.\",\n    \"newCommentLike\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid/like",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/like",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "34",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid/like",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/like",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								},
+								{
+									"key": "cid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"37-OaP/UgDFZDs3UjvgwTk4lARPygM\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:37:14 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"likes\": [\n        {\n            \"comment_id\": 34,\n            \"username\": \"tokenexample\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid/like",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/like",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid",
+						"like"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "34",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid/like",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/like",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								},
+								{
+									"key": "cid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"6b-TJ8+7IwT7TWnq6A9dHwK5+B1g5M\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:37:24 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"commentLike\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid/dislike",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/dislike",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "34",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid/dislike",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/dislike",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid",
+								"dislike"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								},
+								{
+									"key": "cid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "148"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"94-bJ3zODnvgzErsuemgg+e6m+9lbc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:37:46 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"comment dislike added.\",\n    \"newCommentDislike\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid/dislike",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/dislike",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "34",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid/dislike",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/dislike",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid",
+								"dislike"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								},
+								{
+									"key": "cid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"44-sK4XgHzfiFjVia+P8V8GnuJ1ssI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:37:33 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1,\n    \"dislikes\": [\n        {\n            \"comment_id\": 34,\n            \"username\": \"tokenexample\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "/comment/:id/:cid/dislike",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{token x-acccess-header}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/dislike",
+					"protocol": "https",
+					"host": [
+						"meanduofcdatabase",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"comment",
+						":id",
+						":cid",
+						"dislike"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "14",
+							"description": "post id"
+						},
+						{
+							"key": "cid",
+							"value": "34",
+							"description": "comment id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/comment/:id/:cid/dislike",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://meanduofcdatabase.herokuapp.com/comment/:id/:cid/dislike",
+							"protocol": "https",
+							"host": [
+								"meanduofcdatabase",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"comment",
+								":id",
+								":cid",
+								"dislike"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								},
+								{
+									"key": "cid",
+									"value": "34"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Cowboy"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "110"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"6e-rglujo5eQek8JN+tlaX2zkYFlSU\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Apr 2022 17:37:42 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"commentDislike\": {\n        \"fieldCount\": 0,\n        \"affectedRows\": 1,\n        \"insertId\": 0,\n        \"info\": \"\",\n        \"serverStatus\": 2,\n        \"warningStatus\": 0\n    }\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "bob token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJvYiIsImlhdCI6MTY0OTgyMTUwMiwiZXhwIjoxNjQ5OTA3OTAyfQ.otcCF5dabF6z0sAIwEFdgbWP-9UCsxi3xV-SnXNqUO0"
+		}
+	]
+}
