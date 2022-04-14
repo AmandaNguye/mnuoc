@@ -46,8 +46,8 @@ class Post {
     return db.execute(sql);
   }
 
-  static deleteById(id) {
-    let sql = `DELETE FROM post WHERE post_id = '${id}';`;
+  static deleteById(id, username) {
+    let sql = `DELETE FROM post WHERE post_id = '${id}' AND username = '${username}';`;
     return db.execute(sql);
   }
 

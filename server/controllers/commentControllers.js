@@ -79,8 +79,9 @@ exports.getCommentByCommentId = async (req, res, next) => {
 exports.deleteCommentByCommentId = async (req, res, next) => {
   try {
     let commentId = req.params.cid;
+    let username = req.user.username;
 
-    let [comment, _] = await Comment.deleteByCommentId(commentId);
+    let [comment, _] = await Comment.deleteByCommentId(commentId, username);
 
     res.status(200).json({ comment });
   } catch (error) {

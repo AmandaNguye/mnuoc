@@ -18,7 +18,7 @@ router
 router
   .route("/:id")
   .get(postControllers.getPostById)
-  .delete(postControllers.deletePostById)
+  .delete(verifyJWT, postControllers.deletePostById)
   .put(postControllers.updatePostById);
 
 router
