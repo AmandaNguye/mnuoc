@@ -86,6 +86,7 @@ export default function Comment(props) {
 			method: "DELETE",
 			headers: {
 				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
 			},
 		};
 		try {

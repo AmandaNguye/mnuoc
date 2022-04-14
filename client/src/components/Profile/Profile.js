@@ -1,16 +1,144 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
-import Chat from "../Chat/Chat";
 import "./Profile.css";
+import PostCard from "../Dashboard/PostCard/PostCard";
+import { colorList, hash } from "../../colorList";
+import { Navigate } from "react-router-dom";
+import Comment from "../Comment/Comment";
 
 export default function Profile() {
 	const [pageType, setPageType] = useState("posts");
+	const [posts, setPosts] = useState([]);
+	const [username, setUsername] = useState("");
+	const [comments, setComments] = useState([]);
+	const [profile, setProfile] = useState([]);
+
+	// useEffect(async () => {
+	// 	try {
+	// 		const payload = {
+	// 			method: "GET",
+	// 			headers: {
+	// 				"Content-Type": "application/json",
+	// 				"x-access-token": localStorage.getItem("token"),
+	// 			},
+	// 		};
+	// 		const response = await fetch(
+	// 			'https://meanduofcdatabase.herokuapp.com/profile',
+	// 			payload
+	// 		);
+	// 		const profileData = (await response.json()).profile;
+	// 		console.log(profileData.username);
+	// 		setUsername(profileData.username);
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// });
+
+	const loadProfile = async () => {
+		const payload = {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+		};
+		try {
+			const response = await fetch(
+				"https://meanduofcdatabase.herokuapp.com/profile",
+				payload
+			);
+			const myProfile = (await response.json()).profile;
+			setProfile(myProfile);
+			console.log(myProfile);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const loadComments = async () => {
+		const payload = {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+		};
+		setUsername(localStorage.getItem("username"));
+		console.log(username);
+		if (username) {
+			try {
+				const response = await fetch(
+					"https://meanduofcdatabase.herokuapp.com/comment/username",
+					payload
+				);
+				const allComments = (await response.json()).comments;
+				setComments(allComments);
+			} catch (error) {
+				console.error(error);
+			}
+		}
+	};
+
+	const loadPosts = async () => {
+		const payload = {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+		};
+		setUsername(localStorage.getItem("username"));
+		console.log(username);
+		if (username) {
+			try {
+				const response = await fetch(
+					`https://meanduofcdatabase.herokuapp.com/post/username`,
+					payload
+				);
+				const allPosts = (await response.json()).posts;
+				setPosts(allPosts);
+			} catch (error) {
+				console.error(error);
+			}
+		}
+	};
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("username");
+		localStorage.removeItem("isAdmin");
 		window.location.href = "/";
 	};
+
+	useEffect(() => {
+		loadPosts();
+		loadComments();
+		loadProfile();
+	}, [username]);
+
+	const postCards = posts.map((e) => (
+		<PostCard
+			key={e.post_id}
+			id={e.post_id}
+			title={e.title}
+			text={e.text}
+			style={{
+				backgroundColor: colorList[hash(e.post_id)],
+			}}
+		/>
+	));
+
+	const commentList = comments.map((comment) => (
+		<Comment
+			key={comment.comment_id}
+			comment_id={comment.comment_id}
+			post_id={comment.post_id}
+			likes={comment.likes}
+			poster={comment.username}
+		>
+			{comment.text}
+		</Comment>
+	));
 
 	return (
 		<div className="container">
@@ -40,31 +168,14 @@ export default function Profile() {
 					<input
 						type="button"
 						className="profile__sidebar__logout"
-						value={"LOGOUT"}
-						onClick={handleLogout}
+						value={"logout"}
+						onClick={(e) => handleLogout(e)}
 					/>
 				</aside>
 				<section className="profile__body">
-					{pageType === "posts" && (
-						<div>
-							posts Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-							Rem consequatur ipsum quis mollitia laborum doloremque recusandae
-							sequi necessitatibus est quod!
-						</div>
-					)}
-					{pageType === "comments" && (
-						<div>
-							comments Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-							Facere hic quaerat ex earum ipsam aspernatur! Voluptatum illum
-							saepe eum temporibus!
-						</div>
-					)}
-					{pageType === "details" && (
-						<div>
-							details Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Ipsa earum cum in assumenda animi ipsam unde fuga quos odit iure?
-						</div>
-					)}
+					{pageType === "posts" && <div>{postCards}</div>}
+					{pageType === "comments" && <div>{commentList}</div>}
+					{pageType === "details" && <div>{profile[0].bio}</div>}
 				</section>
 			</div>
 		</div>

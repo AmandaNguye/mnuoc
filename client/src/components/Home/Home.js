@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
 	localStorage.removeItem("username");
 	localStorage.removeItem("token");
+	localStorage.removeItem("isAdmin");
 	return (
 		<section className="home">
 			<img className="home__logo" src={Logo} alt="" />

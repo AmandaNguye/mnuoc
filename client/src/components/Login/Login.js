@@ -29,6 +29,7 @@ export default function Login() {
 		if (dataUser.message === "Success") {
 			localStorage.setItem("token", dataUser.token);
 			localStorage.setItem("username", dataUser.username);
+			localStorage.setItem("isAdmin", false);
 			window.location.href = "/dashboard/home";
 			return;
 		}
@@ -41,6 +42,7 @@ export default function Login() {
 		if (dataAdmin.message === "Success") {
 			localStorage.setItem("token", dataAdmin.token);
 			localStorage.setItem("username", dataAdmin.username);
+			localStorage.setItem("isAdmin", true);
 			window.location.href = "/dashboard/home";
 			return;
 		}

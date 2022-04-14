@@ -120,6 +120,7 @@ export default function Post() {
 			method: "DELETE",
 			headers: {
 				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
 			},
 		};
 		try {
