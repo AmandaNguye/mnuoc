@@ -33,11 +33,38 @@
 }
 
 .chat__open__lookup {
-	place-self: center;
-	padding: 0.3em 0.3em;
-	width: 35ch;
+	display: flex;
+	justify-content: center;
+	background-color: black;
+	position: relative;
 	grid-column: 1 / span 1;
 	grid-row: 1 / span 1;
+	padding: 0.2em;
+}
+
+.chat__open__lookup__input {
+	font-size: 1rem;
+	place-self: center;
+	padding: 0.3em 0.3em;
+	font-size: 1rem;
+}
+
+.lookup__dropdown {
+	font-size: 1rem;
+	color: #000;
+	background-color: #fff;
+	position: fixed;
+	width: 23.3ch;
+	top: 4.5ch;
+}
+
+.lookup__dropdown__item {
+	padding: 0.5em;
+}
+
+.lookup__dropdown__item:hover {
+	cursor: pointer;
+	box-shadow: 0 0 0.3em 0 black;
 }
 
 .chat__open__toggle {
@@ -70,10 +97,26 @@
 
 .chat__open__contacts__item {
 	padding: 1em;
+	display: flex;
+	align-items: center;
+}
+
+.chat__open__contacts__item__close {
+	margin-left: auto;
+	opacity: 30%;
+}
+
+.chat__open__contacts__item__close:hover {
+	margin-left: auto;
+	opacity: 100%;
 }
 
 .chat__open__contacts__item:hover {
 	cursor: pointer;
+	background-color: #ccc;
+}
+
+.chat__open__contacts__item--active {
 	background-color: #ccc;
 }
 
@@ -87,19 +130,27 @@
 .chat__open__window__messages {
 	color: #000;
 	background-color: #fff;
-	height: 100%;
 	display: flex;
+	height: 70.3vh;
+	overflow-y: scroll;
 	flex-direction: column;
 	gap: 0.5em;
 	padding: 1em;
 }
 
-/* Temporary DELETE AFTER STYLING */
-.chat__open__window__messages > * {
+.message--user {
 	background-color: lightcoral;
 	width: fit-content;
 	border-radius: 2em;
 	padding: 1em;
+}
+
+.message--other {
+	background-color: #ccc;
+	width: fit-content;
+	border-radius: 2em;
+	padding: 1em;
+	align-self: flex-end;
 }
 
 .chat__open__window__input {
@@ -108,6 +159,79 @@
 	background-color: #fff;
 	padding: 1em;
 	margin-top: auto;
+}
+
+.hidden__submit {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.popup {
+	position: fixed;
+	background-color: #eee;
+	color: #000;
+	box-shadow: 0 0 0.2em 0 black;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	align-items: center;
+}
+
+.popup__title {
+	background-color: #333;
+	color: #fff;
+	height: 5em;
+	width: 100%;
+	display: grid;
+	place-items: center;
+}
+
+.popup__prompt {
+	font-size: 2rem;
+	margin-top: 3em;
+}
+
+.popup__text {
+	font-size: 2rem;
+	padding: 1em;
+	margin-top: 0.2em;
+	width: 80%;
+}
+
+.popup__buttons {
+	margin-top: 5em;
+	display: flex;
+	padding: 1em;
+	width: 80%;
+}
+
+.popup__button {
+	width: 40%;
+	padding: 0.5em;
+	font-size: 3rem;
+	border: none;
+	background-color: #333;
+	color: #fff;
+}
+
+.popup__button:disabled {
+	opacity: 30%;
+	pointer-events: none;
+}
+
+.popup__submit:hover {
+	background-color: lightgreen;
+	cursor: pointer;
+}
+
+.popup__close:hover {
+	background-color: lightcoral;
+	cursor: pointer;
+}
+.popup__close {
+	margin-left: auto;
 }
 
 @keyframes openWindow {

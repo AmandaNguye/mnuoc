@@ -11,8 +11,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 export default function App() {
 	return (
 		<div className="app">
-			<Chat />
 			<BrowserRouter>
+				<Chat />
 				<Routes>
 					<Route path="/" element={<Home />}></Route>
 					<Route path="login" element={<Login />}></Route>

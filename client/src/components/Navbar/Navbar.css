@@ -31,7 +31,7 @@
 	font-size: 1rem;
 	font-weight: bold;
 	flex-grow: 1;
-	background-color: #ee9ba6;
+	background-color: #333;
 	color: #fff;
 	border-style: none;
 	border-radius: 1em;
@@ -90,7 +90,7 @@
 
 .dropdown__item {
 	text-align: center;
-	background-color: #ee9ba6;
+	background-color: #333;
 	padding: 0.5em;
 	font-size: 1rem;
 	font-weight: bold;

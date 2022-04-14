@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { FaArrowUp, FaArrowDown, FaTrashAlt } from "react-icons/fa";
+import { FaThumbsUp, FaThumbsDown, FaTrashAlt } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
 import Comment from "../Comment/Comment";
+import Chat from "../Chat/Chat";
 import { colorList, hash } from "../../colorList";
 import "./Post.css";
 export default function Post() {
@@ -246,7 +247,7 @@ export default function Post() {
 							</div>
 						)}
 						<div className="post__top__footer__rating">
-							<FaArrowUp
+							<FaThumbsUp
 								className="post__top__footer__button"
 								style={liked ? { color: "green" } : {}}
 								onClick={() => handleLike()}
@@ -263,7 +264,7 @@ export default function Post() {
 							>
 								{postData.likes}
 							</div>
-							<FaArrowDown
+							<FaThumbsDown
 								className="post__top__footer__button"
 								style={disliked ? { color: "red" } : {}}
 								onClick={() => handleDislike()}

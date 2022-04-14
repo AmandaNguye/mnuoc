@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
+import Chat from "../Chat/Chat";
 import "./Profile.css";
 
 export default function Profile() {
