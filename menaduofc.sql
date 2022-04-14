@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
--- Host: localhost    Database: meanduofc
+-- Host: us-cdbr-east-05.cleardb.net    Database: heroku_f19c5e881e33561
 -- ------------------------------------------------------
--- Server version	8.0.28
+-- Server version	5.6.50-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -38,16 +38,16 @@ DROP TABLE IF EXISTS `chatroom`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chatroom` (
-  `chat_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `chat_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `user1` varchar(255) NOT NULL,
   `user2` varchar(255) NOT NULL,
   PRIMARY KEY (`chat_id`),
   KEY `user1` (`user1`),
   KEY `user2` (`user2`),
-  CONSTRAINT `chatroom_ibfk_1` FOREIGN KEY (`user1`) REFERENCES `user` (`username`) ON UPDATE CASCADE,
-  CONSTRAINT `chatroom_ibfk_2` FOREIGN KEY (`user2`) REFERENCES `user` (`username`) ON UPDATE CASCADE
-);
+  CONSTRAINT `chatroom_ibfk_1` FOREIGN KEY (`user1`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `chatroom_ibfk_2` FOREIGN KEY (`user2`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=354 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `classes_taking` (
   `username` varchar(255) NOT NULL,
   `class` varchar(255) NOT NULL,
   PRIMARY KEY (`username`,`class`),
-  CONSTRAINT `classes_taking_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
+  CONSTRAINT `classes_taking_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -73,17 +73,17 @@ DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment` (
-  `comment_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `post_id` int unsigned NOT NULL,
+  `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(10) unsigned NOT NULL,
   `text` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `time_created` datetime NOT NULL,
   PRIMARY KEY (`comment_id`),
   KEY `post_id` (`post_id`),
   KEY `username` (`username`),
-  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON UPDATE CASCADE,
-  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
-);
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=384 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,12 +94,12 @@ DROP TABLE IF EXISTS `comment_dislikes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment_dislikes` (
-  `comment_id` int unsigned NOT NULL,
+  `comment_id` int(10) unsigned NOT NULL,
   `username` varchar(255) NOT NULL,
   PRIMARY KEY (`comment_id`,`username`),
   KEY `username` (`username`),
-  CONSTRAINT `comment_dislikes_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`) ON UPDATE CASCADE,
-  CONSTRAINT `comment_dislikes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
+  CONSTRAINT `comment_dislikes_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `comment_dislikes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -111,12 +111,12 @@ DROP TABLE IF EXISTS `comment_likes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comment_likes` (
-  `comment_id` int unsigned NOT NULL,
+  `comment_id` int(10) unsigned NOT NULL,
   `username` varchar(255) NOT NULL,
   PRIMARY KEY (`comment_id`,`username`),
   KEY `username` (`username`),
-  CONSTRAINT `comment_likes_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`) ON UPDATE CASCADE,
-  CONSTRAINT `comment_likes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
+  CONSTRAINT `comment_likes_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`comment_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `comment_likes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -135,21 +135,6 @@ CREATE TABLE `community` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `image_post`
---
-
-DROP TABLE IF EXISTS `image_post`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `image_post` (
-  `post_id` int unsigned NOT NULL,
-  `image` varchar(255) NOT NULL,
-  PRIMARY KEY (`post_id`,`image`),
-  CONSTRAINT `image_post_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON UPDATE CASCADE
-);
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `in_community`
 --
 
@@ -161,8 +146,8 @@ CREATE TABLE `in_community` (
   `community_name` varchar(255) NOT NULL,
   PRIMARY KEY (`username`,`community_name`),
   KEY `community_name` (`community_name`),
-  CONSTRAINT `in_community_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE,
-  CONSTRAINT `in_community_ibfk_2` FOREIGN KEY (`community_name`) REFERENCES `community` (`community_name`) ON UPDATE CASCADE
+  CONSTRAINT `in_community_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `in_community_ibfk_2` FOREIGN KEY (`community_name`) REFERENCES `community` (`community_name`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -179,8 +164,8 @@ CREATE TABLE `management` (
   PRIMARY KEY (`community_name`,`admin_username`),
   KEY `community_name` (`community_name`),
   KEY `admin_username` (`admin_username`),
-  CONSTRAINT `management_ibfk_1` FOREIGN KEY (`community_name`) REFERENCES `community` (`community_name`) ON UPDATE CASCADE,
-  CONSTRAINT `management_ibfk_2` FOREIGN KEY (`admin_username`) REFERENCES `admin` (`username`) ON UPDATE CASCADE
+  CONSTRAINT `management_ibfk_1` FOREIGN KEY (`community_name`) REFERENCES `community` (`community_name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `management_ibfk_2` FOREIGN KEY (`admin_username`) REFERENCES `admin` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -192,17 +177,17 @@ DROP TABLE IF EXISTS `message`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `message` (
-  `message_id` int unsigned NOT NULL AUTO_INCREMENT,
-  `chat_id` int unsigned NOT NULL,
+  `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `chat_id` int(10) unsigned NOT NULL,
   `text` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `time_created` datetime NOT NULL,
   PRIMARY KEY (`message_id`),
   KEY `chat_id` (`chat_id`),
   KEY `username` (`username`),
-  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`chat_id`) REFERENCES `chatroom` (`chat_id`) ON UPDATE CASCADE,
-  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
-);
+  CONSTRAINT `message_ibfk_1` FOREIGN KEY (`chat_id`) REFERENCES `chatroom` (`chat_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +198,7 @@ DROP TABLE IF EXISTS `post`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `post` (
-  `post_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `text` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -224,7 +209,7 @@ CREATE TABLE `post` (
   KEY `community` (`community`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE,
   CONSTRAINT `post_ibfk_2` FOREIGN KEY (`community`) REFERENCES `community` (`community_name`) ON UPDATE CASCADE
-);
+) ENGINE=InnoDB AUTO_INCREMENT=294 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,12 +220,12 @@ DROP TABLE IF EXISTS `post_dislikes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `post_dislikes` (
-  `post_id` int unsigned NOT NULL,
+  `post_id` int(10) unsigned NOT NULL,
   `username` varchar(255) NOT NULL,
   PRIMARY KEY (`post_id`,`username`),
   KEY `username` (`username`),
-  CONSTRAINT `post_dislikes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON UPDATE CASCADE,
-  CONSTRAINT `post_dislikes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
+  CONSTRAINT `post_dislikes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_dislikes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -252,27 +237,12 @@ DROP TABLE IF EXISTS `post_likes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `post_likes` (
-  `post_id` int unsigned NOT NULL,
+  `post_id` int(10) unsigned NOT NULL,
   `username` varchar(255) NOT NULL,
   PRIMARY KEY (`post_id`,`username`),
   KEY `username` (`username`),
-  CONSTRAINT `post_likes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON UPDATE CASCADE,
-  CONSTRAINT `post_likes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
-);
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `post_tags`
---
-
-DROP TABLE IF EXISTS `post_tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `post_tags` (
-  `post_id` int unsigned NOT NULL,
-  `tag` varchar(255) NOT NULL,
-  PRIMARY KEY (`post_id`,`tag`),
-  CONSTRAINT `post_tags_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON UPDATE CASCADE
+  CONSTRAINT `post_likes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_likes_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -288,7 +258,7 @@ CREATE TABLE `profile` (
   `tag` varchar(255) DEFAULT NULL,
   `bio` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`username`),
-  CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON UPDATE CASCADE
+  CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -317,4 +287,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-12 14:05:00
+-- Dump completed on 2022-04-14 10:03:40
