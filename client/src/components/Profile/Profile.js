@@ -49,7 +49,7 @@ export default function Profile() {
 			);
 			const myProfile = (await response.json()).profile;
 			setProfile(myProfile);
-			console.log(profile.username);
+			console.log(myProfile);
 		} catch (error) {
 			console.error(error);
 		}
@@ -175,7 +175,7 @@ export default function Profile() {
 				<section className="profile__body">
 					{pageType === "posts" && <div>{postCards}</div>}
 					{pageType === "comments" && <div>{commentList}</div>}
-					{pageType === "details" && <div></div>}
+					{pageType === "details" && <div>{profile[0].bio}</div>}
 				</section>
 			</div>
 		</div>
