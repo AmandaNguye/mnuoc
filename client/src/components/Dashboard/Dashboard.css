@@ -44,9 +44,10 @@
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-auto-rows: 200px;
 	grid-auto-flow: dense;
+	background-color: light;
 }
 
-.dashboard__body > :nth-child(1n) {
+/* .dashboard__body > :nth-child(n) {
 	background-color: lavender;
 }
 
@@ -76,4 +77,4 @@
 
 .dashboard__body > :nth-child(8n) {
 	background-color: lightseagreen;
-}
+} */

@@ -5,6 +5,7 @@ import "./PostCard.css";
 export default function PostCard(props) {
 	return (
 		<Link
+			style={props.style}
 			to={`/post/${props.id}`}
 			className={`postcard ${props.text.length > 200 ? "postcard--big" : null}`}
 		>

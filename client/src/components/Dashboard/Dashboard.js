@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import PostCard from "./PostCard/PostCard";
 import "./Dashboard.css";
 import Postform from "./PostForm/Postform";
+import { colorList, hash } from "../../colorList";
 
 export default function Dashboard() {
 	const homeState = {
@@ -135,13 +136,22 @@ export default function Dashboard() {
 	}, [id]);
 
 	const postCards = posts.map((e) => (
-		<PostCard key={e.post_id} id={e.post_id} title={e.title} text={e.text} />
+		<PostCard
+			key={e.post_id}
+			id={e.post_id}
+			title={e.title}
+			text={e.text}
+			style={{
+				backgroundColor: colorList[hash(e.post_id)],
+			}}
+		/>
 	));
 
 	return (
 		<>
 			<Navbar
 				loggedIn={true}
+				onDashboard={true}
 				communities={communities}
 				currentCommunity={currentCommunity.community_name}
 			/>

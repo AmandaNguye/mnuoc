@@ -7,6 +7,7 @@ import Profile from "./components/Profile/Profile";
 import Post from "./components/Post/Post";
 import Chat from "./components/Chat/Chat";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 export default function App() {
 	return (
 		<div className="app">

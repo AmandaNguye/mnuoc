@@ -6,13 +6,12 @@
 .post__top {
 	display: flex;
 	flex-direction: column;
-	background-color: #eee;
 	box-shadow: 0 0 0.25em 0 black;
 }
 
 .post__top__title {
 	padding: 1em;
-	color: #ef465c;
+	color: #333;
 }
 
 .post__top__body {
@@ -21,20 +20,71 @@
 	color: #333;
 }
 
+.post__top__footer {
+	padding: 0.5em;
+	background-color: #ddd;
+	display: flex;
+	color: #aaa;
+	gap: 1em;
+	align-items: center;
+}
+
+.post__top__footer__rating {
+	margin-left: auto;
+	margin-right: 1em;
+	font-size: 1.2em;
+	display: flex;
+	gap: 0.5em;
+}
+
+.post__top__footer__button:hover {
+	cursor: pointer;
+}
+
 .post__comments {
 	margin-top: 1em;
 	box-shadow: 0 0 0.25em 0 black;
 	padding: 1em;
+	color: #333;
 }
 
 .post__comments__form {
 	max-width: 80%;
 	margin: auto;
-	padding: 1em;
 	background-color: #fff;
 	text-align: center;
 	box-shadow: 0 0 0.25em 0 black;
 	border-radius: 0.5em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: hidden;
+}
+
+.post__comments__form__title {
+	padding: 0.2em 0;
+	width: 100%;
+}
+
+.post__comments__form__input {
+	margin-top: 1em;
+	padding: 1em;
+	width: 90%;
+	resize: vertical;
+	min-height: 25ch;
+	max-height: 50ch;
+}
+
+.post__comments__form__submit {
+	padding: 0.5em;
+	margin-top: 1em;
+	width: 100%;
+	border: none;
+}
+
+.post__comments__form__submit:hover {
+	cursor: pointer;
+	background-color: #aaa;
 }
 
 .post__comments__list {
@@ -44,12 +94,4 @@
 	text-align: center;
 	margin-top: 1em;
 	list-style: none;
-}
-
-.post__comments__list > * {
-	padding: 1em;
-	margin-top: 1em;
-	box-shadow: 0 0 0.25em 0 black;
-	border-radius: 0.5em;
-	background-color: #ee9ba6;
 }

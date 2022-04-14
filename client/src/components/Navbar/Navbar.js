@@ -37,22 +37,24 @@ export default function Navbar(props) {
 				</Link>
 				{props.loggedIn && (
 					<>
-						<div className="navbar__search">
-							<input
-								className={`navbar__search__button ${
-									showDropdown ? "navbar__search__button--expand" : ""
-								}`}
-								type="button"
-								value={props.currentCommunity}
-								onClick={toggleDropdown}
-							/>
-							{showDropdown && (
-								<Dropdown
-									currentCommunity={props.currentCommunity}
-									communities={props.communities}
+						{props.onDashboard && (
+							<div className="navbar__search">
+								<input
+									className={`navbar__search__button ${
+										showDropdown ? "navbar__search__button--expand" : ""
+									}`}
+									type="button"
+									value={props.currentCommunity}
+									onClick={toggleDropdown}
 								/>
-							)}
-						</div>
+								{showDropdown && (
+									<Dropdown
+										currentCommunity={props.currentCommunity}
+										communities={props.communities}
+									/>
+								)}
+							</div>
+						)}
 						<Link className="navbar__link navbar__link--profile" to="/profile">
 							Profile
 						</Link>

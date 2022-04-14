@@ -1,54 +1,243 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { FaArrowUp, FaArrowDown, FaTrashAlt } from "react-icons/fa";
 import Navbar from "../Navbar/Navbar";
+import Comment from "../Comment/Comment";
+import { colorList, hash } from "../../colorList";
 import "./Post.css";
 export default function Post() {
 	const { id } = useParams();
+	const [postData, setPostData] = useState({});
+	const [comments, setComments] = useState([]);
+	const [liked, setLiked] = useState(false);
+	const [disliked, setDisliked] = useState(false);
+	const primaryColor = colorList[hash(id)];
+
+	useEffect(async () => {
+		loadPost();
+		loadComment();
+		loadRating();
+	}, []);
+
+	const loadPost = async () => {
+		const payload = {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+			},
+		};
+		try {
+			const response = await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}`,
+				payload
+			);
+			setPostData((await response.json()).post[0]);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const loadComment = async () => {
+		const payload = {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+			},
+		};
+		try {
+			const response = await fetch(
+				`https://meanduofcdatabase.herokuapp.com/comment/${id}`
+			);
+			setComments((await response.json()).comments);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const loadRating = async () => {
+		const payload = {
+			method: "GET",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+		};
+		try {
+			let response = await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}/like`,
+				payload
+			);
+			if ((await response.json()).likes.length != 0) {
+				setLiked(true);
+				return;
+			}
+
+			response = await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}/dislike`,
+				payload
+			);
+			if ((await response.json()).dislikes.length != 0) {
+				setDisliked(true);
+				return;
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const handleLike = async () => {
+		console.log("Liking");
+		let payload = {
+			method: "DELETE",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+		};
+		if (liked) {
+			await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}/like`,
+				payload
+			);
+
+			setLiked(false);
+			loadPost();
+			return;
+		}
+
+		if (disliked) {
+			await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}/dislike`,
+				payload
+			);
+			setDisliked(false);
+		}
+
+		payload.method = "POST";
+		await fetch(
+			`https://meanduofcdatabase.herokuapp.com/post/${id}/like`,
+			payload
+		);
+		setLiked(true);
+		loadPost();
+	};
+
+	const handleDislike = async () => {
+		console.log("Disliking");
+		let payload = {
+			method: "DELETE",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+		};
+		if (disliked) {
+			await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}/dislike`,
+				payload
+			);
+			setDisliked(false);
+			loadPost();
+			return;
+		}
+
+		if (liked) {
+			await fetch(
+				`https://meanduofcdatabase.herokuapp.com/post/${id}/like`,
+				payload
+			);
+			setLiked(false);
+		}
+
+		payload.method = "POST";
+		await fetch(
+			`https://meanduofcdatabase.herokuapp.com/post/${id}/dislike`,
+			payload
+		);
+		setDisliked(true);
+		loadPost();
+	};
+
+	const commentList = comments.map((comment) => (
+		<Comment
+			key={comment.comment_id}
+			id={comment.comment_id}
+			likes={comment.likes}
+			poster={comment.username}
+		>
+			{comment.text}
+		</Comment>
+	));
 	return (
 		<>
 			<Navbar loggedIn={true} />
 			<div className="post">
 				<div className="post__top">
-					<h1 className="post__top__title">This is currently post {id}</h1>
-					<p className="post__top__body">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam odio
-						doloremque accusantium perferendis repellendus quam aliquid eum enim
-						neque quibusdam? A quisquam architecto quae in blanditiis
-						laudantium. Officiis, necessitatibus reprehenderit! Facere modi
-						dolorem nesciunt error consequatur. Nulla dignissimos perferendis
-						fuga quidem sint, aliquam dolore reiciendis ipsa deserunt error,
-						fugit adipisci facilis numquam ea voluptates. Debitis excepturi
-						provident sequi doloremque aliquid eligendi est quae, ad esse autem
-						architecto vitae? Mollitia est consectetur incidunt, perspiciatis
-						ducimus unde, numquam facilis, labore veniam ex ipsa modi eligendi.
-						Fugiat velit dicta exercitationem, ea molestiae voluptatum aut
-						temporibus ipsum sit iure. Deleniti, amet obcaecati. Id illum iusto,
-						pariatur totam facilis voluptatem ipsam earum optio perferendis
-						asperiores eius rerum libero quas officia quam sunt iure voluptates
-						praesentium ipsa blanditiis! Cupiditate, accusantium minima ratione
-						ullam debitis atque unde iusto neque distinctio necessitatibus optio
-						rem dolorum ad eos animi hic magni non assumenda corrupti quisquam
-						ex nobis veniam laborum error. Quod aperiam alias ex, facilis quasi,
-						autem impedit fugiat molestias deleniti vero omnis voluptatem
-						laborum vel, eligendi architecto reprehenderit velit nihil. Magnam
-						quod quia tempore dicta, officia eos odit consequatur, repellendus
-						animi nam accusantium illum sed atque, quidem voluptatum architecto
-						quas aspernatur porro quo tenetur earum. Asperiores, consectetur
-						quasi.
-					</p>
+					<h1
+						className="post__top__title"
+						style={{ backgroundColor: primaryColor }}
+					>
+						{postData.title}
+					</h1>
+					<p className="post__top__body">{postData.text}</p>
+					<div className="post__top__footer">
+						<div className="post__top__footer__username">
+							By: {postData.username}
+						</div>
+						<div className="post__top__footer__community">
+							Community: {postData.community}
+						</div>
+						<div className="post__top__footer__delete">
+							<FaTrashAlt />
+						</div>
+						<div className="post__top__footer__rating">
+							<FaArrowUp
+								className="post__top__footer__button"
+								style={liked ? { color: "green" } : {}}
+								onClick={() => handleLike()}
+							/>
+							<div
+								className="post__top__footer__likes"
+								style={
+									postData.likes > 0
+										? { color: "green" }
+										: postData.likes < 0
+										? { color: "red" }
+										: {}
+								}
+							>
+								{postData.likes}
+							</div>
+							<FaArrowDown
+								className="post__top__footer__button"
+								style={disliked ? { color: "red" } : {}}
+								onClick={() => handleDislike()}
+							/>
+						</div>
+					</div>
 				</div>
 				<div className="post__comments">
-					<div className="post__comments__form">
-						<h1>Comment form here</h1>
-						<input type="text" name="" id="" />
-					</div>
-					<ul className="post__comments__list">
-						<li className="post__comments__list__comment">comment</li>
-						<li className="post__comments__list__comment">comment</li>
-						<li className="post__comments__list__comment">comment</li>
-						<li className="post__comments__list__comment">comment</li>
-						<li className="post__comments__list__comment">comment</li>
-					</ul>
+					<form
+						className="post__comments__form"
+						onSubmit={() => console.log("here")}
+					>
+						<h2
+							className="post__comments__form__title"
+							style={{ backgroundColor: primaryColor }}
+						>
+							Comment Section
+						</h2>
+						<textarea
+							className="post__comments__form__input"
+							type="text"
+							name=""
+							id=""
+						/>
+						<button className="post__comments__form__submit" type="submit">
+							Submit
+						</button>
+					</form>
+					<ul className="post__comments__list">{commentList}</ul>
 				</div>
 			</div>
 		</>
