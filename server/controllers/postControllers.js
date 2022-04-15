@@ -80,8 +80,9 @@ exports.getPostById = async (req, res, next) => {
 exports.deletePostById = async (req, res, next) => {
   try {
     let postId = req.params.id;
+    let username = req.user.username;
 
-    let [post, _] = await Post.deleteById(postId);
+    let [post, _] = await Post.deleteById(postId, username);
 
     res.status(200).json({ post });
   } catch (error) {

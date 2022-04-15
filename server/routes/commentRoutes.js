@@ -16,7 +16,7 @@ router
 router
   .route("/:id/:cid")
   .get(commentControllers.getCommentByCommentId)
-  .delete(commentControllers.deleteCommentByCommentId);
+  .delete(verifyJWT, commentControllers.deleteCommentByCommentId);
 
 router
   .route("/:id/:cid/like")

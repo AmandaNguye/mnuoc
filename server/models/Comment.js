@@ -40,8 +40,8 @@ class Comment {
     return db.execute(sql);
   }
 
-  static deleteByCommentId(id) {
-    let sql = `DELETE FROM comment WHERE comment_id = '${id}';`;
+  static deleteByCommentId(id, username) {
+    let sql = `DELETE FROM comment WHERE comment_id = '${id}' AND username = '${username}';`;
     return db.execute(sql);
   }
 
