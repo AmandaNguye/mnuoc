@@ -45,7 +45,10 @@
       </ul>
     </li>
     <li>
-      <a href="#about-the-project">Contributors</a>
+      <a href="#contrbutors">Contributors</a>
+    </li>
+    <li>
+      <a href="#run-locally">Run Locally</a>
     </li>
   </ol>
 </details>
@@ -68,6 +71,8 @@ This appplicaiton is a reddit like community forum by which users are able to ma
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- CONTRIBUTORS -->
+
 ## Contrbutors
 
 - Tyler Tran
@@ -77,12 +82,16 @@ This appplicaiton is a reddit like community forum by which users are able to ma
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- RUN LOCALLY -->
+
 ## Run Locally
 
 In the scenario in which you want to access the UI locally (such as in the case where the website deployment has ceases) do the following...
 
-<ol>
-  <li> Open terminal on the root directory</li>
-  <li> Navigate to `./client` </li>
-  <li> Enter `npm start` </li>
-  </ol>
+
+1. Open terminal on the root directory</li>
+2. Navigate to `./client` </li>
+3. Enter `npm start` </li>
+
+  
+<p align="right">(<a href="#top">back to top</a>)</p>
