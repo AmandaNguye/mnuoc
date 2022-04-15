@@ -55,3 +55,29 @@
 	left: 20ch;
 	padding: 2em;
 }
+
+.details_text {
+	font-size: 2rem;
+	background-color: #ee9ba6;
+	padding: 1em;
+	border-radius: 1em;
+	margin-bottom: 1em;
+}
+
+.details_text > * {
+	font-weight: bold;
+	color: #ef465c;
+}
+
+.details_update_title {
+	margin-bottom: 0.5em;
+}
+
+.update_details_form_input {
+	resize: vertical;
+	min-height: 25vh;
+	max-height: 50vh;
+	padding: 1em;
+	font-size: 2rem;
+	width: 50vw;
+}

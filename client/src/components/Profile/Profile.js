@@ -12,6 +12,7 @@ export default function Profile() {
 	const [username, setUsername] = useState("");
 	const [comments, setComments] = useState([]);
 	const [profile, setProfile] = useState([]);
+	const [detailsText, setDetailsText] = useState("");
 
 	// useEffect(async () => {
 	// 	try {
@@ -76,6 +77,33 @@ export default function Profile() {
 			} catch (error) {
 				console.error(error);
 			}
+		}
+	};
+
+	const updateDetails = async (e) => {
+		e.preventDefault();
+		setDetailsText("");
+		const payload = {
+			method: "PUT",
+			headers: {
+				"Content-type": "application/json",
+				"x-access-token": localStorage.getItem("token"),
+			},
+			body: JSON.stringify({
+				bio: detailsText,
+			}),
+		};
+		try {
+			const response = await fetch(
+				"https://meanduofcdatabase.herokuapp.com/profile",
+				payload
+			);
+			if (response.ok) {
+				console.log(response);
+				loadProfile();
+			}
+		} catch (error) {
+			console.error(error);
 		}
 	};
 
@@ -175,7 +203,34 @@ export default function Profile() {
 				<section className="profile__body">
 					{pageType === "posts" && <div>{postCards}</div>}
 					{pageType === "comments" && <div>{commentList}</div>}
-					{pageType === "details" && <div>{profile[0].bio}</div>}
+					{pageType === "details" && (
+						<div>
+							<div className="details_text">
+								<span>bio:</span> {profile[0].bio}
+							</div>
+							<form
+								className="details_update_form"
+								onSubmit={(e) => updateDetails(e)}
+							>
+								<h2 className="details_update_title">Update Bio</h2>
+								<textarea
+									className="update_details_form_input"
+									type="text"
+									name=""
+									id=""
+									value={detailsText}
+									onChange={(e) => setDetailsText(e.target.value)}
+								/>
+								<button
+									className="edit_details_form_submit"
+									type="submit"
+									disabled={detailsText === ""}
+								>
+									Submit
+								</button>
+							</form>
+						</div>
+					)}
 				</section>
 			</div>
 		</div>
