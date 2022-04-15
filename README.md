@@ -27,7 +27,7 @@
 
   <p align="center">
     Bringing students togeher
-    Link: <a href="https://meanduofc.netlify.app/">
+    Link: <a href="https://meanduofc.netlify.app/">Link to the website</a>
   </p>
 </div>
 
