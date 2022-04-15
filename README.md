@@ -19,9 +19,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://meanduofc.netlify.app/">
     <img src="client/src/assets/logo.svg" alt="Logo" width="80" height="80">
   </a>
+   Link: <a href="https://meanduofc.netlify.app/">
 
 <h3 align="center">Me&UofC</h3>
 
