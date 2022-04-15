@@ -115,8 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const AdminLoginPage()))
-                        .then((_) => Navigator.pop(context));
+                                builder: (context) => const AdminLoginPage()));
                   },
                   child: const Text(
                     "Admin Login",

@@ -76,7 +76,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                       String password = passwordController.text;
                       var data = json
                           .encode({"username": username, "password": password});
-                      Map response = await Session.post("/user/login", data);
+                      Map response = await Session.post("/admin/login", data);
                       if (response["message"] != "Success") {
                         setState(() {
                           error = true;
