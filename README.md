@@ -22,12 +22,12 @@
   <a href="https://meanduofc.netlify.app/">
     <img src="client/src/assets/logo.svg" alt="Logo" width="80" height="80">
   </a>
-   Link: <a href="https://meanduofc.netlify.app/">
 
 <h3 align="center">Me&UofC</h3>
 
   <p align="center">
     Bringing students togeher
+    Link: <a href="https://meanduofc.netlify.app/">
   </p>
 </div>
 
