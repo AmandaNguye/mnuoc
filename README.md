@@ -26,7 +26,7 @@
 <h3 align="center">Me&UofC</h3>
 
   <p align="center">
-    Bringing students togeher
+    Bringing students together
     <br/>
     Link: <a href="https://meanduofc.netlify.app/">Link to the website</a>
     <br/>
