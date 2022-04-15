@@ -3,7 +3,6 @@ import Navbar from "../Navbar/Navbar";
 import "./Profile.css";
 import PostCard from "../Dashboard/PostCard/PostCard";
 import { colorList, hash } from "../../colorList";
-import { Navigate } from "react-router-dom";
 import Comment from "../Comment/Comment";
 
 export default function Profile() {
@@ -163,6 +162,7 @@ export default function Profile() {
 			post_id={comment.post_id}
 			likes={comment.likes}
 			poster={comment.username}
+			loadComments={loadComments}
 		>
 			{comment.text}
 		</Comment>
