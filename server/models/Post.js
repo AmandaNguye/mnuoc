@@ -19,6 +19,8 @@ class Post {
 
     let time_created = `${year}-${month}-${days} ${hours}:${minutes}:${seconds}`;
 
+    this.text.replace(/'/g, "''");
+
     let sql = `INSERT INTO post(title, text, username, community, time_created) VALUES ('${this.title}', '${this.text}', '${this.username}', '${this.community}', '${time_created}');`;
 
     const newPost = db.execute(sql);
@@ -52,6 +54,8 @@ class Post {
   }
 
   static updateById(id, title, text) {
+    text.replace(/'/g, "''");
+
     let sql = `UPDATE post SET title = '${title}', text = '${text}' WHERE post_id = '${id}';`;
     return db.execute(sql);
   }
