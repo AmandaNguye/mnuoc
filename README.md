@@ -84,5 +84,5 @@ In the scenario in which you want to access the UI locally (such as in the case 
 <ol>
   <li> Open terminal on the root directory</li>
   <li> Navigate to `./client` </li>
-  <li> Open terminal on the root directory</li>
+  <li> Enter `npm start` </li>
   </ol>
