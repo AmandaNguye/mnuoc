@@ -210,8 +210,7 @@ class _RatioState extends State<Ratio> {
 
   @override
   Widget build(BuildContext context) {
-    bool isOwner = globals.currentUser.username == widget.owner ||
-        globals.currentUser.isAdmin;
+    bool isOwner = globals.currentUser.username == widget.owner;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
