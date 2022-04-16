@@ -17,9 +17,7 @@ class Message {
     let seconds = d.getSeconds();
 
     let time_created = `${year}-${month}-${days} ${hours}:${minutes}:${seconds}`;
-
-    this.text.replace(/'/g, "''");
-
+    this.text = this.text.replace(/'/g, "''");
     let sql = `INSERT INTO message(chat_id, text, username, time_created) VALUES ('${this.chat_id}', '${this.text}', '${this.username}', '${time_created}');`;
 
     const newMessage = db.execute(sql);
