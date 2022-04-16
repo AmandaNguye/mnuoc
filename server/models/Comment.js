@@ -18,6 +18,7 @@ class Comment {
 
     let time_created = `${year}-${month}-${days} ${hours}:${minutes}:${seconds}`;
 
+    this.text.replace(/'/g, "''");
     let sql = `INSERT INTO comment(post_id, text, username, time_created) VALUES ('${this.post_id}', '${this.text}', '${this.username}', '${time_created}');`;
 
     const newComment = db.execute(sql);
@@ -46,6 +47,7 @@ class Comment {
   }
 
   static updateByCommentId(id, text) {
+    text.replace(/'/g, "''");
     let sql = `UPDATE comment SET text = '${text}' WHERE comment_id = '${id}';`;
     return db.execute(sql);
   }

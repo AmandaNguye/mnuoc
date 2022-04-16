@@ -18,6 +18,8 @@ class Message {
 
     let time_created = `${year}-${month}-${days} ${hours}:${minutes}:${seconds}`;
 
+    this.text.replace(/'/g, "''");
+
     let sql = `INSERT INTO message(chat_id, text, username, time_created) VALUES ('${this.chat_id}', '${this.text}', '${this.username}', '${time_created}');`;
 
     const newMessage = db.execute(sql);
@@ -41,6 +43,8 @@ class Message {
   }
 
   static updateByMessageId(id, text) {
+    text.replace(/'/g, "''");
+
     let sql = `UPDATE message SET text = '${text}' WHERE message_id = '${id}';`;
     return db.execute(sql);
   }
